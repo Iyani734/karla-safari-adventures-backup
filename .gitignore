@@ -1,0 +1,14 @@
+# dependencies
+node_modules/
+
+# production builds
+build/
+dist/
+
+# env files
+.env
+.env.local
+node_modules
+*.zip
+*.rar
+*.mp4
