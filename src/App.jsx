@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Toaster } from '@/components/ui/toaster';
 import { ChevronUp } from 'lucide-react';
@@ -11,12 +11,10 @@ import Destinations from '@/pages/DestinationsPage';
 import DestinationDetailPage from '@/pages/DestinationDetailPage';
 import ToursPage from '@/pages/ToursPage';
 import TourDetailPage from '@/pages/TourDetailPage';
-import ParkDetail from '@/pages/ParkDetail'
+import ParkDetail from '@/pages/ParkDetail';
 import WriteReview from '@/pages/WriteReview';
 import Activities from '@/components/Activities';
-
-// Add this after all your imports, before the ScrollToTopButton component
-
+import GroupJoiningSafariModal from './components/GroupJoiningSafariModal';
 
 function ScrollToTopButton() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -51,7 +49,7 @@ function ScrollToTopButton() {
     } else {
       return 'bottom-8 lg:bottom-8 right-6';
     }
-  }, [location.pathname]); // Recalculate when pathname changes
+  }, [location.pathname]);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -90,8 +88,25 @@ function ScrollToTopButton() {
   );
 }
 
-
 function App() {
+  const [showSafariModal, setShowSafariModal] = useState(false);
+
+  useEffect(() => {
+    // Check if user has seen the modal before
+    const hasSeenModal = sessionStorage.getItem('hasSeenSafariModal');
+    
+    if (!hasSeenModal) {
+      // Set timer to show modal after 10 seconds
+      const timer = setTimeout(() => {
+        setShowSafariModal(true);
+        // Mark that user has seen the modal (for this session)
+        sessionStorage.setItem('hasSeenSafariModal', 'true');
+      }, 10000); // 10 seconds
+
+      // Cleanup timer if component unmounts
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   return (
     <Router>
@@ -117,6 +132,10 @@ function App() {
         <Footer />
         <Toaster />
         <ScrollToTopButton />
+        <GroupJoiningSafariModal
+          isOpen={showSafariModal}
+          onClose={() => setShowSafariModal(false)}
+        />
       </div>
     </Router>
   );
