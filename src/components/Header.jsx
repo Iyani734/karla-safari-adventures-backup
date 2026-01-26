@@ -135,7 +135,7 @@ const Header = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 flex-shrink-0" />
-                <span className="tracking-wide">info@karlatoursandtravel@gmail.com</span>
+                <span className="tracking-wide">info@karlasafariadventures.com</span>
               </div>
             </div>
 
@@ -174,7 +174,7 @@ const Header = () => {
               </div>
               <div className="flex items-center space-x-1.5">
                 <Mail className="w-3.5 h-3.5 flex-shrink-0" />
-                <span className="text-xs truncate max-w-[180px]">info@karlatoursandtravel@gmail.com</span>
+                <span className="text-xs truncate max-w-[180px]">info@karlasafariadventures.com</span>
               </div>
             </div>
             <div className="flex items-center space-x-3 flex-shrink-0">

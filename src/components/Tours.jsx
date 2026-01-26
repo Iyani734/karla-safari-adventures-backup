@@ -265,22 +265,22 @@ const Tours = () => {
           </p>
         </div>
 
-        {luxuryTours.length > 0 && (
+        {budgetTours.length > 0 && (
           <div className="mb-16">
             <div className="flex items-center justify-between mb-8">
               <div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">Luxury Safaris</h3>
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">Budget Safaris</h3>
                 <p className="text-gray-400 text-sm sm:text-base">
-                  Premium experiences with exclusive accommodations and personalized service
+                  Affordable adventures without compromising on wildlife experiences
                 </p>
               </div>
-              <div className="hidden sm:flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-500/20 to-red-600/20 border border-orange-500/30 rounded-full">
-                <Star className="w-5 h-5 text-orange-400 fill-current" />
-                <span className="text-orange-400 font-bold">Premium</span>
+              <div className="hidden sm:flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-500/20 to-teal-600/20 border border-green-500/30 rounded-full">
+                <DollarSign className="w-5 h-5 text-green-400" />
+                <span className="text-green-400 font-bold">Best Price</span>
               </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {luxuryTours.map(tour => renderTourCard(tour))}
+              {budgetTours.map(tour => renderTourCard(tour))}
             </div>
           </div>
         )}
@@ -305,25 +305,28 @@ const Tours = () => {
           </div>
         )}
 
-        {budgetTours.length > 0 && (
+        
+        {luxuryTours.length > 0 && (
           <div className="mb-16">
             <div className="flex items-center justify-between mb-8">
               <div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">Budget Safaris</h3>
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">Luxury Safaris</h3>
                 <p className="text-gray-400 text-sm sm:text-base">
-                  Affordable adventures without compromising on wildlife experiences
+                  Premium experiences with exclusive accommodations and personalized service
                 </p>
               </div>
-              <div className="hidden sm:flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-500/20 to-teal-600/20 border border-green-500/30 rounded-full">
-                <DollarSign className="w-5 h-5 text-green-400" />
-                <span className="text-green-400 font-bold">Best Price</span>
+              <div className="hidden sm:flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-500/20 to-red-600/20 border border-orange-500/30 rounded-full">
+                <Star className="w-5 h-5 text-orange-400 fill-current" />
+                <span className="text-orange-400 font-bold">Premium</span>
               </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {budgetTours.map(tour => renderTourCard(tour))}
+              {luxuryTours.map(tour => renderTourCard(tour))}
             </div>
           </div>
         )}
+
+
 
         <div className="text-center mt-12 sm:mt-16 bg-slate-800/50 border border-slate-700/50 rounded-2xl p-8 sm:p-12">
           <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">

@@ -120,7 +120,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email Us',
-      details: ['info@karlatoursandtravel@gmail.com', 'bookings@karlatoursandtravel@gmail.com'],
+      details: ['info@karlasafariadventures.com', 'bookings@karlasafariadventures.com'],
       color: 'text-blue-400'
     },
   ];

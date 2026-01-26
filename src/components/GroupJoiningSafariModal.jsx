@@ -32,7 +32,7 @@ const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs
-      .sendForm('service_bdywzc3', 'template_7l5efx9', form.current, {
+      .sendForm('service_bdywzc3', 'template_w3ptniw', form.current, {
         publicKey: 'zhmYd55Xyz63PI0qH',
       })
       .then(
@@ -52,7 +52,7 @@ const sendEmail = (e) => {
         localStorage.setItem('hideSafariModal', 'true');
       }
       onClose();
-    }, 5000);
+    }, 6000);
   };
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 animate-fadeIn">
@@ -61,7 +61,7 @@ const sendEmail = (e) => {
         onClick={handleClose}
       />
 
-      <div className="relative w-full max-w-full md:max-w-xl lg:max-w-2xl bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden animate-scaleIn flex flex-col h-[50vh] md:h-[75vh] lg:h-[75vh]">
+   <div className="relative w-full max-w-[800px] h-[600px] bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden animate-scaleIn flex flex-col">
         <button
           onClick={handleClose}
           className="absolute top-3 right-3 sm:top-4 sm:right-4 z-30 bg-white hover:bg-amber-50 rounded-full p-2 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110 group"
@@ -84,7 +84,7 @@ const sendEmail = (e) => {
                 <div className="absolute -inset-1 bg-yellow-400 rounded-lg blur opacity-30"></div>
                 <div className="relative">
                   <p className="text-white text-center">
-                    <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-white to-amber-100 bg-clip-text text-transparent drop-shadow-lg">$2,999</span>
+                    <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-white to-amber-100 bg-clip-text text-transparent drop-shadow-lg">$999</span>
                   </p>
                 </div>
               </div>
@@ -99,7 +99,7 @@ const sendEmail = (e) => {
               Experience the Great Migration - Kenya
             </p>
             <p className="text-xs sm:text-sm md:text-base lg:text-lg text-amber-100 font-semibold mt-2" style={{ textShadow: '2px 2px 6px rgba(0,0,0,0.8)' }}>
-              August 11 – August 15th, 2024
+              28th July - 2nd August, 2026
             </p>
           </div>
 
@@ -128,6 +128,7 @@ const sendEmail = (e) => {
                 <input
                   type="email"
                   value={email}
+                  name="user_email"
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your Email Address"
                   required

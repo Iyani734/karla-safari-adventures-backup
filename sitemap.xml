@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Core pages -->
   <url>
     <loc>https://karlasafariadventures.com/</loc>
     <priority>1.0</priority>
@@ -17,7 +18,7 @@
   </url>
 
   <url>
-    <loc>https://karlasafariadventures.com/contact</loc>
+    <loc>https://karlasafariadventures.com/activities</loc>
     <priority>0.8</priority>
   </url>
 
@@ -26,10 +27,59 @@
     <priority>0.7</priority>
   </url>
 
-  
   <url>
-    <loc>https://karlasafariadventures.com/activities</loc>
-    <priority>0.6</priority>
+    <loc>https://karlasafariadventures.com/contact</loc>
+    <priority>0.7</priority>
   </url>
+
+  <!-- Tour pages -->
+  <url><loc>https://karlasafariadventures.com/tours/custom-trip</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/7-Day-Kenyan-Luxury-Safari</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/tanzania-great-migration</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/Uganda-Ultimate-Luxury-Safari</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/rwanda-mountain-gorillas</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/10-Day-Kenya-Safari-ol-Pejeta-Samburu-Nakuru-Mara-Amboseli</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/3-day-mara-fly-in-fly-out</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/budget-7-Day-Masai-Mara-Nakuru-Naivasha-Amboseli</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/6-day-serengeti-budget-safari</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/4-day-gorilla-tracking-and-queen-elizabeth-national-park</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/3-day-chimpanzee-trekking-canopy-and-lake-kivu-adventure</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/3-Day-samburu-flying-safari-tour</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/12-day-vacation-escape-to-kenya-coast</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/4-day-safari-to-awe-inspiring-landscapes-of-mara-in-jeep</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/10-day-kenyas-wildest-elegance-an-ultra-luxury-safari</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/12-day-luxury-honeymoon-safari-and-beach-holiday</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/3-day-luxury-safari-in-the-great-masai-mara-reserve</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/8-day-unmatched-elegance-crown-jewels-of-kenya-safari</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/7-day-luxury-safari-kruger-national-park-south-africa</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/3-day-luxury-honeymoon-safari-to-serengeti-ngorongoro</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/6-day-circuit-safari-masai-mara-lake-nakuru-amboseli</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/4-day-masai-mara-nakuru</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/3-day-adventure-in-masai-mara</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/7-day-masai-mara-nakuru-naivasha-amboseli</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/8-day-camping-safari-with-cultural-nature-experiences</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/3-Day-Ngorongoro-Kilimanjaro-Hike-Materuni-Waterfalls</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/5-Day-Safari-to-Selous-Nyerere-Mikumi-Maasai-Village</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/3-Day-Murchison-Falls-NP-Ziwa-and-Budongo-Safari</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/5-Day-Kruger-Adventure-Safari</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/5-day-private-explorer-tour</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/5-day-premium-luxury-serengeti-gateway-safari</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/4-day-safari-high-end</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/5-day-tanzania-adventure-serengeti-migration-plus-big-five</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/4-day-luxury-tanzania-safari-tarangire-serengeti-ngorongoro</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/4-day-luxury-samburu-olpejata</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/3-day-tarangire-manyara-ngorongoro-crater</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/4-day-lodging-tarangire-ngorngoro-materuni</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/4-day-astonish-mikumi-ruaha-national-park</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/3-day-amboseli-tsavo-east-mombasa</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/3-day-samburu-wildernes-adventure</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/3-day-mount-kenya-trek-sirimon-to-chogoria</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/3-day-the-amboseli-budget-safari</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/3-day-tsavo-east-taita-safari-sentrim-salt-lick</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/4-day-nairobi-amboseli-tsavo-east-mombasa-diani-watamu</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/4-day-mikumi-nyerere-unforgettable-adventures</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/3-day-budget-safari-tarangire-ngorongoro-manyara</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/4-day-safari-to-ruaha-national-park-tanzania</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/tours/4-day-amboseli-tsavo-east-west</loc><priority>0.8</priority></url>
 
 </urlset>
