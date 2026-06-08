@@ -87,15 +87,23 @@ const Footer = () => {
     { name: 'Safari Tours', href: '/tours' },
     { name: 'Destinations', href: '/destinations' },
     { name: 'Activities', href: '/activities' },
+    { name: 'Blog', href: '/blog' },
      { name: 'Reviews', href: '#testimonials' },
     { name: 'Contact', href: '#contact' }
   ];
 
+  const legalLinks = [
+    { name: 'Privacy Policy', href: '/privacy-policy' },
+    { name: 'Terms and Conditions', href: '/terms-and-conditions' },
+    { name: 'Refund & Cancellation', href: '/refund-cancellation-policy' },
+    { name: 'Cookie Policy', href: '/cookie-policy' }
+  ];
+
   const socialLinks = [
-    { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61574151055658',color: 'text-blue-600', label: 'Facebook' },
+    { icon: Facebook, href: 'https://www.facebook.com/karla.safari.adventures/',color: 'text-blue-600', label: 'Facebook' },
     { icon: Instagram, href: 'https://www.instagram.com/karla_safari_adventures?igsh=MTZjbnUwcDVuZTdpbg==&utm_source=ig_contact_invite', color: 'text-pink-400', label: 'Instagram' },
       { icon: FaWhatsapp, href: 'https://wa.link/tb18wm',color: 'text-green-400', label: 'Whatsapp' },
-    // { icon: TikTokIcon, href: '#', color: 'hover:text-white', label: 'TikTok' }
+     { icon: TikTokIcon, href: 'https://www.tiktok.com/@karlasafariadventures?_r=1&_t=ZS-94lJguuz9kr', color: 'hover:text-white', label: 'TikTok' }
   ];
 
   const sendEmail = (e) => {
@@ -133,7 +141,9 @@ const Footer = () => {
           >
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">SA</span>
+                 <svg viewBox="0 0 24 24" className="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7 text-white" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2c-1.5 4 1 6 0 9-2.5-1-4-3-4-6 0-1.5.8-2.5 4-3zm-7 9c2 .5 4 2 4 4 0 1.5-1 2.5-3 2.5-2 0-3-1.5-3-3.5 0-1 .8-2 2-3zm14 0c1.2 1 2 2 2 3 0 2-1 3.5-3 3.5s-3-1-3-2.5c0-2 2-3.5 4-4zm-7 6c2.5 0 4.5 1.5 4.5 4H7.5c0-2.5 2-4 4.5-4z" />
+                  </svg>
               </div>
               <div>
                 <span className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">Karla Safari Adventures</span>
@@ -220,18 +230,18 @@ const Footer = () => {
             <div className="mb-6">
               {!isSubscribed ? (
                 <form ref={form} onSubmit={sendEmail}>
-                  <div className="flex">
+                  <div className="flex min-w-0">
                     <input
                       type="email"
                       name="user_email"
                       placeholder="Your email address"
                       required
-                      className="flex-1 bg-white border-2 border-gray-300 rounded-l-lg px-4 py-3 text-sm text-gray-800 placeholder-gray-500 focus:border-orange-500 focus:outline-none transition-colors"
+                      className="min-w-0 flex-1 bg-white border-2 border-gray-300 rounded-l-lg px-4 py-3 text-sm text-gray-800 placeholder-gray-500 focus:border-orange-500 focus:outline-none transition-colors"
                     />
                     <button
                       type="submit"
                       disabled={isLoading}
-                      className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-3 rounded-r-lg font-semibold text-sm transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+                      className="shrink-0 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-4 sm:px-6 py-3 rounded-r-lg font-semibold text-sm transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
                     >
                       {isLoading ? 'Sending...' : 'Subscribe'}
                     </button>
@@ -280,6 +290,17 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 text-gray-400 text-sm">
               <p>&copy; 2025 Karla Safari Adventures. All rights reserved.</p>
+              <div className="flex flex-wrap justify-center gap-x-4 gap-y-2">
+                {legalLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className="hover:text-orange-400 transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                ))}
+              </div>
             </div>
 
             <div className="flex items-center space-x-2 text-gray-400 text-sm">

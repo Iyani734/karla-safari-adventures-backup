@@ -1,0 +1,20 @@
+[
+  {
+    "park": "Marsabit National Park",
+    "prefix": "marsabit",
+    "images": 25,
+    "contactSheet": "reports/next-three-park-images/marsabit-contact-sheet.webp"
+  },
+  {
+    "park": "Masai Mara National Reserve",
+    "prefix": "mara",
+    "images": 25,
+    "contactSheet": "reports/next-three-park-images/mara-contact-sheet.webp"
+  },
+  {
+    "park": "Meru National Park",
+    "prefix": "meru",
+    "images": 25,
+    "contactSheet": "reports/next-three-park-images/meru-contact-sheet.webp"
+  }
+]

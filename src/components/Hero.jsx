@@ -86,7 +86,7 @@ const Hero = () => {
         <AnimatePresence mode="wait">
           <motion.img
             key={2}
-            src={"/safari-erlebnisse-kenia.webp"}
+            src={"/hero.jpg"}
             alt={"elephants at sunset"}
             className="w-full h-full object-cover"
             initial={{ opacity: 0 }}

@@ -1,0 +1,145 @@
+# Bird Image Coverage
+
+Generated: 2026-06-05T11:05:54.002Z
+
+- Unique normalized bird names: 132
+- Mapped to exact /public/birds species file: 128
+- Still missing exact species file: 4
+
+## Still Missing
+
+- Shelley's Crimsonwing (2 park uses)
+- Short-tailed Warbler (1 park use)
+- Stierling's woodpecker (2 park uses)
+- Turner's eremomela (1 park use)
+
+## Mapped
+
+- Abyssinian ground hornbill -> /birds/abyssinian-ground-hornbill.webp
+- Abyssinian Roller -> /birds/abyssinian-roller.webp
+- African broadbill -> /birds/african-broadbill.webp
+- African crowned eagle -> /birds/african-crowned-eagle.webp
+- African finfoot -> /birds/african-finfoot.webp
+- African fish eagle -> /birds/african-fish-eagle.webp
+- African Green Broadbill -> /birds/african-green-broadbill.webp
+- African grey parrot -> /birds/african-grey-parrot.webp
+- African Jacana -> /birds/african-jacana.webp
+- African Piculet -> /birds/african-piculet.webp
+- African Pitta -> /birds/african-pitta.webp
+- African Pygmy Goose -> /birds/african-pygmy-goose.webp
+- African skimmer -> /birds/african-skimmer.webp
+- African white-backed vulture -> /birds/african-white-backed-vulture.webp
+- Amani sunbird -> /birds/amani-sunbird.webp
+- Archer's Ground Robin -> /birds/archer-s-ground-robin.webp
+- Ashy starling -> /birds/ashy-starling.webp
+- Augur buzzard -> /birds/augur-buzzard.webp
+- Baglafecht weaver -> /birds/baglafecht-weaver.webp
+- Banded harrier -> /birds/banded-harrier.webp
+- Bar-tailed trogon -> /birds/bar-tailed-trogon.webp
+- Bateleur -> /birds/bateleur.webp
+- Black Bee-eater -> /birds/black-bee-eater.webp
+- Black-and-white Casqued Hornbill -> /birds/black-and-white-casqued-hornbill.webp
+- Black-faced sandgrouse -> /birds/black-faced-sandgrouse.webp
+- Blue-breasted Kingfisher -> /birds/blue-breasted-kingfisher.webp
+- Blue-headed bee-eater -> /birds/blue-headed-bee-eater.webp
+- Blue-throated Roller -> /birds/blue-throated-roller.webp
+- Bohm's bee-eater -> /birds/bohm-s-bee-eater.webp
+- Böhm's flycatcher -> /birds/bohm-s-flycatcher.webp
+- Broad-tailed paradise whydah -> /birds/broad-tailed-paradise-whydah.webp
+- Carmine bee-eater -> /birds/carmine-bee-eater.webp
+- Cassin's Spinetail -> /birds/cassin-s-spinetail.webp
+- Chocolate-backed Kingfisher -> /birds/chocolate-backed-kingfisher.webp
+- Clarke's weaver -> /birds/clarke-s-weaver.webp
+- Cliff chat -> /birds/cliff-chat.webp
+- Collared Apalis -> /birds/collared-apalis.webp
+- Crab plover -> /birds/crab-plover.webp
+- Crowned Eagle -> /birds/crowned-eagle.webp
+- Crowned hornbill -> /birds/crowned-hornbill.webp
+- Dickinson's kestrel -> /birds/dickinson-s-kestrel.webp
+- Donaldson-Smith's nightjar -> /birds/donaldson-smith-s-nightjar.webp
+- Dusky Crimsonwing -> /birds/dusky-crimsonwing.webp
+- Fischer's turaco -> /birds/fischer-s-turaco.webp
+- Fox Kestrel -> /birds/fox-kestrel.webp
+- Golden-breasted starling -> /birds/golden-breasted-starling.webp
+- Goliath heron -> /birds/goliath-heron.webp
+- Grauer's Rush Warbler -> /birds/grauer-s-rush-warbler.webp
+- Grauer's Warbler -> /birds/grauer-s-warbler.webp
+- Great Blue Turaco -> /birds/great-blue-turaco.webp
+- Great white pelican -> /birds/great-white-pelican.webp
+- Greater flamingo -> /birds/greater-flamingo.webp
+- Grey crowned crane -> /birds/grey-crowned-crane.webp
+- Handsome Francolin -> /birds/handsome-francolin.webp
+- Handsome Spurfowl -> /birds/handsome-spurfowl.webp
+- Hartlaub's turaco -> /birds/hartlaub-s-turaco.webp
+- Hemprich's hornbill -> /birds/hemprich-s-hornbill.webp
+- Ituri Batis -> /birds/ituri-batis.webp
+- Jackson's spurfowl -> /birds/jackson-s-spurfowl.webp
+- Jackson's widowbird -> /birds/jackson-s-widowbird.webp
+- Karamoja Apalis -> /birds/karamoja-apalis.webp
+- Kivu Ground Thrush -> /birds/kivu-ground-thrush.webp
+- Kori bustard -> /birds/kori-bustard.webp
+- Lammergeier -> /birds/lammergeier.webp
+- Lanner falcon -> /birds/lanner-falcon.webp
+- Lemon-bellied Crombec -> /birds/lemon-bellied-crombec.webp
+- Lesser flamingo -> /birds/lesser-flamingo.webp
+- Lesser Jacana -> /birds/lesser-jacana.webp
+- Lesser Kestrel -> /birds/lesser-kestrel.webp
+- Lilac-breasted roller -> /birds/lilac-breasted-roller.webp
+- Malachite kingfisher -> /birds/malachite-kingfisher.webp
+- Mangrove kingfisher -> /birds/mangrove-kingfisher.webp
+- Martial eagle -> /birds/martial-eagle.webp
+- Miombo rock thrush -> /birds/miombo-rock-thrush.webp
+- Moorland chat -> /birds/moorland-chat.webp
+- Nahan's Francolin -> /birds/nahan-s-francolin.webp
+- Narina trogon -> /birds/narina-trogon.webp
+- Nkulengu rail -> /birds/nkulengu-rail.webp
+- Northern carmine bee-eater -> /birds/northern-carmine-bee-eater.webp
+- Ostrich -> /birds/ostrich.webp
+- Palm-nut vulture -> /birds/palm-nut-vulture.webp
+- Papyrus gonolek -> /birds/papyrus-gonolek.webp
+- Papyrus yellow warbler -> /birds/papyrus-yellow-warbler.webp
+- Pel's fishing owl -> /birds/pel-s-fishing-owl.webp
+- Peter's finfoot -> /birds/peter-s-finfoot.webp
+- Pink-backed Pelican -> /birds/pink-backed-pelican.webp
+- Plain-backed sunbird -> /birds/plain-backed-sunbird.webp
+- Puvel's Illadopsis -> /birds/puvel-s-illadopsis.webp
+- Racket-tailed roller -> /birds/racket-tailed-roller.webp
+- Red-billed Dwarf Hornbill -> /birds/red-billed-dwarf-hornbill.webp
+- Red-collared Mountain Babbler -> /birds/red-collared-mountain-babbler.webp
+- Red-faced Barbet -> /birds/red-faced-barbet.webp
+- Red-winged starling -> /birds/red-winged-starling.webp
+- Ross's turaco -> /birds/ross-s-turaco.webp
+- Ruaha red-billed hornbill -> /birds/ruaha-red-billed-hornbill.webp
+- Ruwenzori Nightjar -> /birds/ruwenzori-nightjar.webp
+- Rwenzori Batis -> /birds/rwenzori-batis.webp
+- Rwenzori Turaco -> /birds/rwenzori-turaco.webp
+- Saddle-billed stork -> /birds/saddle-billed-stork.webp
+- Secretary bird -> /birds/secretary-bird.webp
+- Secretarybird -> /birds/secretarybird.webp
+- Sharpe's longclaw -> /birds/sharpe-s-longclaw.webp
+- Shining blue kingfisher -> /birds/shining-blue-kingfisher.webp
+- Shoebill -> /birds/shoebill.webp
+- Shoebill Stork -> /birds/shoebill-stork.webp
+- Silvery-cheeked hornbill -> /birds/silvery-cheeked-hornbill.webp
+- Sokoke pipit -> /birds/sokoke-pipit.webp
+- Sokoke scops-owl -> /birds/sokoke-scops-owl.webp
+- Somali bee-eater -> /birds/somali-bee-eater.webp
+- Somali ostrich -> /birds/somali-ostrich.webp
+- Southern banded snake eagle -> /birds/southern-banded-snake-eagle.webp
+- Spotted ground thrush -> /birds/spotted-ground-thrush.webp
+- Strange Weaver -> /birds/strange-weaver.webp
+- Superb starling -> /birds/superb-starling.webp
+- Taita apalis -> /birds/taita-apalis.webp
+- Taita thrush -> /birds/taita-thrush.webp
+- Taita white-eye -> /birds/taita-white-eye.webp
+- Verreaux's eagle -> /birds/verreaux-s-eagle.webp
+- Verreaux's eagle-owl -> /birds/verreaux-s-eagle-owl.webp
+- Von der Decken's hornbill -> /birds/von-der-decken-s-hornbill.webp
+- Vulturine guineafowl -> /birds/vulturine-guineafowl.webp
+- Wattled crane -> /birds/wattled-crane.webp
+- White-crested Turaco -> /birds/white-crested-turaco.webp
+- White-throated Blue Swallow -> /birds/white-throated-blue-swallow.webp
+- Yellow-billed stork -> /birds/yellow-billed-stork.webp
+- Yellow-collared lovebird -> /birds/yellow-collared-lovebird.webp
+- Yellow-eyed Black Flycatcher -> /birds/yellow-eyed-black-flycatcher.webp
+- Yellow-throated longclaw -> /birds/yellow-throated-longclaw.webp

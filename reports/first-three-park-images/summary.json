@@ -1,0 +1,20 @@
+[
+  {
+    "park": "Loisaba Conservancy",
+    "prefix": "loisaba",
+    "images": 25,
+    "contactSheet": "reports/first-three-park-images/loisaba-contact-sheet.webp"
+  },
+  {
+    "park": "Mara Naboisho Conservancy",
+    "prefix": "naboisho",
+    "images": 25,
+    "contactSheet": "reports/first-three-park-images/naboisho-contact-sheet.webp"
+  },
+  {
+    "park": "Mara North Conservancy",
+    "prefix": "maranorth",
+    "images": 25,
+    "contactSheet": "reports/first-three-park-images/maranorth-contact-sheet.webp"
+  }
+]

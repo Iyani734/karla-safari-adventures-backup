@@ -1,0 +1,98 @@
+# ============================================================
+#   robots.txt — karlasafariadventures.com
+#   Instructs search engine crawlers which pages to index.
+#   Regenerate & resubmit in Google Search Console after changes.
+# ============================================================
+
+# --- Allow all major search engines ---
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 5
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 5
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 5
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# --- Block bad commercial crawlers ---
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+# --- Global rules for all other bots ---
+User-agent: *
+Allow: /
+
+# Pages to exclude from indexing
+Disallow: /thank-you
+Disallow: /thank-you/
+Disallow: /404
+Disallow: /500
+Disallow: /errors/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /api/
+Disallow: /checkout/confirmation
+Disallow: /booking/confirmation
+Disallow: /login
+Disallow: /register
+Disallow: /account/
+Disallow: /cart/
+Disallow: /maintenance.html
+Disallow: /*.json$
+Disallow: /static/js/
+Disallow: /static/css/
+Disallow: /node_modules/
+
+# Allow important assets
+Allow: /assets/
+Allow: /images/
+Allow: /static/media/
+
+# Crawl delay for unknown bots
+Crawl-delay: 10
+
+# ============================================================
+# Sitemaps
+# ============================================================
+Sitemap: https://karlasafariadventures.com/sitemap.xml
+Sitemap: https://karlasafariadventures.com/sitemap-images.xml
+
+# Host directive (canonical domain)
+Host: https://karlasafariadventures.com

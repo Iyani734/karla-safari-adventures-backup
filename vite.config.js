@@ -1,6 +1,9 @@
 import path from 'node:path';
 import react from '@vitejs/plugin-react';
 import { createLogger, defineConfig } from 'vite';
+import { galleryManifestPlugin } from "./vite-plugin-gallery-manifest";
+
+import { generateManifest } from './scripts/generate-gallery-manifest.js';
 
 const isDev = process.env.NODE_ENV !== 'production';
 let inlineEditPlugin, editModeDevPlugin;
@@ -191,11 +194,18 @@ logger.error = (msg, options) => {
 
 export default defineConfig({
 	customLogger: logger,
-	plugins: [
-		...(isDev ? [inlineEditPlugin(), editModeDevPlugin()] : []),
-		react(),
-		addTransformIndexHtml
-	],
+plugins: [
+    ...(isDev ? [inlineEditPlugin(), editModeDevPlugin()] : []),
+    react(),
+		 {
+      name: "generate-gallery-manifest",
+      buildStart() {
+        generateManifest(); // runs on every npm run dev / npm run build
+      },
+    },
+    addTransformIndexHtml,
+    galleryManifestPlugin()
+],
 	server: {
 		cors: true,
 		headers: {
@@ -218,5 +228,6 @@ export default defineConfig({
 				'@babel/types'
 			]
 		}
-	}
+	},
+
 });

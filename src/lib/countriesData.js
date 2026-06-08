@@ -15705,10 +15705,10 @@ allParks: [
   {
     name: 'Kalinzu Forest Reserve',
     badge: null,
-    rating: 3.7,
-    reviewCount: '4 Reviews',
-    description: 'Community-run chimp trekking, guided nature walks through pristine forest',
-    image: '/ugandaWildlife10.webp',
+    rating: 4.4,
+    reviewCount: '96 Reviews',
+    description: 'NFA-managed rainforest reserve, chimpanzee trekking, birding and scenic forest walks near Queen Elizabeth',
+    image: '/chimpanzee.webp',
     links: ['Wildlife', 'Birds']
   },
   {

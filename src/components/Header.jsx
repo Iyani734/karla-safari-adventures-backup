@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, MapPin, Phone, Mail, Heart, Trash2, Calendar, DollarSign, Star, ArrowRight, Wand2 } from 'lucide-react';
 import { eastAfricaTours } from '../lib/tourData';
@@ -35,6 +36,7 @@ const StarRating = ({ rating, reviews }) => {
 };
 
 const Header = () => {
+  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showFavoritesPanel, setShowFavoritesPanel] = useState(false);
   const [favorites, setFavorites] = useState([]);
@@ -115,8 +117,26 @@ const Header = () => {
     { name: 'Tours', href: '/tours' },
     { name: 'Destinations', href: '/destinations' },
     { name: 'Activities', href: '/activities' },
+    { name: 'Gallery', href: '/gallery' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' }
   ];
+
+  const isNavItemActive = (href) => {
+    const [path, hash = ""] = href.split("#");
+    const targetPath = path || "/";
+    const targetHash = hash ? `#${hash}` : "";
+
+    if (href === "/") {
+      return location.pathname === "/" && !location.hash;
+    }
+
+    if (targetHash) {
+      return location.pathname === targetPath && location.hash === targetHash;
+    }
+
+    return location.pathname === targetPath || location.pathname.startsWith(`${targetPath}/`);
+  };
 
   const hasFavorites = favorites.length > 0;
 
@@ -210,7 +230,7 @@ const Header = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <nav className="container mx-auto px-3 sm:px-4 lg:px-6 py-3 sm:py-4">
+        <nav className="container mx-auto px-3 sm:px-4 lg:px-0 py-3 sm:py-4">
           <div className="flex items-center justify-between">
             <a href="/">
               <motion.div
@@ -218,7 +238,9 @@ const Header = () => {
                 whileHover={{ scale: 1.05 }}
               >
                 <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-white font-bold text-sm sm:text-base lg:text-xl">SA</span>
+                  <svg viewBox="0 0 24 24" className="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7 text-white" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2c-1.5 4 1 6 0 9-2.5-1-4-3-4-6 0-1.5.8-2.5 4-3zm-7 9c2 .5 4 2 4 4 0 1.5-1 2.5-3 2.5-2 0-3-1.5-3-3.5 0-1 .8-2 2-3zm14 0c1.2 1 2 2 2 3 0 2-1 3.5-3 3.5s-3-1-3-2.5c0-2 2-3.5 4-4zm-7 6c2.5 0 4.5 1.5 4.5 4H7.5c0-2.5 2-4 4.5-4z" />
+                  </svg>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-sm sm:text-base md:text-lg lg:text-2xl font-bold text-white md:text-gradient leading-tight">Karla Safari Adventures</span>
@@ -228,11 +250,18 @@ const Header = () => {
             </a>
 
             <div className="hidden lg:flex items-center space-x-4 xl:space-x-8">
-              {navItems.map((item, index) => (
+              {navItems.map((item, index) => {
+                const isActive = isNavItemActive(item.href);
+                return (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-white hover:text-orange-400 transition-colors duration-300 font-medium text-sm xl:text-base"
+                  aria-current={isActive ? "page" : undefined}
+                  className={`relative py-2 px-1 font-medium text-sm transition-colors duration-300 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:rounded-full after:bg-gradient-to-r after:from-orange-400 after:to-red-500 after:transition-all after:duration-300 xl:text-base ${
+                    isActive
+                      ? "text-orange-400  font-semibold after:w-full "
+                      : "text-white hover:text-orange-400 after:w-0 hover:after:w-full"
+                  }`}
                 >
                   <motion.span
                     whileHover={{ y: -2 }}
@@ -243,7 +272,8 @@ const Header = () => {
                     {item.name}
                   </motion.span>
                 </a>
-              ))}
+                );
+              })}
               <button onClick={() => { setIsMenuOpen(false); window.location.href = `/contact` }} className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white px-4 xl:px-6 py-2 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 text-sm xl:text-base">
                 Request a Quote
               </button>
@@ -288,7 +318,9 @@ const Header = () => {
                 transition={{ duration: 0.3 }}
               >
                 <div className="space-y-1">
-                  {navItems.map((item, index) => (
+                  {navItems.map((item, index) => {
+                    const isActive = isNavItemActive(item.href);
+                    return (
                     <motion.div
                       key={item.name}
                       initial={{ opacity: 0, x: -20 }}
@@ -297,13 +329,19 @@ const Header = () => {
                     >
                       <a
                         href={item.href}
-                        className="block py-3 px-2 text-white hover:text-orange-400 hover:bg-white/5 rounded-lg transition-all duration-300 font-medium"
+                        aria-current={isActive ? "page" : undefined}
+                        className={`relative block rounded-lg px-2 py-3 font-medium transition-all duration-300 after:absolute after:bottom-1.5 after:left-2 after:h-[2px] after:rounded-full after:bg-gradient-to-r after:from-orange-400 after:to-red-500 after:transition-all after:duration-300 ${
+                          isActive
+                            ? "text-orange-400 bg-orange-500/15 font-semibold"
+                            : "text-white hover:bg-white/5 hover:text-orange-400 after:w-0"
+                        }`}
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {item.name}
                       </a>
                     </motion.div>
-                  ))}
+                    );
+                  })}
                 </div>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}

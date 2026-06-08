@@ -185,12 +185,12 @@
     },
     itinerary: [
        { 
-    day: 1, 
+    day: '1', 
     location: 'Nairobi to Amboseli National Park', 
     mainDestination: 'Amboseli National Park',
     nights: 1, 
     hotel: 'Ol Tukai Lodge',
-    activity: `You will be collected at Jomo Kenyatta International Airport (NBO). Accomodation before the tour starts can be arranged for an extra cost.
+    activity: `You will be collected at Jomo Kenyatta International Airport (NBO). Accommodation before the tour starts can be arranged for an extra cost.
     After breakfast and assisted check-out at your hotel in Nairobi, you will enjoy a scenic drive to Amboseli. Amboseli is known for its 
     stunning views of Mount Kilimanjaro, the highest peak in Africa. The park offers one of the best vantage points to see the snow-capped 
     summit of Kilimanjaro, particularly at sunrise and sunset. You will arrive at Oltukai Lodge in time for check-in, lunch and relaxation.
@@ -206,6 +206,7 @@
     activity: 'Enjoy an early breakfast before heading out for a full-day game drive in Amboseli National Park. During the drive, you will have the chance to spot a variety of wildlife, including large herds of elephants, lions, cheetahs, giraffes, zebras, buffalo, and numerous bird species — all set against the breathtaking backdrop of Mount Kilimanjaro. A picnic lunch will be enjoyed within the park, surrounded by nature. In the evening, return to the lodge to relax and unwind after an exciting day of exploration.',
     image: 'Elephants grazing with Mount Kilimanjaro in the background Amboseli Kenya'
   },
+
   {
     day: '3',
     location: 'Drive from Amboseli to Lake Naivasha',
@@ -241,7 +242,7 @@ After the game drive, return to the camp for dinner and an overnight stay, surro
     day: '6',
     location: 'Full Day Game Drive in Masai Mara NR',
     mainDestination: 'Masai Mara National Reserve',
-    nights: 0,
+    nights: 1,
     hotel: 'Sarova Mara Game Camp',
     activity: `Start your day with an early breakfast before heading out for a full-day game drive in the Masai Mara, with a picnic lunch in the park. Optional activities include an early morning balloon safari and a visit to a Maasai village to experience their culture and traditions.
 
@@ -257,6 +258,7 @@ The Masai Mara is renowned for the Great Wildebeest Migration, the Big Five, and
     activity: `After checking out from Sarova Mara Game Camp, you will begin your journey back to Nairobi, where you will be dropped off at your preferred location.`,
     image: 'Nairobi city skyline view'
   }
+
     ],
     whatToExpect: [
       'Close encounters with the "Big Five" (Lion, Leopard, Elephant, Rhino, Buffalo).',

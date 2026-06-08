@@ -1,13 +1,17 @@
 import { useState, useEffect,useRef,useMemo, } from 'react';
-import { Shield, Heart, Globe, DollarSign, Calendar, Clock, ChevronLeft, MapPin, Thermometer, AlertTriangle, Plane, Camera, Menu, X, Star, Map, Route, ArrowRight, ChevronUp, ChevronRight } from 'lucide-react';
+import { Shield, Heart, Globe, DollarSign, Calendar, Clock, ChevronLeft, MapPin, Thermometer, AlertTriangle, Plane, Camera, Menu, X, Star, Map, Route, ArrowRight, ChevronUp, ChevronRight, Share2 } from 'lucide-react';
 import { eastAfricaTours } from '../lib/tourData';
 import { AllExpertReviews } from './AllExpertReviews';
 import { AllUserReviews } from './AllUserReviews';
 import { COUNTRIES_DATA } from '../lib/countriesData';
+import { getCountryAllParksPath } from '../lib/parkRoutes';
+import { shareImageToSocial } from '../lib/shareImage';
 // Add this new component at the top of your file, after imports and before COUNTRIES_DATA
 //working
 const PhotoGalleryModal = ({ isOpen, onClose, images, startIndex = 0, title }) => {
   const [currentIndex, setCurrentIndex] = useState(startIndex);
+  const [isSharing, setIsSharing] = useState(false);
+  const [shareStatus, setShareStatus] = useState('');
   const thumbnailRefs = useRef([]);
   const thumbnailContainerRef = useRef(null);
 
@@ -51,6 +55,26 @@ const PhotoGalleryModal = ({ isOpen, onClose, images, startIndex = 0, title }) =
 
   const currentImage = images[currentIndex];
 
+  const handleShare = async () => {
+    setIsSharing(true);
+    setShareStatus('Preparing image share...');
+    try {
+      const status = await shareImageToSocial({
+        src: currentImage?.url,
+        title: currentImage?.caption || title || 'Karla Safari Adventures gallery image',
+        caption: currentImage?.caption || `${title || 'Karla Safari Adventures gallery'} - image ${currentIndex + 1}`,
+      });
+      setShareStatus(status);
+      if (status) window.setTimeout(() => setShareStatus(''), 2600);
+    } catch (error) {
+      console.error('Unable to share image', error);
+      setShareStatus('Image share unavailable. Link copy failed.');
+      window.setTimeout(() => setShareStatus(''), 3200);
+    } finally {
+      setIsSharing(false);
+    }
+  };
+
   return (
 <div className="fixed inset-0 z-50 flex items-start 2xl:items-center justify-center bg-black/30 backdrop-blur-sm animate-fadeIn sm:p-4">      <style>{`
         .scrollbar-hide::-webkit-scrollbar {
@@ -67,14 +91,26 @@ const PhotoGalleryModal = ({ isOpen, onClose, images, startIndex = 0, title }) =
             {title}
           </h2>
           
-          <button
-            onClick={onClose}
-            className="flex-shrink-0 relative group p-2 rounded-full transition-all duration-300 hover:bg-white/20 active:scale-95"
-            aria-label="Close gallery"
-          >
-            <div className="absolute inset-0 rounded-full bg-white/0 group-hover:bg-white/10 transition-all duration-300 scale-0 group-hover:scale-150 blur-sm"></div>
-            <X className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white relative z-10 transition-transform duration-300 group-hover:rotate-90 group-hover:scale-110" />
-          </button>
+          <div className="flex-shrink-0 flex items-center gap-2">
+            <button
+              onClick={handleShare}
+              disabled={isSharing || !currentImage?.url}
+              className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-1.5 text-xs font-extrabold text-slate-900 shadow-lg transition hover:bg-orange-50 disabled:cursor-wait disabled:opacity-70 sm:px-3 sm:py-2 sm:text-sm"
+              aria-label={`Share ${currentImage?.caption || title || 'gallery image'} to social media`}
+              title="Share image to social media"
+            >
+              <Share2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              <span>{isSharing ? 'Preparing...' : 'Share'}</span>
+            </button>
+            <button
+              onClick={onClose}
+              className="relative group p-2 rounded-full transition-all duration-300 hover:bg-white/20 active:scale-95"
+              aria-label="Close gallery"
+            >
+              <div className="absolute inset-0 rounded-full bg-white/0 group-hover:bg-white/10 transition-all duration-300 scale-0 group-hover:scale-150 blur-sm"></div>
+              <X className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white relative z-10 transition-transform duration-300 group-hover:rotate-90 group-hover:scale-110" />
+            </button>
+          </div>
         </div>
 
         <div className="relative bg-black overflow-hidden min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[530px]">
@@ -152,6 +188,11 @@ const PhotoGalleryModal = ({ isOpen, onClose, images, startIndex = 0, title }) =
           </div>
         )}
       </div>
+      {shareStatus && (
+        <div className="fixed bottom-5 left-1/2 z-[60] -translate-x-1/2 rounded-full bg-slate-950 px-5 py-3 text-sm font-bold text-white shadow-2xl">
+          {shareStatus}
+        </div>
+      )}
     </div>
   );
 };
@@ -1625,7 +1666,9 @@ const getSectionHeaderText = (sectionId, countryName) => {
                         <li key={idx} className="flex items-start">
                           <span className="text-orange-500 mr-3 text-base font-bold">›</span>
                           <div>
-                            <button className="text-base text-white hover:text-orange-500 text-left font-bold transition-colors duration-200">{park.name}</button>
+                            <span className="block text-base text-white text-left font-bold">
+                              {park.name}
+                            </span>
                             {park.type && <span className="text-gray-400 text-sm block">{park.type}</span>}
                           </div>
                         </li>
@@ -1683,9 +1726,9 @@ const getSectionHeaderText = (sectionId, countryName) => {
                   }
                   </span>
                   <div className="flex-1">
-                    <button className="text-white hover:text-orange-500 font-bold text-left text-base md:text-lg transition-colors duration-200">
+                    <span className="block text-white font-bold text-left text-base md:text-lg">
                       {park.name}
-                    </button>
+                    </span>
                   </div>
                 </div>
               ))}
@@ -1756,7 +1799,7 @@ const getSectionHeaderText = (sectionId, countryName) => {
                   </div>
                   <div className="flex-1 px-4 md:px-6 py-4 md:py-5 flex flex-col justify-between">
                     <div>
-                      <h3 className="text-xl md:text-2xl text-orange-500 font-bold mb-2 md:mb-3 transition-colors duration-200 cursor-pointer">
+                      <h3 className="text-xl md:text-2xl text-orange-500 font-bold mb-2 md:mb-3 text-left">
                         {park.name}
                       </h3>
                       {park.rating && (
@@ -1788,12 +1831,12 @@ const getSectionHeaderText = (sectionId, countryName) => {
                     {park.links && park.links.length > 0 && (
                       <div className="flex flex-wrap gap-3 md:gap-5 text-sm md:text-base">
                         {park.links.map((link, linkIdx) => (
-                          <button
+                          <span
                             key={linkIdx}
-                            className="text-blue-400 hover:text-orange-500 font-bold transition-colors duration-200"
+                            className="text-blue-300 font-bold"
                           >
                             › {link}
-                          </button>
+                          </span>
                         ))}
                       </div>
                     )}
@@ -2139,9 +2182,9 @@ const getSectionHeaderText = (sectionId, countryName) => {
             className="flex items-center justify-start gap-x-20 py-3 border-b border-slate-700/30 last:border-b-"
           >
             {/* Park Name - Left Side */}
-            <button className="text-blue-400 hover:text-blue-300 font-bold text-base transition-colors duration-200">
+            <span className="text-blue-300 font-bold text-base">
               {park.name}
-            </button>
+            </span>
             
             {/* Rating Info - Right Side */}
             <div className="flex items-center gap-2 flex-shrink-0">
@@ -2547,9 +2590,9 @@ const getSectionHeaderText = (sectionId, countryName) => {
                       key={idx} 
                       className="flex items-center justify-between py-3 border-b border-slate-700/30 last:border-b-0"
                     >
-                      <button className="text-blue-400 hover:text-blue-300 font-bold text-base transition-colors duration-200">
+                      <span className="text-blue-300 font-bold text-base">
                         {park.name}
-                      </button>
+                      </span>
                       <div className="flex items-center gap-2">
                         <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                         <span className="text-white font-bold text-lg">{park.rating}</span>
@@ -2948,9 +2991,9 @@ const getSectionHeaderText = (sectionId, countryName) => {
     <div className="space-y-4">
       {country.bestTimeToVisitContent.parkByParkRatings.map((park, idx) => (
         <div key={idx} className="bg-slate-800/30 rounded-lg p-4">
-          <button className="text-blue-400 hover:text-blue-300 font-bold text-base mb-3 transition-colors duration-200">
+          <div className="text-blue-300 font-bold text-base mb-3">
             › {park.name}
-          </button>
+          </div>
           <div className="flex flex-wrap gap-2">
             {park.months.map((month, mIdx) => {
               const colorClass = {
@@ -4609,11 +4652,13 @@ safety: (
                         {country.parksAndReservesContent.premierParks.map((park, parkIndex) => (
                           <li key={parkIndex} className="flex items-start">
                             <span className="text-orange-500 mr-2 md:mr-3 text-sm md:text-base font-bold">›</span>
-                            <button className="text-sm md:text-base text-white hover:text-orange-500 text-left font-bold transition-colors duration-200">{park.name}</button>
+                            <span className="text-sm md:text-base text-white text-left font-bold">
+                              {park.name}
+                            </span>
                           </li>
                         ))}
                       </ul>
-                      <button onClick={() => window.location.href = `destinations/${country.name.toLowerCase()}/parks`} className="w-full px-4 md:px-6 py-3 md:py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white font-bold rounded flex items-center justify-center gap-2 text-sm md:text-base hover:from-orange-600 hover:to-red-700 transition-all duration-300 transform hover:scale-105" data-testid={`button-all-parks-${country.name.toLowerCase()}`}>
+                      <button onClick={() => window.location.href = getCountryAllParksPath(country)} className="w-full px-4 md:px-6 py-3 md:py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white font-bold rounded flex items-center justify-center gap-2 text-sm md:text-base hover:from-orange-600 hover:to-red-700 transition-all duration-300 transform hover:scale-105" data-testid={`button-all-parks-${country.name.toLowerCase()}`}>
                         All {country.totalParks} Parks & Reserves <span className="text-lg md:text-xl">›</span>
                       </button>
                     </div>
@@ -4631,4 +4676,3 @@ safety: (
 }
 
 export default Destination;
-

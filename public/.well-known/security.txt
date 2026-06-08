@@ -1,0 +1,31 @@
+# ============================================================
+#   security.txt — karlasafariadventures.com
+#   Standard: https://securitytxt.org  (RFC 9116)
+#   Allows security researchers to responsibly report
+#   vulnerabilities they discover on your site.
+#
+#   IMPORTANT: Update "Expires" every 12 months.
+#   Current expiry: 2027-04-20T00:00:00.000Z
+# ============================================================
+
+# Where to report security vulnerabilities
+Contact: mailto:security@karlasafariadventures.com
+Contact: https://karlasafariadventures.com/contact
+
+# When this file expires — MUST be updated annually
+Expires: 2027-04-20T00:00:00.000Z
+
+# Link to your security / responsible disclosure policy (create this page)
+Policy: https://karlasafariadventures.com/security-policy
+
+# Preferred language for reports
+Preferred-Languages: en
+
+# Canonical URL of this file
+Canonical: https://karlasafariadventures.com/.well-known/security.txt
+
+# Acknowledgements page for researchers who report valid issues
+Acknowledgments: https://karlasafariadventures.com/security-acknowledgements
+
+# Hiring? Security-minded people read this file
+Hiring: https://karlasafariadventures.com/careers

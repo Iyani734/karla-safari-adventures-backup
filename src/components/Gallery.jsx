@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ZoomIn, Camera,StickyNote, Heart } from 'lucide-react';
+import { X, ZoomIn, Camera,StickyNote, Heart,LayoutGrid } from 'lucide-react';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -316,25 +316,37 @@ const Gallery = () => {
           )}
         </AnimatePresence>
 
-        {/* CTA */}
-        <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <p className="text-gray-300 mb-6">Ready to capture your own African adventure?</p>
-          <motion.button
-          onClick={() => window.location.href = `/tours`}
-            className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 group"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Camera className="inline-block mr-2 w-5 h-5 group-hover:rotate-12 transition-transform" />
-            Book Your Safari
-          </motion.button>
-        </motion.div>
+    {/* CTA */}
+<motion.div
+  className="text-center mt-16"
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  viewport={{ once: true }}
+>
+  <p className="text-gray-300 mb-6">Ready to capture your own African adventure?</p>
+  <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+    <motion.button
+      onClick={() => window.location.href = `/tours`}
+      className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 group"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <Camera className="inline-block mr-2 w-5 h-5 group-hover:rotate-12 transition-transform" />
+      Book Your Safari
+    </motion.button>
+
+    <motion.button
+      onClick={() => window.location.href = `/gallery`}
+      className="border-2 border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 group"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+     <LayoutGrid className="inline-block mr-2 w-5 h-5 group-hover:scale-110 transition-transform" />
+      View Full Gallery
+    </motion.button>
+  </div>
+</motion.div>
       </div>
     </section>
   );

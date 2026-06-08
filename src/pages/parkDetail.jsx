@@ -1,11 +1,44 @@
 import { useState, useEffect,useRef,useMemo  } from 'react';
-import { Shield, Heart, Globe, DollarSign, Calendar, Clock, ChevronLeft, MapPin, Thermometer, AlertTriangle, Plane, Camera, Menu, X, Star, Map, Route, ArrowRight, ChevronUp, ChevronRight, Mountain } from 'lucide-react';
+import { Shield, Heart, Globe, DollarSign, Calendar, Clock, ChevronLeft, MapPin, Thermometer, AlertTriangle, Plane, Camera, Menu, X, Star, Map, Route, ArrowRight, ChevronUp, ChevronRight, Mountain, Share2 } from 'lucide-react';
 import { eastAfricaTours } from '../lib/tourData';
+import { COUNTRIES_DATA } from '../lib/countriesData';
+import { findParkBySlug, findParkInCountryData, getParkPath, getParkSectionSlug, slugifyParkName } from '../lib/parkRoutes';
+import { PARKS_DATA } from '../lib/parksData';
+import { getBirdImagePath } from '../lib/birdImageMap';
+import { shareImageToSocial } from '../lib/shareImage';
 
-// Add this new component at the top of your file, after imports and before PARKS_DATA
+const DEFAULT_IMAGE_FALLBACK = '/safariHero.jfif';
+const BIRD_IMAGE_FALLBACK = '';
+
+const setImageFallback = (event, fallback = DEFAULT_IMAGE_FALLBACK) => {
+  const image = event.currentTarget;
+  if (image.dataset.fallbackApplied === 'true') return;
+  image.dataset.fallbackApplied = 'true';
+  if (!fallback) {
+    image.removeAttribute('src');
+    image.classList.add('hidden');
+    return;
+  }
+  image.src = fallback;
+};
+
+const getBirdDisplayImage = (bird) => getBirdImagePath(bird?.name, '');
+
+const BirdImagePlaceholder = () => (
+  <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-800 text-center px-4">
+    <Camera className="w-9 h-9 text-orange-400 mb-3" />
+    <span className="text-xs font-semibold uppercase tracking-wide text-slate-300">
+      Exact bird photo coming soon
+    </span>
+  </div>
+);
+
+// Gallery modal kept near the top; park data now lives in ../lib/parksData.
 //working
 const PhotoGalleryModal = ({ isOpen, onClose, images, startIndex = 0, title }) => {
   const [currentIndex, setCurrentIndex] = useState(startIndex);
+  const [isSharing, setIsSharing] = useState(false);
+  const [shareStatus, setShareStatus] = useState('');
   const thumbnailRefs = useRef([]);
   const thumbnailContainerRef = useRef(null);
 
@@ -49,6 +82,26 @@ const PhotoGalleryModal = ({ isOpen, onClose, images, startIndex = 0, title }) =
 
   const currentImage = images[currentIndex];
 
+  const handleShare = async () => {
+    setIsSharing(true);
+    setShareStatus('Preparing image share...');
+    try {
+      const status = await shareImageToSocial({
+        src: currentImage?.url,
+        title: currentImage?.caption || title || 'Karla Safari Adventures gallery image',
+        caption: currentImage?.caption || `${title || 'Karla Safari Adventures gallery'} - image ${currentIndex + 1}`,
+      });
+      setShareStatus(status);
+      if (status) window.setTimeout(() => setShareStatus(''), 2600);
+    } catch (error) {
+      console.error('Unable to share image', error);
+      setShareStatus('Image share unavailable. Link copy failed.');
+      window.setTimeout(() => setShareStatus(''), 3200);
+    } finally {
+      setIsSharing(false);
+    }
+  };
+
   return (
 <div className="fixed inset-0 z-50 flex items-start 2xl:items-center justify-center bg-black/30 backdrop-blur-sm animate-fadeIn sm:p-4">      <style>{`
         .scrollbar-hide::-webkit-scrollbar {
@@ -65,23 +118,40 @@ const PhotoGalleryModal = ({ isOpen, onClose, images, startIndex = 0, title }) =
             {title}
           </h2>
           
-          <button
-            onClick={onClose}
-            className="flex-shrink-0 relative group p-2 rounded-full transition-all duration-300 hover:bg-white/20 active:scale-95"
-            aria-label="Close gallery"
-          >
-            <div className="absolute inset-0 rounded-full bg-white/0 group-hover:bg-white/10 transition-all duration-300 scale-0 group-hover:scale-150 blur-sm"></div>
-            <X className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white relative z-10 transition-transform duration-300 group-hover:rotate-90 group-hover:scale-110" />
-          </button>
+          <div className="flex-shrink-0 flex items-center gap-2">
+            <button
+              onClick={handleShare}
+              disabled={isSharing || !currentImage?.url}
+              className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-1.5 text-xs font-extrabold text-slate-900 shadow-lg transition hover:bg-orange-50 disabled:cursor-wait disabled:opacity-70 sm:px-3 sm:py-2 sm:text-sm"
+              aria-label={`Share ${currentImage?.caption || title || 'gallery image'} to social media`}
+              title="Share image to social media"
+            >
+              <Share2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              <span>{isSharing ? 'Preparing...' : 'Share'}</span>
+            </button>
+            <button
+              onClick={onClose}
+              className="relative group p-2 rounded-full transition-all duration-300 hover:bg-white/20 active:scale-95"
+              aria-label="Close gallery"
+            >
+              <div className="absolute inset-0 rounded-full bg-white/0 group-hover:bg-white/10 transition-all duration-300 scale-0 group-hover:scale-150 blur-sm"></div>
+              <X className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white relative z-10 transition-transform duration-300 group-hover:rotate-90 group-hover:scale-110" />
+            </button>
+          </div>
         </div>
 
         <div className="relative bg-black overflow-hidden min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[530px]">
           <div className="absolute inset-0">
-            <img
-              src={currentImage.url}
-              alt={currentImage.caption || `Image ${currentIndex + 1}`}
-              className="w-full h-full object-fill"
-            />
+            {currentImage.url ? (
+              <img
+                src={currentImage.url}
+                alt={currentImage.caption || `Image ${currentIndex + 1}`}
+                onError={(event) => setImageFallback(event, currentImage.fallback ?? DEFAULT_IMAGE_FALLBACK)}
+                className="w-full h-full object-fill"
+              />
+            ) : (
+              <BirdImagePlaceholder />
+            )}
             
             {images.length > 1 && (
               <>
@@ -133,1027 +203,39 @@ const PhotoGalleryModal = ({ isOpen, onClose, images, startIndex = 0, title }) =
                   key={idx}
                   ref={(el) => (thumbnailRefs.current[idx] = el)}
                   onClick={() => setCurrentIndex(idx)}
-                  className={`flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 md:w-15 md:h-15 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
+                  className={`relative flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 md:w-15 md:h-15 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
                     idx === currentIndex
                       ? 'border-orange-500 scale-105 md:scale-110 shadow-lg shadow-orange-500/50 ring-2 ring-orange-400/30'
                       : 'border-slate-600 opacity-50 hover:opacity-100 hover:border-orange-400/50 active:scale-95'
                   }`}
                 >
-                  <img
-                    src={img.url}
-                    alt={`Thumbnail ${idx + 1}`}
-                    className="w-full h-full object-cover"
-                  />
+                  {img.url ? (
+                    <img
+                      src={img.url}
+                      alt={`Thumbnail ${idx + 1}`}
+                      onError={(event) => setImageFallback(event, img.fallback ?? DEFAULT_IMAGE_FALLBACK)}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <BirdImagePlaceholder />
+                  )}
                 </button>
               ))}
             </div>
           </div>
         )}
       </div>
+      {shareStatus && (
+        <div className="fixed bottom-5 left-1/2 z-[60] -translate-x-1/2 rounded-full bg-slate-950 px-5 py-3 text-sm font-bold text-white shadow-2xl">
+          {shareStatus}
+        </div>
+      )}
     </div>
   );
 };
 
 
-const PARKS_DATA = [
-  {
-    id: 'aberdare-national-park',
-    name: 'Aberdare National Park',
-    country: 'Kenya',
-    displayImage: ['/aberdare5.webp',],
-    rating: 4.1,
-    reviewCount: 326,
-    bestTime: 'June to September and December to February',
-    highSeason: 'June to October and December to March',
-    tourCount: 502, 
 
-
-    overviewContent: {
-      overviewText: `Aberdare National Park is a breathtaking highland paradise known for its cool climate, lush forests, and dramatic landscapes. Towering peaks, mist-covered valleys, and cascading waterfalls create a magical atmosphere perfect for adventure and relaxation. The park is home to rare wildlife such as the bongo antelope, black rhinos, elephants, and playful colobus monkeys. Its scenic moorlands, winding trails, and panoramic viewpoints offer unforgettable hiking and photography opportunities. Whether you're seeking wildlife encounters, serene nature walks, or peaceful escapes, Aberdare National Park delivers an unforgettable experience in the heart of Kenya’s wilderness.`,
-      mediaGallery: {
-        photos: {
-          count: 50,
-          thumbnail: '/aberdare10.webp'
-        },
-        map: {
-          available: true,
-          parkInCountry: '/aberdareInKenya.webp',
-          parkMap: '/kenya-map.webp'
-        }
-      },
-      quickInfo: {
-        rates: { min: 179, max: 1090, currency: 'USD', perDay: true },
-        bestTimeToGo: 'June to September and December to February',
-        highSeason: 'June to October and December to March',
-        size: '581,730km² / 224,607mi²',
-        altitude: '1,952-4,001m ',
-      },
-
-      prosAndCons: {
-    pros: [
-    'Excellent wildlife viewing, including rare species like the bongo, black rhino, and giant forest hog',
-    'A beautiful mix of habitats, from lush rainforests to open moorlands and scenic valleys',
-    'Spectacular waterfalls such as Karuru and Chania, perfect for photography and exploration',
-    'Cool, refreshing climate ideal for hiking and peaceful nature walks',
-    'Unique tree-house lodges offering close-up wildlife viewing at natural waterholes',
-    'Rich cultural heritage from the surrounding communities',
-    'Tranquil and uncrowded environment for those seeking serenity and privacy',
-    'High-quality lodges and friendly hospitality throughout the park'
-  ],
-
-  cons: [
-    'Occasional mist may slightly reduce visibility but adds to the park’s mystical atmosphere',
-    'Some internal roads can be a bit rough, adding a sense of adventure to the trip'
-  ]
-  },
-      reviews: {
-  expertRating: {
-    overall: 4.3,
-    totalReviews: 17, 
-    categories: {
-      wildlife: 4,
-      scenery: 5,
-      bushVibe: 5,
-      birding: 4.5
-    }
-  },
-  userRating: {
-    overall: 4.7,
-    totalReviews: 326,
-    categories: {
-      wildlife: 4.6,
-      scenery: 5,
-      bushVibe: 4.8,
-      birding: 4.7
-    }
-  },
-  featuredExpertReview: {
-    author: 'James',
-    park: 'US',
-    countryFlag: 'us',
-    credentials:
-      'James is a American conservation journalist contributing to Travel Africa, Rough Guides, and East African Wildlife Review.',
-    title: 'A Misty Highland Escape With Rare Wildlife Gems',
-    rating: 4,
-    excerpt:
-      'Aberdare is not your typical savannah safari. Instead, it offers a deeply atmospheric experience of dense forests, bamboo zones and dramatic waterfalls. Wildlife viewing requires patience, but the reward—spotting a bongo or a black rhino—feels truly special...'
-  },
-  featuredUserReview: {
-    author: 'Maria',
-    park: 'DE',
-    countryFlag: 'de',
-    date: 'October 22, 2025',
-    title: 'Magical forest park with unique lodges',
-    rating: 5,
-    excerpt:
-      'The tree-house lodge experience was unforgettable! Watching elephants and buffalo gather at the waterhole at night felt surreal. The cool weather and waterfalls made it so peaceful.'
-  },
-  additionalUserReview: {
-    author: 'David',
-    park: 'UK',
-    countryFlag: 'gb',
-    date: 'September 3, 2025',
-    title: 'Beautiful scenery and relaxing atmosphere',
-    rating: 5,
-    excerpt:
-      'Aberdare surprised us with its lush landscapes. Karuru Falls was worth the hike and we even spotted a rare bongo. It’s perfect if you love nature and want something quieter than the big savannah parks.'
-  }
-},
-   wildlifePreview: {
-  description:
-    "Aberdare National Park offers a unique highland wildlife experience. Dense forests and misty moorlands shelter rare species such as the elusive bongo antelope, black rhino, giant forest hog, and melanistic leopards. Elephants and buffalo are often seen at waterholes near the tree-top lodges. The park also hosts an impressive range of forest birds, including turacos, eagles, and several endemic species.",
-  linkText: "More about the wildlife"
-},
-
-thingsToDoPreview: [
-  {
-    description:
-      "Aberdare is ideal for scenic hikes, guided nature walks, and exploring dramatic waterfalls like Karuru and Chania. Unique lodge-based wildlife viewing at illuminated waterholes is a highlight, especially at night. Visitors can enjoy birdwatching, trout fishing in mountain streams, cultural experiences with local communities, and photography of the park’s mist-shrouded forests and rugged highland terrains.",
-       
-    }
-],
-
-weatherPreview: {
-  description:
-    "Situated in Kenya’s central highlands, Aberdare has a cool climate with chilly nights due to its high elevation. The Wet season October to May brings lush green landscapes and roaring waterfalls, while the Dry season June to September offers clearer skies and easier road access. Because temperatures drop sharply at night, warm clothing is recommended year-round.",
-  linkText: "More about the weather and climate"
-},
-
-bestTimePreview: {
-  description:
-    "The Dry season from June to September and December to February is the best time to visit Aberdare. Wildlife is easier to spot around waterholes, trails are more accessible, and the scenery is crisp and clear. The Wet season transforms the park into a lush, misty paradise with full waterfalls and excellent birding, though some roads may become muddy.",
-  linkText: "More about the best time to visit"
-},
-
-    },
-reviewsContent: {
-  expertRating: {
-    overall: 4.4,
-    totalReviews: 17,
-    categories: {
-      wildlife: 4,
-      scenery: 5,
-      bushVibe: 5,
-      birding: 4
-    }
-  },
-
-  userRating: {
-    overall: 4.7,
-    totalReviews: 326,
-    categories: {
-      wildlife: 4.6,
-      scenery: 5,
-      bushVibe: 4.9,
-      birding: 4.7
-    }
-  },
-allExpertReviews: [
-  {
-  id: 1,
-  author: 'Sarah Mitchell',
-  park: 'UK',
-  parkFlag: 'gb',
-  credentials: 'Sarah is a wildlife conservation journalist...',
-  title: 'Kenya\'s Misty Mountain Sanctuary',
-  rating: 5,
-  visitedTimes: '8 times',
-  date: 'November 17, 2025',
-  excerpt: 'Aberdare National Park offers something truly different...',
-  fullReview: 'Aberdare National Park offers something truly different...',
-  helpful: 127,
-  categories: {
-    wildlife: 5,
-    scenery: 5,
-    bushVibe: 5,
-    birding: 5
-  }
-},
-{
-  id: 2,
-  author: 'Michael Ochieng',
-  park: 'KE',
-  parkFlag: 'ke',
-  credentials: 'Michael is a Kenyan safari guide with 20 years...',
-  title: 'A Highland Paradise for Patient Wildlife Enthusiasts',
-  rating: 4,
-  visitedTimes: '50+ times',
-  date: 'April 22, 2022',
-  excerpt: 'Aberdare requires a different mindset...',
-  fullReview: 'Aberdare requires a different mindset...',
-  helpful: 94,
-  categories: {
-    wildlife: 4,
-    scenery: 5,
-    bushVibe: 4,
-    birding: 5
-  }
-},
-{
-  id: 3,
-  author: 'Dr. Patricia Chen',
-  park: 'SG',
-  parkFlag: 'sg',
-  credentials: 'Patricia is an ecologist and award-winning...',
-  title: 'Where Conservation Meets Spectacular Scenery',
-  rating: 5,
-  visitedTimes: '12 times',
-  date: 'December 19, 2024',
-  excerpt: 'Aberdare is a conservation success story...',
-  fullReview: 'Aberdare is a conservation success story...',
-  helpful: 156,
-  categories: {
-    wildlife: 5,
-    scenery: 5,
-    bushVibe: 5,
-    birding: 4
-  }
-},
-{
-  id: 4,
-  author: 'James Karanja',
-  park: 'KE',
-  parkFlag: 'ke',
-  credentials: 'James is a naturalist and cultural historian...',
-  title: 'A Park Steeped in History and Natural Majesty',
-  rating: 5,
-  visitedTimes: '30+ times',
-  date: 'June 28, 2024',
-  excerpt: 'Beyond its wildlife riches...',
-  fullReview: 'Beyond its wildlife riches...',
-  helpful: 88,
-  categories: {
-    wildlife: 5,
-    scenery: 5,
-    bushVibe: 5,
-    birding: 4
-  }
-},
-{
-  id: 5,
-  author: 'Helen O\'Brien',
-  park: 'IE',
-  parkFlag: 'ie',
-  credentials: 'Helen is a travel writer specializing...',
-  title: 'A Refreshing Mountain Retreat with Unique Wildlife',
-  rating: 4,
-  visitedTimes: '5 times',
-  date: 'october 07, 2025',
-  excerpt: 'After days on the hot, dusty savannah...',
-  fullReview: 'After days on the hot, dusty savannah...',
-  helpful: 71,
-  categories: {
-    wildlife: 4,
-    scenery: 5,
-    bushVibe: 4,
-    birding: 4
-  }
-},
-{
-  id: 6,
-  author: 'Robert Thornton',
-  park: 'ZA',
-  parkFlag: 'za',
-  credentials: 'Robert is a wildlife biologist...',
-  title: 'A Specialist Park for Discerning Safari-Goers',
-  rating: 4,
-  visitedTimes: '15 times',
-  date: 'September 15, 2025',
-  excerpt: 'Aberdare rewards travelers who value rarity...',
-  fullReview: 'Aberdare rewards travelers who value rarity...',
-  helpful: 112,
-  categories: {
-    wildlife: 4,
-    scenery: 5,
-    bushVibe: 5,
-    birding: 5
-  }
-},
-{
-  id: 7,
-  author: 'Lisa van der Merwe',
-  park: 'NL',
-  parkFlag: 'nl',
-  credentials: 'Lisa is an adventure travel specialist...',
-  title: 'Kenya\'s Premier Destination for Walking Safaris',
-  rating: 5,
-  visitedTimes: '18 times',
-  date: 'March 02, 2021',
-  excerpt: 'For active travelers, Aberdare is unbeatable...',
-  fullReview: 'For active travelers, Aberdare is unbeatable...',
-  helpful: 139,
-  categories: {
-    wildlife: 4,
-    scenery: 5,
-    bushVibe: 5,
-    birding: 4
-  }
-}
-
-],
- allUserReviews: [
-{
-  id: 1,
-  author: 'Rachel Thomson',
-  park: 'UK',
-  parkFlag: 'gb',
-  title: 'A Magical Mountain Experience',
-  rating: 5,
-  date: 'October 22, 2025',
-  excerpt: 'Stayed at The Ark for two nights and it was absolutely incredible! Watching elephants at the waterhole from our room at 2am was surreal.',
-  fullReview: 'Stayed at The Ark for two nights...',
-  helpful: 34,
-  verified: true,
-  tourTaken: 'Aberdare & Lake Nakuru Safari - 5 Days'
-},
-{
-  id: 2,
-  author: 'David Kamau',
-  park: 'KE',
-  parkFlag: 'ke',
-  title: 'Beautiful Scenery, Patient Wildlife Viewing',
-  rating: 4.2,
-  date: 'October 8, 2025',
-  excerpt: 'As a Kenyan...',
-  fullReview: 'As a Kenyan...',
-  helpful: 52,
-  verified: true,
-  tourTaken: 'Aberdare National Park Day Trip from Nairobi'
-},
-{
-  id: 3,
-  author: 'Jennifer Martinez',
-  park: 'US',
-  parkFlag: 'us',
-  title: 'Perfect Stopover Between Parks',
-  rating: 4.5,
-  date: 'September 29, 2025',
-  excerpt: 'We spent one night...',
-  fullReview: 'We spent one night...',
-  helpful: 41,
-  verified: true,
-  tourTaken: 'Northern Kenya Explorer - 9 Days'
-},
-{
-  id: 4,
-  author: 'Thomas Weber',
-  park: 'DE',
-  parkFlag: 'de',
-  title: 'Unique Highland Safari Experience',
-  rating: 5,
-  date: 'September 14, 2025',
-  excerpt: 'Aberdare exceeded all expectations!',
-  fullReview: 'Aberdare exceeded all expectations!',
-  helpful: 47,
-  verified: false,
-  tourTaken: null
-},
-{
-  id: 5,
-  author: 'Priya Sharma',
-  park: 'IN',
-  parkFlag: 'in',
-  title: 'Different from Other Safari Parks',
-  rating: 4,
-  date: 'August 31, 2025',
-  excerpt: 'If you expect open plains...',
-  fullReview: 'If you expect open plains...',
-  helpful: 38,
-  verified: true,
-  tourTaken: 'Kenya Birdwatching Safari - 12 Days'
-},
-{
-  id: 6,
-  author: 'Marcus Johnson',
-  park: 'AU',
-  parkFlag: 'au',
-  title: 'Incredible Waterfall Hikes and Cool Climate',
-  rating: 4.8,
-  date: 'August 19, 2025',
-  excerpt: 'As someone who loves hiking...',
-  fullReview: 'As someone who loves hiking...',
-  helpful: 61,
-  verified: true,
-  tourTaken: 'Active Kenya Safari - Hiking & Wildlife - 10 Days'
-},
-{
-  id: 7,
-  author: 'Sophie Dubois',
-  park: 'FR',
-  parkFlag: 'fr',
-  title: 'A Peaceful Mountain Retreat',
-  rating: 4.5,
-  date: 'July 28, 2025',
-  excerpt: 'Aberdare felt like a peaceful escape...',
-  fullReview: 'Aberdare felt like a peaceful escape...',
-  helpful: 44,
-  verified: true,
-  tourTaken: 'Aberdare Highlands & Rift Valley Lakes - 6 Days'
-}
-
-  
-],
-  mostHelpfulExpert: {
-  id: 2,
-  author: 'David Thompson',
-  park: 'AU',
-  parkFlag: 'au',
-  credentials: 'Wildlife photographer and safari guide with 15 years of experience across East Africa.',
-  title: 'Unmatched Wildlife Diversity and Spectacular Landscapes',
-  rating: 5,
-  date: 'August 2025',
-  excerpt: 'Kenya continues to set the gold standard for safari experiences. The sheer diversity of landscapes - from savannah to forests, lakes to coastline - means every day brings new discoveries.',
-  fullReview: 'Kenya continues to set the gold standard for safari experiences. The sheer diversity of landscapes - from savannah to forests, lakes to coastline - means every day brings new discoveries. The Masai Mara\'s migration is justifiably famous, but don\'t overlook gems like Laikipia, where innovative conservation meets luxury safari experiences. The park\'s infrastructure and tourism industry are well-developed, making it accessible for first-timers while still offering enough depth for safari veterans.',
-  helpful: 203,
-  avatar: null
-},
-
-latestUserReview: {
-  id: 1,
-  author: 'Allan',
-  park: 'SG',
-  parkFlag: 'sg',
-  title: 'Good park for great safari experience',
-  rating: 5,
-  date: 'October 10, 2025',
-  excerpt: 'So unreal to be so close to those wild animals.. once a life time experience ! I strongly recommend!',
-  fullReview: 'So unreal to be so close to those wild animals.. once a life time experience ! I strongly recommend! We visited Masai Mara and Amboseli and both exceeded expectations. Our guide was incredibly knowledgeable and patient. The lodges were comfortable and the food was excellent. Already planning to return!',
-  helpful: 45,
-  verified: true,
-  tourTaken: '7-Day Masai Mara & Amboseli Safari',
-  avatar: null
-}
-
-},
-   wildlifeContent: {
-  description: 'Aberdare National Park is a breathtaking highland escape in central Kenya, perfect for travelers seeking serenity, adventure, and unforgettable wildlife encounters. With misty forests, dramatic cliffs, and stunning waterfalls, the park offers a unique safari experience where you can spot elephants, buffalos, hyenas, and the rare bongo antelope in their natural habitat. Whether you’re looking for peaceful nature walks, thrilling hikes, or scenic game drives, Aberdare National Park promises an unforgettable journey into one of Kenya’s most beautiful and untouched landscapes.',
-  
-  animals: [
-    { name: 'Elephant', status: 'Common', icon: 'elephant.webp' },
-    { name: 'Giraffe', status: 'None', icon: 'giraffe.webp' },
-    { name: 'Hippo', status: 'None', icon: 'hippo.webp' },
-    { name: 'Buffalo', status: 'Common', icon: 'buffalo.webp' },
-    { name: 'Zebra', status: 'Occasional', icon: 'zebra.webp' },
-    { name: 'Wildebeest', status: 'None', icon: 'wildebeest.webp' },
-    { name: 'White Rhino', status: 'None', icon: 'white rhino.webp' },
-    { name: 'Black Rhino', status: 'Rare', icon: 'black rhino.webp' },
-    { name: 'Lion', status: 'None', icon: 'lion.webp' },
-    { name: 'Leopard', status: 'Rare', icon: 'leopard.webp' },
-    { name: 'Cheetah', status: 'None', icon: 'cheetah.webp' },
-    { name: 'Hyena', status: 'Occasional', icon: 'hyena.webp' },
-    { name: 'Wild Dog', status: 'None', icon: 'wild dog.webp' }
-  ],
-
-  highlights: {
-    title: 'Wildlife Highlights',
-    description: `Aberdare National Park is a dramatic, high-altitude sanctuary defined by misty bamboo forests, deep ravines, and Afro-alpine moorlands, offering a stark contrast to Kenya's plains. It is critical for the conservation of the endangered Black Rhino and is one of the only places to find the rare Bongo forest antelope and the Giant Forest Hog. The park is famed for its unique tree-top lodges (like The Ark and Treetops), which provide excellent nocturnal viewing of animals like Elephant and Buffalo at floodlit waterholes. Scenic highlights include several dramatic waterfalls and opportunities for high-altitude trout fishing and trekking.`
-  },
-
-  bestTime: {
-    title: 'Best Time for Wildlife Viewing',
-    description: `The best time for wildlife viewing in Aberdare National Park is during the Dry season, spanning June to September and December to February. These drier periods offer maximized game viewing opportunities as the vegetation thins out. A key advantage of visiting from June to September is that Elephants and various antelope species disperse and congregate in the higher, more open moorlands, making them easier to spot. While the Aberdares can experience heavy rainfall throughout the year, this seldom impacts the safari experience, especially for guests staying at the famous tree-top hotels (like Treetops or The Ark). These unique lodges are specifically designed to provide comfortable, covered, and floodlit viewing of animals at the waterholes, ensuring a rewarding experience regardless of the weather.`
-  },
-
-  expertRating: {
-    overall: 4.5,
-    totalReviews: 16,
-    stars: 5
-  },
-
-  userRating: {
-    overall: 4.8,
-    totalReviews: 1613,
-    stars: 5
-  },
-},
-
-    birdsContent: {
-  description: `Aberdare National Park stands out as a top Kenyan birding destination, hosting over 290 recorded bird species within its unique, high-altitude ecosystem of montane forests, bamboo groves, and moorlands. Birding enthusiasts prioritize this park for its endemic species, including the highly localized Aberdare Cisticola and the near-endemic Jackson's Spurfowl, alongside other striking residents like the Hartlaub's Turaco. The most active and rewarding time for a birding safari is typically between November and April, when the park welcomes numerous European and North African migrants, and resident species showcase their vibrant breeding plumage, though excellent sightings are available year-round.`,
-
-notableBirds: [
-   {
-      name: 'Moorland chat',
-      status: 'Common',
-      image: '/moorland-chat.webp'
-    },
-   
-    {
-      name: "Jackson's spurfowl",
-      status: 'Common & near-endemic',
-      image: '/jacksons-spurfowl.webp'
-    },
-      {
-      name: 'Baglafecht weaver',
-      status: 'Locally common',
-      image: '/baglafecht-weaver.webp'
-    },
-   
-    {
-      name: 'Red-winged starling',
-      status: 'Common',
-      image: '/red-winged-starling.webp'
-    },
-     {
-      name: "Hartlaub's turaco",
-      status: 'Locally common',
-      image: '/hartlaubs-turaco.webp'
-    },
-  ],
-  endemicBirds: {
-    title: 'Endemic & Near-endemic Birds',
-    subtitle: '(E) endemic = only lives in Kenya\n(NE) near-endemic = lives in Kenya and neighboring countries',
-  species: [
-  { name: "African yellow warbler", type: "", link: "https://www.flickr.com/search/?text=%22Dark-capped%20yellow%20warbler%22" },
-  { name: "Black-fronted bush-shrike", type: "", link: "https://www.flickr.com/search/?text=Telophorus%20nigrifrons" },
-  { name: "Mountain wagtail", type: "", link: "https://www.flickr.com/search/?text=Motacilla%20clara" },
-  { name: "Olive ibis", type: "", link: "https://www.flickr.com/photos/marthaenpiet/437613695/in/photolist-EETiH" },
-  { name: "Tacazze sunbird", type: "", link: "https://www.flickr.com/search/?text=%22Tacazze%20sunbird%22" },
-  { name: "Montane white-eye", type: "", link: "https://www.flickr.com/search/?text=%22Broad-ringed%20white-eye%22" },
-  { name: "African thrush", type: "", link: "https://flickr.com/search/?text=African+Thrush" },
-  { name: "Hunter’s cisticola", type: "", link: "https://www.flickr.com/search/?text=%22Hunter%E2%80%99s%20cisticola%22" },
-  { name: "Montagu’s harrier", type: "", link: "https://www.flickr.com/search/?q=%22Montagu%27s+harrier%22&z=e" },
-  { name: "Streaky seedeater", type: "", link: "https://flickr.com/search/?text=Serinus+striolatus" },
-  { name: "Bronzy sunbird", type: "", link: "https://www.flickr.com/search/?q=%22Bronzy+sunbird%22&z=e" },
-  { name: "Tambourine dove", type: "", link: "https://www.flickr.com/search/?q=%22Tambourine+dove%22&z=e" },
-  { name: "Golden-winged sunbird", type: "", link: "https://www.flickr.com/search/?q=%22Golden-winged+sunbird%22&z=e" },
-  { name: "Cinnamon-chested bee-eater", type: "", link: "https://www.flickr.com/search/?q=%22Cinnamon-chested+bee-eater%22&z=e" },
-  { name: "Crowned eagle", type: "", link: "https://www.flickr.com/search/?q=%22African+crowned+eagle%22&z=e" },
-  { name: "Narina trogon", type: "", link: "https://www.flickr.com/search/?q=%22Narina%27s+trogon%22+-Eyesonnatureexpeditions&z=e" },
-  { name: "Silvery-cheeked hornbill", type: "", link: "https://www.flickr.com/search/?q=%22Silvery-cheecked+hornbill%22&z=e" },
-  { name: "Scarlet-tufted malachite sunbird", type: "", link: "https://www.flickr.com/search/?q=%22Scarlet-tufted+malachite+sunbird%22+-seedeater&z=e" },
-  { name: "Doherty’s bush-shrike", type: "", link: "https://www.flickr.com/search/?text=%22Doherty%27s%20bushshrike%22" },
-  { name: "Abyssinian crimsonwing", type: "", link: "https://www.flickr.com/search/?q=%22Abyssinian+crimsonwing%22&z=e" },
-  { name: "Bar-tailed trogon", type: "", link: "https://www.flickr.com/search/?q=%22Bar-tailed+trogon%22+-narina&z=e" },
-  { name: "African black duck", type: "", link: "https://www.flickr.com/search/?q=%22African+black+duck%22&z=e" },
-  { name: "White-headed wood-hoopoe", type: "", link: "https://www.flickr.com/search/?text=%20%22White-headed%20wood-hoopoe%22&z=e" },
-  { name: "Mountain buzzard", type: "", link: "https://www.flickr.com/search/?q=%22Forest+buzzard%22&z=e" },
-  { name: "African green pigeon", type: "", link: "https://www.flickr.com/search/?q=%22African+green+pigeon%22&z=e" },
-  { name: "Moorland chat", type: "", link: "https://www.flickr.com/search/?q=%22Alpine+chat%22&z=e" },
-  { name: "African goshawk", type: "", link: "https://www.flickr.com/search/?text=%22African%20goshawk%22" },
-  { name: "Aberdare cisticola", type: "E", link: "https://www.flickr.com/search/?q=%22Aberdare+cisticola%22+-wheatear&z=e" },
-  { name: "Ayres’s hawk-eagle", type: "", link: "https://www.flickr.com/search/?q=%22Ayres%27s+hawk-eagle%22&z=e" },
-  { name: "Rufous-chested sparrowhawk", type: "", link: "https://www.flickr.com/search/?q=%22Accipiter+rufiventris%22&z=e" },
-  { name: "Speke’s weaver", type: "", link: "https://www.flickr.com/search/?q=%22Speke%27s+weaver%22&z=e" },
-  { name: "Sharpe’s longclaw", type: "NE", link: "https://www.flickr.com/search/?q=%22Sharpe%27s+longclaw%22+-immature+-wondering&z=e" },
-  { name: "African paradise flycatcher", type: "", link: "https://www.flickr.com/search/?q=%22Paradise+flycatcher%22&z=e" },
-  { name: "Moorland francolin", type: "", link: "https://www.flickr.com/search/?text=%22Moorland%20francolin" },
-  { name: "White-eyed slaty flycatcher", type: "", link: "https://www.flickr.com/search/?q=%22White-eyed+slaty+flycatcher%22&z=e" },
-  { name: "Jackson’s spurfowl", type: "NE", link: "https://www.flickr.com/search/?q=%22Jackson%27s+francolin%22&z=e" }
-],
-
-
-  },
-  birdingRating: {
-    expertRating: {
-      overall: 4.5,
-      totalReviews: 16,
-      stars: 5
-    },
-    userRating: {
-      overall: 4.8,
-      totalReviews: 1613,
-      stars: 5
-    }
-  },
-
-  factsAndFigures: {
-    birdSpecies: '1,100+',
-    migratoryBirds: 'Nov to Apr'
-  },
-
-  bestTimeForBirdWatching: {
-    description: `Aberdare National Park offers excellent bird watching throughout the year, but the peak season for spotting avian life is from November to April. This period is essential for birders as it marks the arrival of numerous European and North African migrants, significantly increasing the park's biodiversity. Furthermore, this timing coincides with the Wet season (October to May), allowing you to witness many resident species in their vibrant breeding plumage and actively nesting. While the park's unique montane forest and moorland specials are resident year-round, the drier months of June to September and December to February provide an ideal balance of rewarding bird sightings with more agreeable weather for exploring the high-altitude trails.`
-  },
-
-},
-    bestTimeToVisitContent: {
-  introText: `The optimal window for a rewarding Aberdare National Park experience is definitively during the peak dry seasons, spanning from June to September and the short, dry interlude of December through February. For adventure travelers intent on extensive high-altitude trekking across the moorlands and ranges, these periods offer the most navigable conditions and the highest chance of clear, sweeping vistas. While Aberdare remains a superb year-round safari destination—with consistent, close-range wildlife viewing guaranteed from the famous tree lodges—exploring the park's wider expanse is significantly compromised by the heavy 'long rains'. Therefore, visitors are advised to steer clear of the wettest months like April, May, and October when torrential downpours render many trails slippery and difficult to access.`,
-  
-  monthlyRatings: [
-    { month: 'Jan', rating: 'excellent' },
-    { month: 'Feb', rating: 'excellent' },
-    { month: 'Mar', rating: 'fair' },
-    { month: 'Apr', rating: 'poor' },
-    { month: 'May', rating: 'poor' },
-    { month: 'Jun', rating: 'excellent' },
-    { month: 'Jul', rating: 'excellent' },
-    { month: 'Aug', rating: 'excellent' },
-    { month: 'Sep', rating: 'excellent' },
-    { month: 'Oct', rating: 'excellent' },
-    { month: 'Nov', rating: 'fair' },
-    { month: 'Dec', rating: 'good' }
-  ],
-
-  keyInfo: [
-    {
-      icon: 'calendar',
-      label: 'Best Time',
-      title: 'June to September and December to February ',
-      subtitle: '(Driest months)'
-    },
-    {
-      icon: 'users',
-      label: 'High Season',
-      title: 'June to October and December to March ',
-      subtitle: '(Hotels get very busy)'
-    },
-    {
-      icon: 'umbrella',
-      label: 'Low Season',
-      title: 'April and May',
-      subtitle: '(Some roads might be in bad condition and rain can interfere with your trip)'
-    },
-    {
-      icon: 'sun',
-      label: 'Best Weather',
-      title: 'June to September and December to February',
-      subtitle: '(Less rain)'
-    },
-    {
-      icon: 'cloud-rain',
-      label: 'Worst Weather',
-      title: 'April, May and October',
-      subtitle: '(Peaks of the long and short rains)'
-    }
-  ],
-
-  drySeasonInfo: {
-    title: 'June to September',
-    subtitle: 'Dry Season',
-    pros: [
-   "Optimal Trekking & Hiking - Trails across the high moorlands and paths to major waterfalls (`Karuru`, `Gura`) are dry, firm, and easily accessible, making it the best season for adventure and exploration.",
-    "Guaranteed Wildlife Viewing - Animals are highly concentrated around the consistent water and salt licks at the famous tree hotels (`The Ark`, `Treetops`), providing exceptional, predictable sightings of the Big Five (excluding Lion, which is rare).",
-    "Clear Vistas & Photography - Dry air leads to sunny, clear skies, offering the best opportunities for spectacular, long-range photography of the Aberdare Ranges, peaks, and surrounding landscapes (sometimes including Mount Kenya).",
-    "Improved Accessibility - Park roads and tracks are in their best condition (less muddy and slippery), making game drives easier and allowing access to more remote areas of the park.",
-    "Reduced Insect Presence - The lack of rain naturally lowers the population of mosquitoes and other insects, contributing to a more comfortable safari experience.",
-    "Better Game Spotting - Although the forest remains dense, the vegetation in the open moorlands is thinned out, slightly improving the chances of spotting elusive high-altitude species."
-    ],
-    cons: [
-      "Cold Temperatures - Due to its high altitude, mornings and evenings can be extremely cold, particularly in June-August, necessitating bulky, warm clothing.",
-    "Peak Season Crowds & Cost - Being the most popular time to visit, the famous tree lodges are frequently busy, require extensive advance booking, and are subject to the highest rates."
-    ],
-    image: '/kenyaWildlife2.webp',
-  },
-
-  wetSeasonInfo: {
-    title: 'November to May',
-    subtitle: 'Wet Season',
-    pros: [
-   "Low Season Rates - Significantly reduced accommodation and safari costs, especially in April and May, offering excellent value for a luxury tree hotel experience.",
-    "Exclusive Experience - Far fewer tourists mean a more intimate and exclusive safari experience with minimal competition at viewpoints and lodges.",
-    "Lush, Green Scenery - The landscape transforms into a breathtaking, vibrant green, providing stunning photographic backdrops of lush forests and flowing waterfalls.",
-    "Birdwatcher's Paradise - This is the breeding season for many resident species and the time when migratory birds arrive from Europe and North Africa, creating peak birdwatching opportunities.",
-    "Calving Season - Many antelope and herbivore species give birth during the rains, offering the heartwarming opportunity to witness newborns and new life in the park.",
-    "Warmest Temperatures - The afternoons are generally warmer and more comfortable than the dry-season high-altitude cold, especially from December to February (short dry interlude)."
-    ],
-    cons: [
-    "Challenging Road Conditions - Heavy rainfall can make some park roads, particularly in the lower Salient area, muddy, slippery, and occasionally impassable, requiring a capable 4x4 vehicle.",
-    "Limited Hiking/Trekking - Moorland and bamboo forest trails become boggy and slick, which significantly restricts extensive hiking and may obscure peak views due to mist and cloud cover."
-    ],
-    image: '/kenyaWildlife12.webp',
-  },
-
-  parkByParkRatings: [
-    {
-      name: 'Amboseli National Park',
-      months: [
-        { month: 'Jan', rating: 'excellent' },
-        { month: 'Feb', rating: 'excellent' },
-        { month: 'Mar', rating: 'good' },
-        { month: 'Apr', rating: 'fair' },
-        { month: 'May', rating: 'fair' },
-        { month: 'Jun', rating: 'excellent' },
-        { month: 'Jul', rating: 'excellent' },
-        { month: 'Aug', rating: 'excellent' },
-        { month: 'Sep', rating: 'excellent' },
-        { month: 'Oct', rating: 'excellent' },
-        { month: 'Nov', rating: 'fair' },
-        { month: 'Dec', rating: 'good' }
-      ]
-    },
-    {
-      name: 'Buffalo Springs NR',
-      months: [
-        { month: 'Jan', rating: 'excellent' },
-        { month: 'Feb', rating: 'excellent' },
-        { month: 'Mar', rating: 'good' },
-        { month: 'Apr', rating: 'fair' },
-        { month: 'May', rating: 'good' },
-        { month: 'Jun', rating: 'excellent' },
-        { month: 'Jul', rating: 'excellent' },
-        { month: 'Aug', rating: 'excellent' },
-        { month: 'Sep', rating: 'excellent' },
-        { month: 'Oct', rating: 'excellent' },
-        { month: 'Nov', rating: 'fair' },
-        { month: 'Dec', rating: 'good' }
-      ]
-    },
-    {
-      name: 'Lake Nakuru National Park',
-      months: [
-        { month: 'Jan', rating: 'excellent' },
-        { month: 'Feb', rating: 'excellent' },
-        { month: 'Mar', rating: 'good' },
-        { month: 'Apr', rating: 'fair' },
-        { month: 'May', rating: 'fair' },
-        { month: 'Jun', rating: 'excellent' },
-        { month: 'Jul', rating: 'excellent' },
-        { month: 'Aug', rating: 'excellent' },
-        { month: 'Sep', rating: 'excellent' },
-        { month: 'Oct', rating: 'excellent' },
-        { month: 'Nov', rating: 'excellent' },
-        { month: 'Dec', rating: 'excellent' }
-      ]
-    },
-    {
-      name: 'Masai Mara NR',
-      months: [
-        { month: 'Jan', rating: 'excellent' },
-        { month: 'Feb', rating: 'excellent' },
-        { month: 'Mar', rating: 'fair' },
-        { month: 'Apr', rating: 'fair' },
-        { month: 'May', rating: 'good' },
-        { month: 'Jun', rating: 'excellent' },
-        { month: 'Jul', rating: 'excellent' },
-        { month: 'Aug', rating: 'excellent' },
-        { month: 'Sep', rating: 'excellent' },
-        { month: 'Oct', rating: 'excellent' },
-        { month: 'Nov', rating: 'good' },
-        { month: 'Dec', rating: 'fair' }
-      ]
-    },
-    {
-      name: 'Samburu National Reserve',
-      months: [
-        { month: 'Jan', rating: 'excellent' },
-        { month: 'Feb', rating: 'excellent' },
-        { month: 'Mar', rating: 'good' },
-        { month: 'Apr', rating: 'fair' },
-        { month: 'May', rating: 'fair' },
-        { month: 'Jun', rating: 'excellent' },
-        { month: 'Jul', rating: 'excellent' },
-        { month: 'Aug', rating: 'excellent' },
-        { month: 'Sep', rating: 'excellent' },
-        { month: 'Oct', rating: 'good' },
-        { month: 'Nov', rating: 'fair' },
-        { month: 'Dec', rating: 'good' }
-      ]
-    },
-    {
-      name: 'Tsavo East National Park',
-      months: [
-        { month: 'Jan', rating: 'excellent' },
-        { month: 'Feb', rating: 'excellent' },
-        { month: 'Mar', rating: 'good' },
-        { month: 'Apr', rating: 'fair' },
-        { month: 'May', rating: 'fair' },
-        { month: 'Jun', rating: 'excellent' },
-        { month: 'Jul', rating: 'excellent' },
-        { month: 'Aug', rating: 'excellent' },
-        { month: 'Sep', rating: 'excellent' },
-        { month: 'Oct', rating: 'excellent' },
-        { month: 'Nov', rating: 'fair' },
-        { month: 'Dec', rating: 'good' }
-      ]
-    },
-    {
-      name: 'Tsavo West National Park',
-     months: [
-        { month: 'Jan', rating: 'excellent' },
-        { month: 'Feb', rating: 'excellent' },
-        { month: 'Mar', rating: 'good' },
-        { month: 'Apr', rating: 'fair' },
-        { month: 'May', rating: 'fair' },
-        { month: 'Jun', rating: 'excellent' },
-        { month: 'Jul', rating: 'excellent' },
-        { month: 'Aug', rating: 'excellent' },
-        { month: 'Sep', rating: 'excellent' },
-        { month: 'Oct', rating: 'excellent' },
-        { month: 'Nov', rating: 'fair' },
-        { month: 'Dec', rating: 'good' }
-      ]
-    }
-  ],
-
-  wildlifePhotos: {
-    featured: '/kenyaWildlife44.webp',
-    count: 50
-  }
-},
-   weatherAndClimateContent: {
-  introText: `The high altitude of Aberdare National Park (2,000–4,000m) creates a cool, misty montane climate very different from Kenya’s typical tropical weather. Daytime temperatures range from 15°C to 18°C (59°F to 64°F) at lower elevations, while nights on the moorlands often drop to freezing, sometimes with frost. The park follows Kenya’s general Dry (June–September, December–February) and Wet (March–May, October–November) seasons, but even the “dry” months still see some rain and heavy mist. This altitude-driven climate produces distinct microclimates—from dense, wet forests to cold, open moorlands—meaning visitors should carry warm layers and waterproof clothing throughout the year.`,
-  
-
-  drySeason: {
-    title: 'Dry Season',
-    period: 'June to September',
-    description: `During the Dry season, Aberdare National Park enjoys cool and refreshing weather due to its high altitude. Daytime temperatures typically average around 20–23°C (68–73°F). Skies are clearer, visibility is excellent, and wildlife is easier to spot as animals gather around water sources.`,
-      months: [
-      {
-        title: 'June, July, August & September',
-        description: 'These are the coldest months in Aberdare. Early mornings can drop to around 8–10°C (46–50°F) or even lower in some elevated areas. Warm clothing is essential, especially for early-morning and evening game drives, as safari vehicles can be quite cold in open air.'
-      }
-    ],
-  },
-
-  wetSeason: {
-    title: 'Wet Season',
-    period: 'October to May',
-    description: 'In the Wet season, Aberdare experiences more frequent rain and cloud cover, especially in the highland areas. Daytime temperatures usually range from 18–24°C (64–75°F), with mornings remaining chilly. Packing warm layers and rain gear is recommended.',
-    months: [
-      {
-        title: 'October to December',
-        subtitle: '\'Short rains\'',
-        description: 'A period of unpredictable short rains between November and December that lasts about a month. The rain is sometimes heavy, but mostly falls in the late afternoon or evening, and will seldom have a negative impact on your safari.'
-      },
-      {
-        title: 'January & February',
-        description: 'A short hot and relatively dry period can occur, but its timing varies from year to year. Wildlife viewing remains good and the park is still lush.'
-      },
-      {
-        title: 'March, April & May',
-        subtitle: '\'Long rains\'',
-        description: 'These three months bring the heaviest rainfall. Aberdare often becomes very cloudy, misty, and damp, especially in the moorland and forest zones. Humidity increases, and roads in some areas can become muddy, making this the quietest season for safaris.'
-      }
-    ],
-  }
-},
-howToGetThereContent: {
-  gettingAround: `Aberdare National Park is easily accessible whether you are arriving directly in Kenya or continuing your safari from another destination. Most international travelers land at Jomo Kenyatta International Airport (NBO) in Nairobi, from where the park is reached by a 3–4 hour road drive or a short 30–60 minute charter flight from Wilson Airport, Nairobi’s domestic aviation hub. Local airstrips such as Mweiga or Nanyuki provide quick access, with lodges and tour operators usually arranging transfers from the runway to your accommodation. Travelers coming from other safari regions, such as the Maasai Mara, can also fly directly into airstrips near Aberdare or drive via Nairobi. Roads are mostly paved until the park gates, after which a 4×4 vehicle is recommended, especially in wetter months, ensuring comfortable travel and smooth continuation of your safari adventure`,
-  tourOperatorNote: 'You can relax while we manage logistics, allowing you to focus on enjoying your Aberdare safari',
-
-  flightsAndAirlines: {
-    title: 'Airlines & Ticket Prices',
-    description: 'Please check Skyscanner to see which airlines can take you to Jomo Kenyatta International Airport (NBO), and what tickets would cost..',
-    bookingLink: 'www.skyscanner.com',
-    link: 'https://www.skyscanner.net/'
-  },
-
-  domesticAirlines: {
-    title: 'Domestic Flights',
-    note: 'As your tour operator, we arrange all charter flights between safari destinations as part of your package. Aberdare National Park does not have a commercial airstrip, so we coordinate flights from Wilson Airport (WIL) in Nairobi, located 6 km/4 mi south of the city, to Nanyuki Airstrip, the closest airstrip to the park (95 km/60 mi away). Daily scheduled flights are available, and we handle all bookings, transfers, and ground transportation to ensure your journey to Aberdare is seamless and stress-free.',
-    carriers: [
-      {
-        name: 'AirKenya',
-        routes: 'Offers flights from Nairobi to Nanyuki and other safari destinations including Amboseli, Tsavo West, Lewa Downs, Meru, and beyond.',
-        link: 'https://airkenya.com/',
-      },
-      {
-        name: 'Safarilink',
-        routes: 'Provides flights from Nairobi to Nanyuki and additional destinations such as Naivasha, Samburu, the Masai Mara, and Zanzibar.',
-        link: 'https://www.flysafarilink.com/',
-      },
-    ]
-  },
-
-  visaRequirements: {
-    title: 'Passport, Visa & Other Entry Requirements',
-    intro: 'Please check our How To Get to Kenya page to learn more about passport, visa and other entry requirements.',
-    requirements: [
-      'A passport is required for all foreign visitors and must be valid for at least six months.',
-      'No visa is required. Instead, all visitors must have an Electronic Travel Authorisation (eTA).',
-      'Visitors must apply in advance for the eTA on www.etakenya.go.ke.',
-      'The standard processing time is three days, but you can apply up to three months prior to travel and early application is recommended.',
-      'When arriving from a yellow-fever-infected park in Africa or the Americas, a yellow-fever vaccination certificate is required.',
-      'For more information we strongly advise checking the website of your local Kenyan embassy/high commission or the government travel advisories below:'
-    ],
-    embassies: [
-      { park: 'Australia', flag: '🇦🇺', link: 'www.smartraveller.gov.au',website: ''},
-      { park: 'Canada', flag: '🇨🇦', link: 'travel.gc.ca',website: '' },
-      { park: 'EU member states', flag: '🇪🇺', link: 'consular-protection.ec.europa.eu' ,website: ''},
-      { park: 'Ireland', flag: '🇮🇪', link: 'www.ireland.ie',website: '' },
-      { park: 'New Zealand', flag: '🇳🇿', link: 'www.safetravel.govt.nz',website: '' },
-      { park: 'United Kingdom', flag: '🇬🇧', link: 'www.gov.uk',website: '' },
-      { park: 'United States', flag: '🇺🇸', link: 'travel.state.gov',website: '' }
-    ]
-  }
-},
-    malariaAndSafetyContent: {
-  introText: 'Your safety and well-being are our top priorities while visiting Aberdare National Park and other destinations in Kenya. This page provides essential information on health precautions, including malaria prevention, as well as tips for staying secure during your travels. By following these guidelines, you can focus on enjoying your safari experience with peace of mind.',
-  
-  Safety: {
-    title: 'Safety',
-    description:`In our experience, Kenya’s parks and reserves, including Aberdare National Park, are generally very safe for visitors. Incidents of crime within the parks are extremely rare. However, when traveling through towns or cities between parks, it’s important to follow standard safety practices. Booking an organized tour provides an extra layer of protection, as guides and operators are familiar with local conditions and ensure your safety throughout your trip.
-
-For the latest information on safety and travel in Kenya, we recommend consulting official travel advisories from your government before your visit. This will help you stay informed and prepared for a secure and enjoyable safari experience.`,
-    recommended: [
-      { name: 'Yellow Fever', required: true, note: 'if arriving from endemic area' },
-      { name: 'Hepatitis A' },
-      { name: 'Typhoid' },
-      { name: 'Hepatitis B' },
-      { name: 'Rabies' },
-      { name: 'Meningitis' },
-      { name: 'Polio' },
-      { name: 'Measles, Mumps, Rubella (MMR)' }
-    ]
-  },
-
-  malariaRisk: {
-    title: 'Malaria Risk',
-    description: 'Malaria is high-risk throughout the park except in high-altitude areas over 2,000m/6,500ft, including Nairobi, Nairobi National Park, Laikipia Plateau and Mt Kenya. Most safari parks are high-risk zones. The highest risk of transmission is during the rainy season from October to May. See the websites below for more detailed advice.'
-  },
-    wildlifeViewing: {
-    title: 'Wildlife Viewing',
-    description: 'Observing wildlife in Aberdare National Park is generally very safe. On guided safaris, a professional guide will look after your safety at all times. Self-drive safaris are also safe, provided you respect the animals and adhere to all park regulations. Incidents are extremely uncommon. Below, you will find practical safety tips and guidelines to help ensure a secure and enjoyable safari experience.',
-  rules: [
-  "Stay in the car during game drives unless you are at designated areas where getting out is allowed.",
-  "Bring warm clothing for early-morning game drives in open vehicles.",
-  "Never leave food in your tent, as it can attract wildlife.",
-  "Always follow your guide’s instructions and guidelines.",
-  "Wear a hat, apply sunscreen, and drink plenty of water to stay protected.",
-  "Don’t stand up in the car, hang out of the window, or sit on the roof.",
-  "Never run or jog in wildlife areas, as it may provoke predators.",
-  "Don’t drive too close to animals on a self-drive safari; back off if they seem disturbed.",
-  "Cover your arms and legs in the evening and use insect repellent to protect against mosquitoes.",
-  "Always keep your voice down when near animals.",
-  "Don’t drive between elephants in a herd, particularly females with young.",
-  "Stay together as a group on walking safaris and walk in single file.",
-  "Never walk between a hippo and water; it may panic and charge.",
-  "Avoid wearing bright colors or strong perfumes, especially on walking safaris.",
-  "In tsetse-fly areas, avoid dark-colored clothing like black or navy as it attracts flies."
-],
-
-  },
-
-  healthResources: [
-    { park: 'Australia', flag: '🇦🇺', link: 'www.travelclinic.com.au' ,website: ''},
-    { park: 'Canada', flag: '🇨🇦', link: 'travel.gc.ca' ,website: ''},
-    { park: 'Ireland', flag: '🇮🇪', link: 'www.tmb.ie',website: '' },
-    { park: 'United Kingdom', flag: '🇬🇧', link: 'www.nhsinform.scot',website: '' },
-    { park: 'United States', flag: '🇺🇸', link: 'wwwnc.cdc.gov/travel',website: '' }
-  ],
-
-  preventionTips: [
-    'Use insect repellent containing DEET',
-    'Wear long-sleeved clothing and long pants',
-    'Sleep under mosquito nets',
-    'Take antimalarial medication as prescribed',
-    'Avoid being outdoors at dawn and dusk when mosquitoes are most active'
-  ]
-},
-
-// Add this to each park object in PARKS_DATA
-sidebar_links: [
-  { text: 'Kenya Safaris & Tours', url: '/tours?search=kenya' },
-  { text: 'Kenya Budget Safaris', url: '/tours?search=kenya&category=budget' },
-  { text: 'Kenya Luxury Safaris', url: '/tours?search=kenya&category=luxury' },
-  { text: 'Kenya Honeymoon Safaris', url: '/tours?country=Kenya&search=couple' },
-  { text: 'Kenya Group Tours', url: '/tours?search=kenya&category=shared+tours' },
-   { text: 'Kenya Family Safaris', url: '/tours?country=Kenya&search=family' },
-   { text: 'Kenya Luxury Plus Safaris', url: '/tours?country=Kenya&category=luxury+plus' },
-   { text: 'Kenya Mid Range Safaris', url: '/tours?country=Kenya&category=mid-range' },
-   { text: 'Kenya Private Safaris', url: '/tours?country=Kenya&search=private' },
-    { text: 'Kenya Fly-In Safaris', url: '/tours?search=fly&country=Kenya' },
-    { text: 'Kenya Walking Safaris', url: '/tours?country=Kenya&search=walking' },
-    { text: 'Kenya Birdwatching Safaris', url: '/tours?country=Kenya&search=birding' },
-],
-  photoGalleries: {
-  overview: [
-    '/nanyukieLodge1.webp',
-    '/nanyukieLodge2.webp',
-    '/nanyukieLodge3.webp',
-    '/nanyukieLodge4.webp',
-    '/nanyukieLodge5.webp',
-    '/nanyukieLodge6.webp',
-    '/nanyukieLodge7.webp',
-    '/nanyukieLodge8.webp'
-    ///we don't need this
-  ],
-  wildlife: [
-   '/aberdare17.webp','/aberdare3.webp','/aberdare21.webp','/aberdare9.webp','/aberdare1.webp','/aberdare14.webp','/aberdare7.webp','/aberdare19.webp','/aberdare5.webp','/aberdare23.webp','/aberdare4.webp','/aberdare12.webp','/aberdare2.webp','/aberdare22.webp','/aberdare10.webp','/aberdare6.webp','/aberdare20.webp','/aberdare16.webp','/aberdare8.webp','/aberdare11.webp','/aberdare18.webp','/aberdare15.webp','/aberdare13.webp' 
-  ],
-
-  birds: [
-    '/bird1.webp',
-    '/bird2.webp',
-    // ... more paths
-  ],
-  maps: [
-    '/aberdareInKenya.webp',
-    '/kenya-map.webp',
-  ],
-  drySeason: [
-'/kenyaDry7.webp', '/kenyaDry3.webp', '/kenyaDry18.webp', '/kenyaDry12.webp', '/kenyaDry25.webp', '/kenyaDry9.webp', '/kenyaDry14.webp', '/kenyaDry5.webp', '/kenyaDry21.webp', '/kenyaDry16.webp', '/kenyaDry2.webp', '/kenyaDry11.webp', '/kenyaDry23.webp', '/kenyaDry6.webp', '/kenyaDry19.webp', '/kenyaDry1.webp', '/kenyaDry13.webp', '/kenyaDry8.webp', '/kenyaDry24.webp', '/kenyaDry15.webp', '/kenyaDry4.webp', '/kenyaDry20.webp', '/kenyaDry10.webp', '/kenyaDry17.webp', '/kenyaDry22.webp'
-  ],
-  wetSeason: [
-'/kenyaWet15.webp', '/kenyaWet4.webp', '/kenyaWet22.webp', '/kenyaWet9.webp', '/kenyaWet18.webp', '/kenyaWet1.webp', '/kenyaWet13.webp', '/kenyaWet25.webp', '/kenyaWet7.webp', '/kenyaWet19.webp', '/kenyaWet3.webp', '/kenyaWet11.webp', '/kenyaWet24.webp', '/kenyaWet6.webp', '/kenyaWet16.webp', '/kenyaWet21.webp', '/kenyaWet8.webp', '/kenyaWet14.webp', '/kenyaWet2.webp', '/kenyaWet20.webp', '/kenyaWet12.webp', '/kenyaWet5.webp', '/kenyaWet23.webp', '/kenyaWet10.webp', '/kenyaWet17.webp'
-  ]
-}
-  },
-];
-
-
-const NAVIGATION_SECTIONS = [
-  { id: 'overview', label: 'Overview', icon: Globe },
-  { id: 'reviews', label: 'Reviews', icon: Star },
-  { id: 'wildlife', label: 'Wildlife', icon: Camera },
-  { id: 'birds', label: 'Birds', icon: Camera },
-  { id: 'best-time', label: 'Best Time To Visit', icon: Calendar },
-  { id: 'weather', label: 'Weather & Climate', icon: Thermometer },
-  { id: 'getting-there', label: 'How To Get There', icon: Plane },
-  { id: 'malaria', label: 'Malaria & Safety', icon: AlertTriangle },
-  
-];
 
 
 // Add these BEFORE the line: function ParkDetail() {
@@ -1178,6 +260,17 @@ const saveLikesToStorage = (likes) => {
     console.error('Error saving likes to localStorage:', error);
   }
 };
+
+const NAVIGATION_SECTIONS = [
+  { id: 'overview', label: 'Overview', icon: Globe },
+  { id: 'reviews', label: 'Reviews', icon: Star },
+  { id: 'wildlife', label: 'Wildlife', icon: Camera },
+  { id: 'birds', label: 'Birds', icon: Camera },
+  { id: 'best-time', label: 'Best Time To Visit', icon: Calendar },
+  { id: 'weather', label: 'Weather & Climate', icon: Thermometer },
+  { id: 'getting-there', label: 'How To Get There', icon: Plane },
+  { id: 'malaria', label: 'Malaria & Safety', icon: AlertTriangle },
+];
 
 
 function ParkDetail() {
@@ -1240,11 +333,13 @@ useEffect(() => {
           return nameSlug === parkSlug;
         });
       }
+
+      const countryParkMatch = park ? null : findParkBySlug(parkSlug, COUNTRIES_DATA);
       
     
       
-      if (park) {
-        setSelectedPark(park.name);
+      if (park || countryParkMatch) {
+        setSelectedPark(park?.name || countryParkMatch.park.name);
         
         if (pathParts.length > 2) {
           const section = pathParts[2];
@@ -1289,7 +384,8 @@ const openGallery = (images, startIndex = 0, title = '') => {
   const formattedImages = images.map((path, index) => ({
     url: typeof path === 'string' ? path : path.url,
     caption: typeof path === 'string' ? `${title} - Image ${index + 1}` : path.caption,
-    credit: typeof path === 'string' ? '' : path.credit
+    credit: typeof path === 'string' ? '' : path.credit,
+    fallback: typeof path === 'string' ? DEFAULT_IMAGE_FALLBACK : path.fallback
   }));
   
   setGalleryModal({
@@ -2611,6 +1707,316 @@ const getSectionHeaderText = (sectionId, parkName) => {
       .slice(0, 4);
   }, [selectedPark]); // Only recalculate when park changes
 
+const findCountryParkMatchByName = (parkName) => {
+  for (const country of COUNTRIES_DATA) {
+    const park = findParkInCountryData(parkName, country);
+    if (park) return { park, country };
+  }
+
+  return null;
+};
+
+const matchesParkName = (candidateName, parkName) => {
+  const candidateSlug = slugifyParkName(candidateName);
+  const parkSlug = slugifyParkName(parkName);
+  return candidateSlug === parkSlug || candidateSlug.includes(parkSlug) || parkSlug.includes(candidateSlug);
+};
+
+const findCountryRecordForPark = (records = [], parkName) =>
+  records.find((record) => matchesParkName(record.name, parkName));
+
+const handleFallbackSectionClick = (parkName, country, sectionId) => {
+  setActiveSection(sectionId);
+  setShowMobileMenu(false);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.history.pushState(
+    { park: parkName, section: sectionId },
+    '',
+    getParkPath(parkName, country, sectionId)
+  );
+};
+
+const renderFallbackSectionContent = (park, country) => {
+  const sectionId = activeSection === 'safety' ? 'malaria' : activeSection;
+  const wildlifeRating = findCountryRecordForPark(country.wildlifeContent?.parkRatings || [], park.name);
+  const birdingRating = findCountryRecordForPark(country.birdsContent?.bestParksForBirding || [], park.name);
+  const bestTimeRecord = findCountryRecordForPark(country.bestTimeToVisitContent?.parkByParkRatings || [], park.name);
+  const defaultLinks = park.links?.length ? park.links : ['Wildlife', 'Birds', 'Best Time To Visit', 'Climate'];
+
+  if (sectionId === 'wildlife') {
+    return (
+      <div className="space-y-6">
+        <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+          {country.wildlifeContent?.description || `${park.name} is part of ${country.name}'s wider safari ecosystem, with wildlife viewing shaped by its habitat, season, and guiding route.`}
+        </p>
+        {wildlifeRating && (
+          <div className="bg-slate-900/60 border border-slate-700 rounded-lg p-5">
+            <div className="text-gray-400 text-sm font-bold uppercase mb-2">Wildlife Rating</div>
+            <div className="flex items-center gap-3">
+              {renderStars(wildlifeRating.rating)}
+              <span className="text-white font-bold text-xl">{wildlifeRating.rating}/5</span>
+              {wildlifeRating.reviews && <span className="text-gray-400">- {wildlifeRating.reviews} ratings</span>}
+            </div>
+          </div>
+        )}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {(country.wildlifeContent?.animals || []).slice(0, 9).map((animal) => (
+            <div key={animal.name} className="bg-slate-900/50 border border-slate-700 rounded-lg p-4">
+              <div className="text-white font-bold">{animal.name}</div>
+              <div className="text-orange-300 text-sm">{animal.status}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (sectionId === 'birds') {
+    return (
+      <div className="space-y-6">
+        <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+          {country.birdsContent?.description || `${park.name} can be paired with ${country.name}'s wider birding routes for richer safari planning.`}
+        </p>
+        {birdingRating && (
+          <div className="bg-slate-900/60 border border-slate-700 rounded-lg p-5">
+            <div className="text-gray-400 text-sm font-bold uppercase mb-2">Birding Rating</div>
+            <div className="flex items-center gap-3">
+              {renderStars(birdingRating.rating)}
+              <span className="text-white font-bold text-xl">{birdingRating.rating}/5</span>
+              {birdingRating.reviews && <span className="text-gray-400">- {birdingRating.reviews} ratings</span>}
+            </div>
+          </div>
+        )}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {(country.birdsContent?.notableBirds || []).slice(0, 6).map((bird) => (
+            <div key={bird.name} className="bg-slate-900/50 border border-slate-700 rounded-lg p-4">
+              <div className="text-white font-bold">{bird.name}</div>
+              {bird.status && <div className="text-orange-300 text-sm">{bird.status}</div>}
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (sectionId === 'best-time') {
+    return (
+      <div className="space-y-6">
+        <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+          {country.bestTimeToVisitContent?.introText || country.bestTime || `${country.name} has seasonal changes that shape road conditions, wildlife movement, and visibility.`}
+        </p>
+        {bestTimeRecord?.months && (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+            {bestTimeRecord.months.map((month) => {
+              const colorClass = {
+                excellent: 'bg-green-600',
+                good: 'bg-green-500',
+                fair: 'bg-yellow-500',
+                poor: 'bg-red-500',
+              }[month.rating] || 'bg-slate-700';
+
+              return (
+                <div key={month.month} className={`${colorClass} text-white rounded-lg px-4 py-3 text-center font-bold`}>
+                  <div>{month.month}</div>
+                  <div className="text-xs uppercase opacity-90">{month.rating}</div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  if (sectionId === 'weather') {
+    return (
+      <div className="grid md:grid-cols-2 gap-5">
+        <div className="bg-slate-900/60 border border-slate-700 rounded-lg p-5">
+          <h3 className="text-white font-bold text-xl mb-3">{country.weatherAndClimateContent?.drySeason?.title || 'Dry Season'}</h3>
+          <p className="text-gray-300 leading-relaxed">{country.weatherAndClimateContent?.drySeason?.description || country.bestTime}</p>
+        </div>
+        <div className="bg-slate-900/60 border border-slate-700 rounded-lg p-5">
+          <h3 className="text-white font-bold text-xl mb-3">{country.weatherAndClimateContent?.wetSeason?.title || 'Green Season'}</h3>
+          <p className="text-gray-300 leading-relaxed">{country.weatherAndClimateContent?.wetSeason?.description || country.highSeason}</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (sectionId === 'getting-there') {
+    return (
+      <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+        {country.howToGetThereContent?.gettingAround || `${park.name} is best planned as part of a ${country.name} safari route with road transfers, domestic flights, or private guiding depending on your itinerary.`}
+      </p>
+    );
+  }
+
+  if (sectionId === 'malaria') {
+    return (
+      <div className="space-y-5">
+        <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+          {country.malariaAndVaccinationsContent?.introText || country.safetyContent?.introText || `Health and safety requirements for ${park.name} should be checked before travel, especially for malaria prevention, vaccinations, and travel insurance.`}
+        </p>
+        <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+          {country.safetyContent?.description || 'Travel with a reputable operator, follow guide instructions around wildlife, and confirm the latest entry and health guidance before departure.'}
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-6">
+      <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+        {park.description || `${park.name} is one of ${country.name}'s safari areas, useful for wildlife viewing, route planning, and comparing the best parks for your travel style.`}
+      </p>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="bg-slate-900/60 border border-slate-700 rounded-lg p-4">
+          <div className="text-gray-400 text-xs font-bold uppercase mb-1">Country</div>
+          <div className="text-white font-bold">{country.name}</div>
+        </div>
+        {park.rating && (
+          <div className="bg-slate-900/60 border border-slate-700 rounded-lg p-4">
+            <div className="text-gray-400 text-xs font-bold uppercase mb-1">Rating</div>
+            <div className="text-white font-bold">{park.rating}/5</div>
+          </div>
+        )}
+        {park.reviewCount && (
+          <div className="bg-slate-900/60 border border-slate-700 rounded-lg p-4">
+            <div className="text-gray-400 text-xs font-bold uppercase mb-1">Reviews</div>
+            <div className="text-white font-bold">{park.reviewCount}</div>
+          </div>
+        )}
+        {park.badge && (
+          <div className="bg-slate-900/60 border border-slate-700 rounded-lg p-4">
+            <div className="text-gray-400 text-xs font-bold uppercase mb-1">Safari Note</div>
+            <div className="text-orange-300 font-bold">{park.badge}</div>
+          </div>
+        )}
+      </div>
+      <div className="flex flex-wrap gap-3">
+        {defaultLinks.map((link) => {
+          const normalizedSection = getParkSectionSlug(link);
+          return (
+            <button
+              key={link}
+              onClick={() => handleFallbackSectionClick(park.name, country, normalizedSection)}
+              className="border border-orange-500/60 text-orange-300 hover:bg-orange-500/10 hover:text-orange-200 rounded-lg px-4 py-2 font-bold transition-colors"
+            >
+              {link}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+const renderFallbackParkDetail = (park, country) => {
+  const heroImage = park.image || country.thumbnailImage || country.overviewImage || '/safariHero.jfif';
+  const currentSection = activeSection === 'safety' ? 'malaria' : activeSection;
+  const headerText = getSectionHeaderText(currentSection, park.name);
+  const countryTourCount = eastAfricaTours.filter(
+    (tour) => tour.location.toLowerCase() === country.name.toLowerCase()
+  ).length;
+
+  return (
+    <div className="min-h-screen bg-slate-900 text-white">
+      <div className="relative h-[46vh] min-h-[360px] bg-slate-950">
+        <img src={heroImage} alt={park.name} className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/65 to-slate-900/20" />
+        <div className="absolute inset-x-0 bottom-0">
+          <div className="max-w-[1440px] mx-auto px-4 md:px-8 pb-8">
+            <button
+              onClick={() => window.location.href = getParkPath(`All ${country.totalParks || ''} Parks & Reserves`, country)}
+              className="mb-5 inline-flex items-center gap-2 text-orange-300 hover:text-orange-200 font-bold"
+            >
+              <ChevronLeft className="w-4 h-4" />
+              Back to {country.name} parks
+            </button>
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">{park.name}</h1>
+            <div className="flex flex-wrap items-center gap-4 text-gray-300">
+              <span className="inline-flex items-center gap-2"><MapPin className="w-5 h-5 text-orange-400" /> {country.name}</span>
+              {park.rating && <span className="inline-flex items-center gap-2"><Star className="w-5 h-5 fill-yellow-400 text-yellow-400" /> {park.rating}/5</span>}
+              {park.reviewCount && <span>{park.reviewCount}</span>}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 py-8 md:py-12 grid lg:grid-cols-[280px_1fr] gap-8">
+        <aside className="lg:sticky lg:top-24 h-fit bg-slate-800/80 border border-slate-700 rounded-lg p-4">
+          <div className="text-xs font-bold uppercase tracking-wide text-orange-300 mb-3">Park Guide</div>
+          <div className="space-y-1">
+            {NAVIGATION_SECTIONS.map((section) => {
+              const Icon = section.icon;
+              return (
+                <button
+                  key={section.id}
+                  onClick={() => handleFallbackSectionClick(park.name, country, section.id)}
+                  className={`w-full flex items-center gap-3 rounded-lg px-3 py-2 text-left font-bold transition-colors ${
+                    currentSection === section.id ? 'bg-orange-500 text-white' : 'text-gray-300 hover:bg-slate-700/80 hover:text-white'
+                  }`}
+                >
+                  <Icon className="w-4 h-4" />
+                  {section.label}
+                </button>
+              );
+            })}
+          </div>
+          <button
+            onClick={() => handleViewAllTours(country.name)}
+            className="mt-5 w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold rounded-lg px-4 py-3"
+          >
+            {countryTourCount} {country.name} Safaris
+          </button>
+        </aside>
+
+        <main className="bg-slate-800/80 border border-slate-700 rounded-lg p-5 md:p-8">
+          <div className="mb-7">
+            <div className="text-orange-300 text-sm font-bold uppercase tracking-wide mb-2">{country.name} Park Detail</div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white">{headerText.mainText}</h2>
+            <p className="text-gray-400 mt-2">{headerText.subText}</p>
+          </div>
+          {renderFallbackSectionContent(park, country)}
+        </main>
+      </div>
+    </div>
+  );
+};
+
+const renderParksDirectory = () => (
+  <div className="min-h-screen bg-slate-900 text-white px-4 md:px-8 py-24">
+    <div className="max-w-[1440px] mx-auto">
+      <div className="mb-10">
+        <div className="text-orange-300 text-sm font-bold uppercase tracking-wide mb-2">Safari Parks</div>
+        <h1 className="text-4xl md:text-6xl font-bold text-white">Parks & Reserves</h1>
+        <p className="text-gray-300 text-lg mt-4 max-w-3xl">
+          Browse the major safari parks and reserves by country. Select a park to open its detail page.
+        </p>
+      </div>
+      <div className="space-y-8">
+        {COUNTRIES_DATA.map((country) => (
+          <section key={country.name} className="bg-slate-800/80 border border-slate-700 rounded-lg p-5 md:p-7">
+            <h2 className="text-2xl font-bold text-white mb-5">{country.name}</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {(country.parksAndReservesContent?.allParks || []).map((park) => (
+                <button
+                  key={`${country.name}-${park.name}`}
+                  onClick={() => window.location.href = getParkPath(park.name, country)}
+                  className="text-left bg-slate-900/60 border border-slate-700 hover:border-orange-500/60 rounded-lg p-4 transition-colors"
+                >
+                  <div className="text-white font-bold">{park.name}</div>
+                  {park.description && <div className="text-gray-400 text-sm mt-1">{park.description}</div>}
+                </button>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
+  </div>
+);
+
 const renderParkDetail = () => {
 
   
@@ -2623,12 +2029,13 @@ const renderParkDetail = () => {
   
   
   if (!park) {
-    
-    return null;
+    const countryParkMatch = findCountryParkMatchByName(selectedPark);
+    return countryParkMatch
+      ? renderFallbackParkDetail(countryParkMatch.park, countryParkMatch.country)
+      : null;
   }
 
   if (!selectedPark) return null;
-  if (!park) return null;
 
     const parkTours = featuredTours;
     const totalparkTours = eastAfricaTours.filter(tour =>
@@ -3300,18 +2707,18 @@ const parkTours = eastAfricaTours.filter(
           </div>
 
          
-{/* Notable Birds in Kenya - Enhanced with Carousel */}
+{/* Notable birds carousel */}
 <section className="mb-12 -mx-4 lg:-mx-8 px-4 lg:px-8 py-12 bg-gradient-to-br from-slate-800/80 via-slate-800/60 to-slate-900/80 border-y-4 border-orange-500/30 shadow-2xl">
   <div className="max-w-[1440px] mx-auto">
     <div className="text-center mb-10">
       <div className="inline-block">
         <h3 className="text-3xl md:text-4xl font-bold text-white mb-3 relative">
-          Notable Birds in Kenya
+          Notable Birds in {park.name}
           <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent"></div>
         </h3>
       </div>
       <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
-        Discover Kenya's most remarkable bird species, from endemic treasures to spectacular migrants
+        Discover {park.name}'s most remarkable bird species, from endemic treasures to spectacular migrants
       </p>
     </div>
     
@@ -3319,10 +2726,12 @@ const parkTours = eastAfricaTours.filter(
 <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8">
   {park.birdsContent.notableBirds.map((bird, idx) => {
     const allBirdImages = park.birdsContent.notableBirds.map(b => ({
-      url: b.image,
+      url: getBirdDisplayImage(b),
       caption: b.name,
-      credit: `Status: ${b.status}`
+      credit: `Status: ${b.status}`,
+      fallback: BIRD_IMAGE_FALLBACK
     }));
+    const birdImage = getBirdDisplayImage(bird);
 
     return (
       <button
@@ -3337,11 +2746,16 @@ const parkTours = eastAfricaTours.filter(
         <div className="flex flex-col h-full">
           {/* Fixed height image container */}
           <div className="relative w-48 h-48 md:w-52 md:h-52 rounded-2xl overflow-hidden mb-4 border-4 border-slate-700 group-hover:border-orange-500 shadow-xl group-hover:shadow-orange-500/50 transition-all duration-300 mx-auto">
-            <img
-              src={bird.image}
-              alt={bird.name}
-              className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-            />
+            {birdImage ? (
+              <img
+                src={birdImage}
+                alt={bird.name}
+                onError={(event) => setImageFallback(event, BIRD_IMAGE_FALLBACK)}
+                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+              />
+            ) : (
+              <BirdImagePlaceholder />
+            )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <div className="absolute inset-0 flex items-center justify-center">
                 <Camera className="w-12 h-12 text-white drop-shadow-lg" />
@@ -3392,9 +2806,10 @@ const parkTours = eastAfricaTours.filter(
         <button
           onClick={() => {
             const allBirdImages = park.birdsContent.notableBirds.map(b => ({
-              url: b.image,
+              url: getBirdDisplayImage(b),
               caption: b.name,
-              credit: `Status: ${b.status}`
+              credit: `Status: ${b.status}`,
+              fallback: BIRD_IMAGE_FALLBACK
             }));
             openGallery(allBirdImages, currentBirdIndex, `${park.name} Notable Birds`);
           }}
@@ -3402,11 +2817,16 @@ const parkTours = eastAfricaTours.filter(
         >
           <div className="flex flex-col items-center text-center">
             <div className="relative w-56 h-56 rounded-2xl overflow-hidden mb-4 border-4 border-slate-700 group-hover:border-orange-500 shadow-xl group-hover:shadow-orange-500/50 transition-all duration-300">
-              <img
-                src={park.birdsContent.notableBirds[currentBirdIndex].image}
-                alt={park.birdsContent.notableBirds[currentBirdIndex].name}
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-              />
+              {getBirdDisplayImage(park.birdsContent.notableBirds[currentBirdIndex]) ? (
+                <img
+                  src={getBirdDisplayImage(park.birdsContent.notableBirds[currentBirdIndex])}
+                  alt={park.birdsContent.notableBirds[currentBirdIndex].name}
+                  onError={(event) => setImageFallback(event, BIRD_IMAGE_FALLBACK)}
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                />
+              ) : (
+                <BirdImagePlaceholder />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Camera className="w-12 h-12 text-white drop-shadow-lg" />
@@ -3612,6 +3032,9 @@ const parkTours = eastAfricaTours.filter(
   const totalparkTours = parkTours.length;
   const totalActivities = park.bestTimeToVisitContent.monthlyRatings.length;
   const totalPages = Math.ceil(totalActivities / ITEMS_PER_PAGE);
+  const parkByParkRatings = Array.isArray(park.bestTimeToVisitContent?.parkByParkRatings)
+    ? park.bestTimeToVisitContent.parkByParkRatings
+    : [];
 
      const countryTours = eastAfricaTours.filter(
     tour => tour.location.toLowerCase() === park.country.toLowerCase()
@@ -3836,10 +3259,11 @@ const parkTours = eastAfricaTours.filter(
   </div>
 
   {/* Best Time To Go by Major Park - FULL WIDTH from here */}
+  {parkByParkRatings.length > 0 && (
   <section className="w-full">
     <h3 className="text-2xl font-bold text-white mb-6">Best Time To Go by Major Park</h3>
     <p className="text-gray-300 text-base leading-relaxed mb-6">
-      The Masai Mara National Reserve offers great wildlife viewing throughout the year. In t 
+      Compare month-by-month safari conditions across the major parks in this region.
     </p>
 
     {/* Legend */}
@@ -3864,19 +3288,19 @@ const parkTours = eastAfricaTours.filter(
 
     {/* Park Ratings */}
     <div className="space-y-4">
-      {park.bestTimeToVisitContent.parkByParkRatings.map((park, idx) => (
+      {parkByParkRatings.map((ratedPark, idx) => (
         <div key={idx} className="bg-slate-800/30 rounded-lg p-4">
           <button className="text-blue-400 hover:text-blue-300 font-bold text-base mb-3 transition-colors duration-200">
-            › {park.name}
+            › {ratedPark.name}
           </button>
           <div className="flex flex-wrap gap-2">
-            {park.months.map((month, mIdx) => {
+            {(ratedPark.months || []).map((month, mIdx) => {
               const colorClass = {
                 'excellent': 'bg-green-600',
                 'good': 'bg-green-500',
                 'fair': 'bg-yellow-500',
                 'poor': 'bg-red-500'
-              }[month.rating];
+              }[month.rating] || 'bg-slate-600';
               
               return (
                 <div
@@ -3892,6 +3316,7 @@ const parkTours = eastAfricaTours.filter(
       ))}
     </div>
   </section>
+  )}
 
   {/* Want To Visit Section - ALSO FULL WIDTH */}
   <section className="mt-12 w-full">
@@ -4950,18 +4375,7 @@ malaria: (
       {selectedPark ? (
         renderParkDetail()
       ) : (
-            <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Park Not Found</h2>
-          <p className="text-gray-400 mb-6">Please select a valid park from the navigation.</p>
-          <button
-            onClick={() => window.location.href = '/parks'}
-            className="bg-gradient-to-r from-orange-500 to-red-600 text-white px-6 py-3 rounded-lg font-bold"
-          >
-            Browse All Parks
-          </button>
-        </div>
-      </div>
+        renderParksDirectory()
       )}
 
 

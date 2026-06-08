@@ -1,0 +1,1383 @@
+[
+  {
+    "name": "Abyssinian ground hornbill",
+    "normalizedName": "abyssinian ground hornbill",
+    "parks": [
+      "Marsabit National Park",
+      "Ol Pejeta Conservancy",
+      "Murchison Falls National Park"
+    ],
+    "publicPath": "/birds/abyssinian-ground-hornbill.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Abyssinian Roller",
+    "normalizedName": "abyssinian roller",
+    "parks": [
+      "Kidepo Valley National Park",
+      "Pian Upe Wildlife Reserve"
+    ],
+    "publicPath": "/birds/abyssinian-roller.webp",
+    "status": "exists"
+  },
+  {
+    "name": "African broadbill",
+    "normalizedName": "african broadbill",
+    "parks": [
+      "Kakamega Forest"
+    ],
+    "publicPath": "/birds/african-broadbill.webp",
+    "status": "exists"
+  },
+  {
+    "name": "African crowned eagle",
+    "normalizedName": "african crowned eagle",
+    "parks": [
+      "Chyulu Hills National Park",
+      "Mara North Conservancy",
+      "Marsabit National Park",
+      "Meru National Park",
+      "Shimba Hills National Reserve",
+      "Solio Ranch",
+      "Taita Hills Wildlife Sanctuary",
+      "Tsavo West National Park",
+      "Arusha National Park"
+    ],
+    "publicPath": "/birds/african-crowned-eagle.webp",
+    "status": "exists"
+  },
+  {
+    "name": "African finfoot",
+    "normalizedName": "african finfoot",
+    "parks": [
+      "Ruma National Park",
+      "Saiwa Swamp National Park",
+      "Lake Mburo National Park",
+      "Mabamba Swamp"
+    ],
+    "publicPath": "/birds/african-finfoot.webp",
+    "status": "exists"
+  },
+  {
+    "name": "African fish eagle",
+    "normalizedName": "african fish eagle",
+    "parks": [
+      "Kora National Park",
+      "Lake Bogoria National Reserve",
+      "Lake Nakuru National Park",
+      "Lake Turkana",
+      "Loisaba Conservancy",
+      "Masai Mara National Reserve",
+      "Ol Pejeta Conservancy",
+      "Solio Ranch",
+      "Tsavo West National Park",
+      "Arusha National Park",
+      "Gombe National Park",
+      "Grumeti Game Reserve",
+      "Katavi National Park",
+      "Lake Manyara National Park",
+      "Mahale Mountains National Park",
+      "Ngorongoro Crater",
+      "Nyerere National Park",
+      "Rubondo Island National Park",
+      "Saadani National Park",
+      "Katonga Wildlife Reserve",
+      "Lake Mburo National Park",
+      "Murchison Falls National Park",
+      "Queen Elizabeth National Park",
+      "Toro-Semliki Wildlife Reserve",
+      "Akagera National Park"
+    ],
+    "publicPath": "/birds/african-fish-eagle.webp",
+    "status": "exists"
+  },
+  {
+    "name": "African Green Broadbill",
+    "normalizedName": "african green broadbill",
+    "parks": [
+      "Bwindi Impenetrable National Park",
+      "Kalinzu Forest Reserve",
+      "Kibale National Park"
+    ],
+    "publicPath": "/birds/african-green-broadbill.webp",
+    "status": "exists"
+  },
+  {
+    "name": "African grey parrot",
+    "normalizedName": "african grey parrot",
+    "parks": [
+      "Rubondo Island National Park",
+      "Kibale National Park"
+    ],
+    "publicPath": "/birds/african-grey-parrot.webp",
+    "status": "exists"
+  },
+  {
+    "name": "African Jacana",
+    "normalizedName": "african jacana",
+    "parks": [
+      "Ziwa Rhino and Wildlife Ranch"
+    ],
+    "publicPath": "/birds/african-jacana.webp",
+    "status": "exists"
+  },
+  {
+    "name": "African Piculet",
+    "normalizedName": "african piculet",
+    "parks": [
+      "Semuliki National Park"
+    ],
+    "publicPath": "/birds/african-piculet.webp",
+    "status": "exists"
+  },
+  {
+    "name": "African Pitta",
+    "normalizedName": "african pitta",
+    "parks": [
+      "Bigodi Wetland Sanctuary"
+    ],
+    "publicPath": "/birds/african-pitta.webp",
+    "status": "exists"
+  },
+  {
+    "name": "African Pygmy Goose",
+    "normalizedName": "african pygmy goose",
+    "parks": [
+      "Katonga Wildlife Reserve",
+      "Mabamba Swamp"
+    ],
+    "publicPath": "/birds/african-pygmy-goose.webp",
+    "status": "exists"
+  },
+  {
+    "name": "African skimmer",
+    "normalizedName": "african skimmer",
+    "parks": [
+      "Kora National Park",
+      "Lake Turkana",
+      "Tsavo East National Park",
+      "Nyerere National Park",
+      "Ruaha National Park",
+      "Murchison Falls National Park",
+      "Queen Elizabeth National Park",
+      "Akagera National Park"
+    ],
+    "publicPath": "/birds/african-skimmer.webp",
+    "status": "exists"
+  },
+  {
+    "name": "African white-backed vulture",
+    "normalizedName": "african white backed vulture",
+    "parks": [
+      "Nairobi National Park"
+    ],
+    "publicPath": "/birds/african-white-backed-vulture.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Amani sunbird",
+    "normalizedName": "amani sunbird",
+    "parks": [
+      "Arabuko Sokoke Forest Reserve",
+      "Shimba Hills National Reserve"
+    ],
+    "publicPath": "/birds/amani-sunbird.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Archer's Ground Robin",
+    "normalizedName": "archer s ground robin",
+    "parks": [
+      "Nyungwe National Park"
+    ],
+    "publicPath": "/birds/archer-s-ground-robin.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Ashy starling",
+    "normalizedName": "ashy starling",
+    "parks": [
+      "Tarangire National Park"
+    ],
+    "publicPath": "/birds/ashy-starling.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Augur buzzard",
+    "normalizedName": "augur buzzard",
+    "parks": [
+      "Hell's Gate National Park"
+    ],
+    "publicPath": "/birds/augur-buzzard.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Baglafecht weaver",
+    "normalizedName": "baglafecht weaver",
+    "parks": [
+      "Aberdare National Park"
+    ],
+    "publicPath": "/birds/baglafecht-weaver.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Banded harrier",
+    "normalizedName": "banded harrier",
+    "parks": [
+      "Borana Conservancy"
+    ],
+    "publicPath": "/birds/banded-harrier.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Bar-tailed trogon",
+    "normalizedName": "bar tailed trogon",
+    "parks": [
+      "Arusha National Park",
+      "Bigodi Wetland Sanctuary",
+      "Kalinzu Forest Reserve"
+    ],
+    "publicPath": "/birds/bar-tailed-trogon.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Bateleur",
+    "normalizedName": "bateleur",
+    "parks": [
+      "Mara Naboisho Conservancy",
+      "Tsavo West National Park",
+      "Mikumi National Park"
+    ],
+    "publicPath": "/birds/bateleur.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Black Bee-eater",
+    "normalizedName": "black bee eater",
+    "parks": [
+      "Kibale National Park",
+      "Toro-Semliki Wildlife Reserve"
+    ],
+    "publicPath": "/birds/black-bee-eater.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Black-and-white Casqued Hornbill",
+    "normalizedName": "black and white casqued hornbill",
+    "parks": [
+      "Bugoma Forest Reserve"
+    ],
+    "publicPath": "/birds/black-and-white-casqued-hornbill.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Black-faced sandgrouse",
+    "normalizedName": "black faced sandgrouse",
+    "parks": [
+      "Mkomazi National Park",
+      "Pian Upe Wildlife Reserve"
+    ],
+    "publicPath": "/birds/black-faced-sandgrouse.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Blue-breasted Kingfisher",
+    "normalizedName": "blue breasted kingfisher",
+    "parks": [
+      "Bigodi Wetland Sanctuary"
+    ],
+    "publicPath": "/birds/blue-breasted-kingfisher.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Blue-headed bee-eater",
+    "normalizedName": "blue headed bee eater",
+    "parks": [
+      "Kakamega Forest",
+      "Ruma National Park",
+      "Saiwa Swamp National Park",
+      "Mahale Mountains National Park"
+    ],
+    "publicPath": "/birds/blue-headed-bee-eater.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Blue-throated Roller",
+    "normalizedName": "blue throated roller",
+    "parks": [
+      "Bugoma Forest Reserve"
+    ],
+    "publicPath": "/birds/blue-throated-roller.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Bohm's bee-eater",
+    "normalizedName": "bohm s bee eater",
+    "parks": [
+      "Katavi National Park",
+      "Nyerere National Park"
+    ],
+    "publicPath": "/birds/bohm-s-bee-eater.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Böhm's flycatcher",
+    "normalizedName": "bohm s flycatcher",
+    "parks": [
+      "Mahale Mountains National Park"
+    ],
+    "publicPath": "/birds/bohm-s-flycatcher.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Broad-tailed paradise whydah",
+    "normalizedName": "broad tailed paradise whydah",
+    "parks": [
+      "Grumeti Game Reserve"
+    ],
+    "publicPath": "/birds/broad-tailed-paradise-whydah.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Carmine bee-eater",
+    "normalizedName": "carmine bee eater",
+    "parks": [
+      "Tsavo East National Park",
+      "Tsavo West National Park"
+    ],
+    "publicPath": "/birds/carmine-bee-eater.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Cassin's Spinetail",
+    "normalizedName": "cassin s spinetail",
+    "parks": [
+      "Budongo Forest Reserve"
+    ],
+    "publicPath": "/birds/cassin-s-spinetail.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Chocolate-backed Kingfisher",
+    "normalizedName": "chocolate backed kingfisher",
+    "parks": [
+      "Budongo Forest Reserve",
+      "Bugoma Forest Reserve"
+    ],
+    "publicPath": "/birds/chocolate-backed-kingfisher.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Clarke's weaver",
+    "normalizedName": "clarke s weaver",
+    "parks": [
+      "Arabuko Sokoke Forest Reserve"
+    ],
+    "publicPath": "/birds/clarke-s-weaver.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Cliff chat",
+    "normalizedName": "cliff chat",
+    "parks": [
+      "Hell's Gate National Park"
+    ],
+    "publicPath": "/birds/cliff-chat.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Collared Apalis",
+    "normalizedName": "collared apalis",
+    "parks": [
+      "Kalinzu Forest Reserve"
+    ],
+    "publicPath": "/birds/collared-apalis.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Crab plover",
+    "normalizedName": "crab plover",
+    "parks": [
+      "Saadani National Park"
+    ],
+    "publicPath": "/birds/crab-plover.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Crowned Eagle",
+    "normalizedName": "crowned eagle",
+    "parks": [
+      "Bugoma Forest Reserve"
+    ],
+    "publicPath": "/birds/crowned-eagle.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Crowned hornbill",
+    "normalizedName": "crowned hornbill",
+    "parks": [
+      "Gombe National Park"
+    ],
+    "publicPath": "/birds/crowned-hornbill.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Dickinson's kestrel",
+    "normalizedName": "dickinson s kestrel",
+    "parks": [
+      "Ruaha National Park"
+    ],
+    "publicPath": "/birds/dickinson-s-kestrel.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Donaldson-Smith's nightjar",
+    "normalizedName": "donaldson smith s nightjar",
+    "parks": [
+      "Shaba National Reserve"
+    ],
+    "publicPath": "/birds/donaldson-smith-s-nightjar.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Dusky Crimsonwing",
+    "normalizedName": "dusky crimsonwing",
+    "parks": [
+      "Mgahinga Gorilla National Park"
+    ],
+    "publicPath": "/birds/dusky-crimsonwing.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Fischer's turaco",
+    "normalizedName": "fischer s turaco",
+    "parks": [
+      "Shimba Hills National Reserve"
+    ],
+    "publicPath": "/birds/fischer-s-turaco.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Fox Kestrel",
+    "normalizedName": "fox kestrel",
+    "parks": [
+      "Pian Upe Wildlife Reserve"
+    ],
+    "publicPath": "/birds/fox-kestrel.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Golden-breasted starling",
+    "normalizedName": "golden breasted starling",
+    "parks": [
+      "Buffalo Springs National Reserve",
+      "Kora National Park",
+      "Mkomazi National Park"
+    ],
+    "publicPath": "/birds/golden-breasted-starling.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Goliath heron",
+    "normalizedName": "goliath heron",
+    "parks": [
+      "Lake Bogoria National Reserve",
+      "Lake Turkana",
+      "Lake Manyara National Park",
+      "Murchison Falls National Park",
+      "Queen Elizabeth National Park",
+      "Toro-Semliki Wildlife Reserve",
+      "Ziwa Rhino and Wildlife Ranch",
+      "Akagera National Park"
+    ],
+    "publicPath": "/birds/goliath-heron.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Grauer's Rush Warbler",
+    "normalizedName": "grauer s rush warbler",
+    "parks": [
+      "Bwindi Impenetrable National Park",
+      "Gishwati-Mukura National Park",
+      "Nyungwe National Park"
+    ],
+    "publicPath": "/birds/grauer-s-rush-warbler.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Grauer's Warbler",
+    "normalizedName": "grauer s warbler",
+    "parks": [
+      "Kalinzu Forest Reserve"
+    ],
+    "publicPath": "/birds/grauer-s-warbler.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Great Blue Turaco",
+    "normalizedName": "great blue turaco",
+    "parks": [
+      "Kakamega Forest",
+      "Bigodi Wetland Sanctuary",
+      "Kibale National Park"
+    ],
+    "publicPath": "/birds/great-blue-turaco.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Great white pelican",
+    "normalizedName": "great white pelican",
+    "parks": [
+      "Amboseli National Park",
+      "Lake Bogoria National Reserve",
+      "Lake Nakuru National Park",
+      "Lake Turkana"
+    ],
+    "publicPath": "/birds/great-white-pelican.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Greater flamingo",
+    "normalizedName": "greater flamingo",
+    "parks": [
+      "Lake Bogoria National Reserve"
+    ],
+    "publicPath": "/birds/greater-flamingo.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Grey crowned crane",
+    "normalizedName": "grey crowned crane",
+    "parks": [
+      "Nairobi National Park",
+      "Ol Pejeta Conservancy",
+      "Ngorongoro Crater",
+      "Serengeti National Park",
+      "Lake Mburo National Park",
+      "Akagera National Park"
+    ],
+    "publicPath": "/birds/grey-crowned-crane.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Handsome Francolin",
+    "normalizedName": "handsome francolin",
+    "parks": [
+      "Bwindi Impenetrable National Park",
+      "Mgahinga Gorilla National Park"
+    ],
+    "publicPath": "/birds/handsome-francolin.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Handsome Spurfowl",
+    "normalizedName": "handsome spurfowl",
+    "parks": [
+      "Gishwati-Mukura National Park"
+    ],
+    "publicPath": "/birds/handsome-spurfowl.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Hartlaub's turaco",
+    "normalizedName": "hartlaub s turaco",
+    "parks": [
+      "Aberdare National Park",
+      "Chyulu Hills National Park",
+      "Saiwa Swamp National Park",
+      "Arusha National Park"
+    ],
+    "publicPath": "/birds/hartlaub-s-turaco.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Hemprich's hornbill",
+    "normalizedName": "hemprich s hornbill",
+    "parks": [
+      "Marsabit National Park",
+      "Meru National Park"
+    ],
+    "publicPath": "/birds/hemprich-s-hornbill.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Ituri Batis",
+    "normalizedName": "ituri batis",
+    "parks": [
+      "Budongo Forest Reserve"
+    ],
+    "publicPath": "/birds/ituri-batis.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Jackson's spurfowl",
+    "normalizedName": "jackson s spurfowl",
+    "parks": [
+      "Aberdare National Park"
+    ],
+    "publicPath": "/birds/jackson-s-spurfowl.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Jackson's widowbird",
+    "normalizedName": "jackson s widowbird",
+    "parks": [
+      "Borana Conservancy",
+      "Solio Ranch"
+    ],
+    "publicPath": "/birds/jackson-s-widowbird.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Karamoja Apalis",
+    "normalizedName": "karamoja apalis",
+    "parks": [
+      "Kidepo Valley National Park",
+      "Pian Upe Wildlife Reserve"
+    ],
+    "publicPath": "/birds/karamoja-apalis.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Kivu Ground Thrush",
+    "normalizedName": "kivu ground thrush",
+    "parks": [
+      "Mgahinga Gorilla National Park"
+    ],
+    "publicPath": "/birds/kivu-ground-thrush.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Kori bustard",
+    "normalizedName": "kori bustard",
+    "parks": [
+      "Solio Ranch",
+      "Ngorongoro Crater",
+      "Serengeti National Park",
+      "Tarangire National Park"
+    ],
+    "publicPath": "/birds/kori-bustard.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Lammergeier",
+    "normalizedName": "lammergeier",
+    "parks": [
+      "Hell's Gate National Park"
+    ],
+    "publicPath": "/birds/lammergeier.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Lanner falcon",
+    "normalizedName": "lanner falcon",
+    "parks": [
+      "Hell's Gate National Park"
+    ],
+    "publicPath": "/birds/lanner-falcon.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Lemon-bellied Crombec",
+    "normalizedName": "lemon bellied crombec",
+    "parks": [
+      "Semuliki National Park"
+    ],
+    "publicPath": "/birds/lemon-bellied-crombec.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Lesser flamingo",
+    "normalizedName": "lesser flamingo",
+    "parks": [
+      "Lake Bogoria National Reserve",
+      "Lake Nakuru National Park",
+      "Lake Turkana",
+      "Arusha National Park",
+      "Lake Manyara National Park",
+      "Ngorongoro Crater"
+    ],
+    "publicPath": "/birds/lesser-flamingo.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Lesser Jacana",
+    "normalizedName": "lesser jacana",
+    "parks": [
+      "Katonga Wildlife Reserve"
+    ],
+    "publicPath": "/birds/lesser-jacana.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Lesser Kestrel",
+    "normalizedName": "lesser kestrel",
+    "parks": [
+      "Pian Upe Wildlife Reserve"
+    ],
+    "publicPath": "/birds/lesser-kestrel.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Lilac-breasted roller",
+    "normalizedName": "lilac breasted roller",
+    "parks": [
+      "Mara Naboisho Conservancy",
+      "Mara North Conservancy",
+      "Masai Mara National Reserve",
+      "Serengeti National Park"
+    ],
+    "publicPath": "/birds/lilac-breasted-roller.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Malachite kingfisher",
+    "normalizedName": "malachite kingfisher",
+    "parks": [
+      "Rubondo Island National Park",
+      "Ziwa Rhino and Wildlife Ranch"
+    ],
+    "publicPath": "/birds/malachite-kingfisher.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Mangrove kingfisher",
+    "normalizedName": "mangrove kingfisher",
+    "parks": [
+      "Saadani National Park"
+    ],
+    "publicPath": "/birds/mangrove-kingfisher.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Martial eagle",
+    "normalizedName": "martial eagle",
+    "parks": [
+      "Amboseli National Park",
+      "Borana Conservancy",
+      "Buffalo Springs National Reserve",
+      "Chyulu Hills National Park",
+      "Laikipia Plateau",
+      "Lewa Wildlife Conservancy",
+      "Loisaba Conservancy",
+      "Mara Naboisho Conservancy",
+      "Mara North Conservancy",
+      "Marsabit National Park",
+      "Masai Mara National Reserve",
+      "Meru National Park",
+      "Nairobi National Park",
+      "Ol Pejeta Conservancy",
+      "Ruma National Park",
+      "Shaba National Reserve",
+      "Solio Ranch",
+      "Tsavo East National Park",
+      "Tsavo West National Park",
+      "Grumeti Game Reserve",
+      "Mkomazi National Park",
+      "Serengeti National Park",
+      "Tarangire National Park"
+    ],
+    "publicPath": "/birds/martial-eagle.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Miombo rock thrush",
+    "normalizedName": "miombo rock thrush",
+    "parks": [
+      "Mikumi National Park"
+    ],
+    "publicPath": "/birds/miombo-rock-thrush.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Moorland chat",
+    "normalizedName": "moorland chat",
+    "parks": [
+      "Aberdare National Park"
+    ],
+    "publicPath": "/birds/moorland-chat.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Nahan's Francolin",
+    "normalizedName": "nahan s francolin",
+    "parks": [
+      "Budongo Forest Reserve",
+      "Bugoma Forest Reserve"
+    ],
+    "publicPath": "/birds/nahan-s-francolin.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Narina trogon",
+    "normalizedName": "narina trogon",
+    "parks": [
+      "Chyulu Hills National Park",
+      "Shimba Hills National Reserve"
+    ],
+    "publicPath": "/birds/narina-trogon.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Nkulengu rail",
+    "normalizedName": "nkulengu rail",
+    "parks": [
+      "Saiwa Swamp National Park",
+      "Mahale Mountains National Park",
+      "Semuliki National Park"
+    ],
+    "publicPath": "/birds/nkulengu-rail.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Northern carmine bee-eater",
+    "normalizedName": "northern carmine bee eater",
+    "parks": [
+      "Buffalo Springs National Reserve",
+      "Laikipia Plateau",
+      "Lewa Wildlife Conservancy",
+      "Loisaba Conservancy"
+    ],
+    "publicPath": "/birds/northern-carmine-bee-eater.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Ostrich",
+    "normalizedName": "ostrich",
+    "parks": [
+      "Kidepo Valley National Park"
+    ],
+    "publicPath": "/birds/ostrich.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Palm-nut vulture",
+    "normalizedName": "palm nut vulture",
+    "parks": [
+      "Meru National Park",
+      "Gombe National Park",
+      "Mahale Mountains National Park",
+      "Saadani National Park"
+    ],
+    "publicPath": "/birds/palm-nut-vulture.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Papyrus gonolek",
+    "normalizedName": "papyrus gonolek",
+    "parks": [
+      "Saiwa Swamp National Park",
+      "Rubondo Island National Park",
+      "Bigodi Wetland Sanctuary",
+      "Kibale National Park",
+      "Mabamba Swamp",
+      "Ziwa Rhino and Wildlife Ranch"
+    ],
+    "publicPath": "/birds/papyrus-gonolek.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Papyrus yellow warbler",
+    "normalizedName": "papyrus yellow warbler",
+    "parks": [
+      "Ruma National Park",
+      "Katonga Wildlife Reserve",
+      "Lake Mburo National Park",
+      "Mabamba Swamp"
+    ],
+    "publicPath": "/birds/papyrus-yellow-warbler.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Pel's fishing owl",
+    "normalizedName": "pel s fishing owl",
+    "parks": [
+      "Gombe National Park",
+      "Katavi National Park",
+      "Nyerere National Park",
+      "Ruaha National Park"
+    ],
+    "publicPath": "/birds/pel-s-fishing-owl.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Peter's finfoot",
+    "normalizedName": "peter s finfoot",
+    "parks": [
+      "Meru National Park"
+    ],
+    "publicPath": "/birds/peter-s-finfoot.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Pink-backed Pelican",
+    "normalizedName": "pink backed pelican",
+    "parks": [
+      "Queen Elizabeth National Park"
+    ],
+    "publicPath": "/birds/pink-backed-pelican.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Plain-backed sunbird",
+    "normalizedName": "plain backed sunbird",
+    "parks": [
+      "Arabuko Sokoke Forest Reserve"
+    ],
+    "publicPath": "/birds/plain-backed-sunbird.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Puvel's Illadopsis",
+    "normalizedName": "puvel s illadopsis",
+    "parks": [
+      "Budongo Forest Reserve"
+    ],
+    "publicPath": "/birds/puvel-s-illadopsis.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Racket-tailed roller",
+    "normalizedName": "racket tailed roller",
+    "parks": [
+      "Mikumi National Park"
+    ],
+    "publicPath": "/birds/racket-tailed-roller.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Red-billed Dwarf Hornbill",
+    "normalizedName": "red billed dwarf hornbill",
+    "parks": [
+      "Semuliki National Park"
+    ],
+    "publicPath": "/birds/red-billed-dwarf-hornbill.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Red-collared Mountain Babbler",
+    "normalizedName": "red collared mountain babbler",
+    "parks": [
+      "Gishwati-Mukura National Park",
+      "Nyungwe National Park"
+    ],
+    "publicPath": "/birds/red-collared-mountain-babbler.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Red-faced Barbet",
+    "normalizedName": "red faced barbet",
+    "parks": [
+      "Lake Mburo National Park"
+    ],
+    "publicPath": "/birds/red-faced-barbet.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Red-winged starling",
+    "normalizedName": "red winged starling",
+    "parks": [
+      "Aberdare National Park"
+    ],
+    "publicPath": "/birds/red-winged-starling.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Ross's turaco",
+    "normalizedName": "ross s turaco",
+    "parks": [
+      "Gombe National Park",
+      "Grumeti Game Reserve"
+    ],
+    "publicPath": "/birds/ross-s-turaco.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Ruaha red-billed hornbill",
+    "normalizedName": "ruaha red billed hornbill",
+    "parks": [
+      "Ruaha National Park"
+    ],
+    "publicPath": "/birds/ruaha-red-billed-hornbill.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Ruwenzori Nightjar",
+    "normalizedName": "ruwenzori nightjar",
+    "parks": [
+      "Gishwati-Mukura National Park"
+    ],
+    "publicPath": "/birds/ruwenzori-nightjar.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Rwenzori Batis",
+    "normalizedName": "rwenzori batis",
+    "parks": [
+      "Toro-Semliki Wildlife Reserve"
+    ],
+    "publicPath": "/birds/rwenzori-batis.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Rwenzori Turaco",
+    "normalizedName": "rwenzori turaco",
+    "parks": [
+      "Mgahinga Gorilla National Park",
+      "Gishwati-Mukura National Park",
+      "Nyungwe National Park"
+    ],
+    "publicPath": "/birds/rwenzori-turaco.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Saddle-billed stork",
+    "normalizedName": "saddle billed stork",
+    "parks": [
+      "Amboseli National Park",
+      "Mara Naboisho Conservancy",
+      "Mara North Conservancy",
+      "Masai Mara National Reserve",
+      "Nairobi National Park",
+      "Ol Pejeta Conservancy",
+      "Grumeti Game Reserve",
+      "Katavi National Park",
+      "Lake Manyara National Park"
+    ],
+    "publicPath": "/birds/saddle-billed-stork.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Secretary bird",
+    "normalizedName": "secretary bird",
+    "parks": [
+      "Mara Naboisho Conservancy",
+      "Mara North Conservancy",
+      "Masai Mara National Reserve",
+      "Nairobi National Park",
+      "Serengeti National Park",
+      "Tarangire National Park",
+      "Kidepo Valley National Park"
+    ],
+    "publicPath": "/birds/secretary-bird.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Secretarybird",
+    "normalizedName": "secretarybird",
+    "parks": [
+      "Ngorongoro Crater"
+    ],
+    "publicPath": "/birds/secretarybird.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Sharpe's longclaw",
+    "normalizedName": "sharpe s longclaw",
+    "parks": [
+      "Borana Conservancy"
+    ],
+    "publicPath": "/birds/sharpe-s-longclaw.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Shelley's Crimsonwing",
+    "normalizedName": "shelley s crimsonwing",
+    "parks": [
+      "Bwindi Impenetrable National Park",
+      "Mgahinga Gorilla National Park"
+    ],
+    "publicPath": "",
+    "status": "no-trusted-photo"
+  },
+  {
+    "name": "Shining blue kingfisher",
+    "normalizedName": "shining blue kingfisher",
+    "parks": [
+      "Kakamega Forest"
+    ],
+    "publicPath": "/birds/shining-blue-kingfisher.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Shoebill",
+    "normalizedName": "shoebill",
+    "parks": [
+      "Ruma National Park",
+      "Rubondo Island National Park"
+    ],
+    "publicPath": "/birds/shoebill.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Shoebill Stork",
+    "normalizedName": "shoebill stork",
+    "parks": [
+      "Katonga Wildlife Reserve",
+      "Mabamba Swamp",
+      "Murchison Falls National Park",
+      "Queen Elizabeth National Park",
+      "Toro-Semliki Wildlife Reserve",
+      "Ziwa Rhino and Wildlife Ranch",
+      "Akagera National Park"
+    ],
+    "publicPath": "/birds/shoebill-stork.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Short-tailed Warbler",
+    "normalizedName": "short tailed warbler",
+    "parks": [
+      "Bwindi Impenetrable National Park"
+    ],
+    "publicPath": "",
+    "status": "no-trusted-photo"
+  },
+  {
+    "name": "Silvery-cheeked hornbill",
+    "normalizedName": "silvery cheeked hornbill",
+    "parks": [
+      "Lake Manyara National Park"
+    ],
+    "publicPath": "/birds/silvery-cheeked-hornbill.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Sokoke pipit",
+    "normalizedName": "sokoke pipit",
+    "parks": [
+      "Arabuko Sokoke Forest Reserve"
+    ],
+    "publicPath": "/birds/sokoke-pipit.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Sokoke scops-owl",
+    "normalizedName": "sokoke scops owl",
+    "parks": [
+      "Arabuko Sokoke Forest Reserve"
+    ],
+    "publicPath": "/birds/sokoke-scops-owl.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Somali bee-eater",
+    "normalizedName": "somali bee eater",
+    "parks": [
+      "Buffalo Springs National Reserve",
+      "Shaba National Reserve",
+      "Tsavo East National Park"
+    ],
+    "publicPath": "/birds/somali-bee-eater.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Somali ostrich",
+    "normalizedName": "somali ostrich",
+    "parks": [
+      "Laikipia Plateau",
+      "Lewa Wildlife Conservancy",
+      "Loisaba Conservancy",
+      "Shaba National Reserve",
+      "Mkomazi National Park"
+    ],
+    "publicPath": "/birds/somali-ostrich.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Southern banded snake eagle",
+    "normalizedName": "southern banded snake eagle",
+    "parks": [
+      "Taita Hills Wildlife Sanctuary",
+      "Saadani National Park"
+    ],
+    "publicPath": "/birds/southern-banded-snake-eagle.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Spotted ground thrush",
+    "normalizedName": "spotted ground thrush",
+    "parks": [
+      "Shimba Hills National Reserve"
+    ],
+    "publicPath": "/birds/spotted-ground-thrush.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Stierling's woodpecker",
+    "normalizedName": "stierling s woodpecker",
+    "parks": [
+      "Katavi National Park",
+      "Ruaha National Park"
+    ],
+    "publicPath": "",
+    "status": "no-trusted-photo"
+  },
+  {
+    "name": "Strange Weaver",
+    "normalizedName": "strange weaver",
+    "parks": [
+      "Nyungwe National Park"
+    ],
+    "publicPath": "/birds/strange-weaver.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Superb starling",
+    "normalizedName": "superb starling",
+    "parks": [
+      "Amboseli National Park"
+    ],
+    "publicPath": "/birds/superb-starling.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Taita apalis",
+    "normalizedName": "taita apalis",
+    "parks": [
+      "Taita Hills Wildlife Sanctuary"
+    ],
+    "publicPath": "/birds/taita-apalis.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Taita thrush",
+    "normalizedName": "taita thrush",
+    "parks": [
+      "Taita Hills Wildlife Sanctuary"
+    ],
+    "publicPath": "/birds/taita-thrush.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Taita white-eye",
+    "normalizedName": "taita white eye",
+    "parks": [
+      "Taita Hills Wildlife Sanctuary"
+    ],
+    "publicPath": "/birds/taita-white-eye.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Turner's eremomela",
+    "normalizedName": "turner s eremomela",
+    "parks": [
+      "Kakamega Forest"
+    ],
+    "publicPath": "",
+    "status": "no-trusted-photo"
+  },
+  {
+    "name": "Verreaux's eagle",
+    "normalizedName": "verreaux s eagle",
+    "parks": [
+      "Hell's Gate National Park",
+      "Kora National Park",
+      "Laikipia Plateau",
+      "Lake Nakuru National Park",
+      "Lewa Wildlife Conservancy",
+      "Marsabit National Park"
+    ],
+    "publicPath": "/birds/verreaux-s-eagle.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Verreaux's eagle-owl",
+    "normalizedName": "verreaux s eagle owl",
+    "parks": [
+      "Borana Conservancy"
+    ],
+    "publicPath": "/birds/verreaux-s-eagle-owl.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Von der Decken's hornbill",
+    "normalizedName": "von der decken s hornbill",
+    "parks": [
+      "Chyulu Hills National Park"
+    ],
+    "publicPath": "/birds/von-der-decken-s-hornbill.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Vulturine guineafowl",
+    "normalizedName": "vulturine guineafowl",
+    "parks": [
+      "Buffalo Springs National Reserve",
+      "Kora National Park",
+      "Laikipia Plateau",
+      "Lewa Wildlife Conservancy",
+      "Loisaba Conservancy",
+      "Shaba National Reserve",
+      "Tsavo East National Park",
+      "Mkomazi National Park"
+    ],
+    "publicPath": "/birds/vulturine-guineafowl.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Wattled crane",
+    "normalizedName": "wattled crane",
+    "parks": [
+      "Mikumi National Park",
+      "Nyerere National Park"
+    ],
+    "publicPath": "/birds/wattled-crane.webp",
+    "status": "exists"
+  },
+  {
+    "name": "White-crested Turaco",
+    "normalizedName": "white crested turaco",
+    "parks": [
+      "Kidepo Valley National Park"
+    ],
+    "publicPath": "/birds/white-crested-turaco.webp",
+    "status": "exists"
+  },
+  {
+    "name": "White-throated Blue Swallow",
+    "normalizedName": "white throated blue swallow",
+    "parks": [
+      "Semuliki National Park"
+    ],
+    "publicPath": "/birds/white-throated-blue-swallow.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Yellow-billed stork",
+    "normalizedName": "yellow billed stork",
+    "parks": [
+      "Amboseli National Park",
+      "Lake Nakuru National Park"
+    ],
+    "publicPath": "/birds/yellow-billed-stork.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Yellow-collared lovebird",
+    "normalizedName": "yellow collared lovebird",
+    "parks": [
+      "Tarangire National Park"
+    ],
+    "publicPath": "/birds/yellow-collared-lovebird.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Yellow-eyed Black Flycatcher",
+    "normalizedName": "yellow eyed black flycatcher",
+    "parks": [
+      "Kalinzu Forest Reserve"
+    ],
+    "publicPath": "/birds/yellow-eyed-black-flycatcher.webp",
+    "status": "exists"
+  },
+  {
+    "name": "Yellow-throated longclaw",
+    "normalizedName": "yellow throated longclaw",
+    "parks": [
+      "Mikumi National Park"
+    ],
+    "publicPath": "/birds/yellow-throated-longclaw.webp",
+    "status": "exists"
+  }
+]

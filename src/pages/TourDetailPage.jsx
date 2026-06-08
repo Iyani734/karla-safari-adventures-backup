@@ -251,7 +251,7 @@ const IMAGE_MANAGER = {
       4: '/Lake Nakuru.webp',
       5: '/maasai mara.webp',
       6: '/maasai mara2.webp',
-      7: '/zebra.webp'
+      7: '/zebra8.webp'
     },
     'tanzania-great-migration': {
       1: '/manyara2.webp',
@@ -2055,7 +2055,7 @@ const wildlifeBehaviorTips = [
 
 
 // ========================================
-// ENHANCED DYNAMIC SIDEBAR CONTENT
+// ENHANCED DYNAMIC SIDEBAR CONTENTF
 // ========================================
 const DynamicSidebarContent = ({ contentHeight, activeTab, tour }) => {
   const [visibleContent, setVisibleContent] = useState([]);
@@ -3039,7 +3039,7 @@ const getUniqueCountries = () => {
                 key={`hotel-photo-${accommodation.id}-${idx}`}
                 src={image}
                 alt={`${accommodation.name} photo ${idx + 1}`}
-                className="w-full h-20 object-cover rounded-lg cursor-pointer shadow-sm hover:shadow-md transition-all duration-300 border border-slate-600/30 hover:border-slate-500/50"
+                className="w-full h-32 object-cover rounded-lg cursor-pointer shadow-sm hover:shadow-md transition-all duration-300 border border-slate-600/30 hover:border-slate-500/50"
                 onClick={() => openImagePopup(accommodation.images, accommodation.name, idx)}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -3063,7 +3063,7 @@ const getUniqueCountries = () => {
                 <img 
                   src={accommodation.images[photosToShow - 1]}
                   alt={`${accommodation.name} more photos`}
-                  className="w-full h-20 object-cover shadow-sm border border-slate-600/30"
+                  className="w-full h-32 object-cover shadow-sm border border-slate-600/30"
                 />
                 <div className="absolute inset-0 bg-slate-900/80 rounded-lg flex items-center justify-center hover:bg-slate-900/70 transition-all duration-300">
                   <div className="text-center">
@@ -3603,6 +3603,125 @@ const getUniqueCountries = () => {
           </motion.div>
         </motion.div>
 
+        {/* Accommodations Overview - All unique properties in one unified card */}
+        {!tour.isCustom && tour?.itinerary && (() => {
+          const uniqueAccommodations = [];
+          const seenIds = new Set();
+          const lastDayIndex = tour.itinerary.length - 1;
+
+          tour.itinerary.forEach((item, index) => {
+            if (index === lastDayIndex) return;
+            const accommodation = getAccommodationForDay(tour.id, item.day);
+            if (accommodation && !seenIds.has(accommodation.id)) {
+              seenIds.add(accommodation.id);
+              uniqueAccommodations.push(accommodation);
+            }
+          });
+
+          if (uniqueAccommodations.length === 0) return null;
+
+          return (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="bg-slate-800/40 backdrop-blur-sm rounded-xl border border-slate-700/50 shadow-lg overflow-hidden"
+            >
+              {/* Section header */}
+              <div className="flex items-center gap-3 px-6 py-5 border-b border-slate-700/50">
+                <div className="p-2 bg-orange-500/20 rounded-lg">
+                  <Bed className="w-5 h-5 text-orange-400" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold text-white">Accommodations</h2>
+                  <p className="text-orange-400/80 text-sm">Where you'll stay on this tour</p>
+                </div>
+              </div>
+
+              {/* Each property */}
+              <div className="divide-y divide-slate-700/40">
+                {uniqueAccommodations.map((accommodation, idx) => {
+                  const visiblePhotos = accommodation.images?.slice(0, photosToShow - 1) || [];
+                  const remainingCount = Math.max(0, (accommodation.images?.length || 0) - visiblePhotos.length);
+
+                  return (
+                    <motion.div
+                      key={`overview-accom-${accommodation.id}`}
+                      className="px-6 py-5 hover:bg-slate-700/20 transition-colors duration-300"
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.4, delay: idx * 0.08 }}
+                    >
+                      {/* Name + meals row */}
+                      <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
+                        <div>
+                          <motion.a
+                            href={accommodation.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-orange-300 hover:text-orange-200 transition-colors font-semibold text-lg flex items-center gap-2 group"
+                            whileHover={{ x: 3 }}
+                          >
+                            {accommodation.name}
+                            <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                          </motion.a>
+                          <p className="text-gray-400 text-sm mt-0.5">{accommodation.description}</p>
+                        </div>
+                        <div className="flex items-center gap-2 bg-slate-700/50 rounded-lg px-3 py-1.5 shrink-0">
+                          <Utensils className="w-4 h-4 text-orange-400" />
+                          <span className="text-gray-200 text-sm font-medium">{accommodation.meals}</span>
+                        </div>
+                      </div>
+
+                      {/* Photo grid */}
+                      {accommodation.images && accommodation.images.length > 0 && (
+                        <div className={`grid gap-2 ${photosToShow === 6 ? 'grid-cols-3' : 'grid-cols-4'}`}>
+                          {visiblePhotos.map((image, imgIdx) => (
+                            <motion.img
+                              key={`ov-photo-${accommodation.id}-${imgIdx}`}
+                              src={image}
+                              alt={`${accommodation.name} photo ${imgIdx + 1}`}
+                              className="w-full h-32 object-cover rounded-lg cursor-pointer border border-slate-600/30 hover:border-slate-500/50 transition-all duration-300"
+                              onClick={() => openImagePopup(accommodation.images, accommodation.name, imgIdx)}
+                              initial={{ opacity: 0, scale: 0.9 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              transition={{ duration: 0.3, delay: imgIdx * 0.05 }}
+                              whileHover={{ scale: 1.05, zIndex: 10 }}
+                              onError={(e) => { e.target.style.opacity = '0.5'; }}
+                            />
+                          ))}
+                          {remainingCount > 0 && (
+                            <motion.div
+                              className="relative cursor-pointer overflow-hidden rounded-lg group"
+                              onClick={() => openImagePopup(accommodation.images, accommodation.name, photosToShow - 1)}
+                              whileHover={{ scale: 1.05, zIndex: 10 }}
+                              initial={{ opacity: 0, scale: 0.9 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              transition={{ duration: 0.3, delay: (photosToShow - 1) * 0.05 }}
+                            >
+                              <img
+                                src={accommodation.images[photosToShow - 1]}
+                                alt={`${accommodation.name} more photos`}
+                                className="w-full h-32 object-cover border border-slate-600/30"
+                              />
+                              <div className="absolute inset-0 bg-slate-900/80 rounded-lg flex items-center justify-center hover:bg-slate-900/70 transition-all duration-300">
+                                <div className="text-center">
+                                  <Camera className="w-5 h-5 text-white mx-auto mb-0.5" />
+                                  <span className="text-white font-semibold text-sm">+{remainingCount}</span>
+                                </div>
+                              </div>
+                            </motion.div>
+                          )}
+                        </div>
+                      )}
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </motion.div>
+          );
+        })()}
+
         {/* What to Expect - Always display this section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -3700,7 +3819,7 @@ const getUniqueCountries = () => {
       </section>
 
       <div className="container mx-auto px-4 py-12 md:py-16">
-        <div className="lg:grid lg:grid-cols-12 lg:gap-12 items-start">
+        <div className="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-start">
           <div className="lg:col-span-8 space-y-8">
             {/* Tab Navigation */}
             <div className="border-b border-slate-700/50">
@@ -3799,171 +3918,155 @@ const getUniqueCountries = () => {
             </AnimatePresence>
           </div>
 
-          <aside className="lg:col-span-4 mt-12 lg:mt-0">
-            <div className="sticky top-28">
+          <aside className="lg:col-span-4 mt-12 lg:mt-0 lg:sticky lg:top-36">
+          
               {/* Main Booking Form */}
-              <motion.div 
-                className="glass-effect rounded-2xl p-6 md:p-8 shadow-xl mb-6 hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                whileHover={{ y: -4 }}
-              >
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">{tour.isCustom ? "Design Your Dream Safari" : "Plan Your Trip"}</h3>
-                {!tour.isCustom && <p className="text-orange-400 mb-6 text-lg">Starting from ${tour.pricePerPerson}/person</p>}
-                {tour.isCustom && <p className="text-orange-400 mb-6 text-lg">Tell us your vision, and we'll make it happen!</p>}
-                
-             <form ref={form} onSubmit={sendEmail} className="space-y-5">
-  {/* Hidden fields for tour info and calculated total */}
-  <input type="hidden" name="tour_name" value={tour.title || tour.name} />
-  <input 
-    type="hidden" 
-    name="total_guests" 
-    value={Number(formData.adults || 0) + Number(formData.children || 0) + Number(formData.infants || 0)} 
-  />
-  
-  {!tour.isCustom && (
-    <div>
-      <label htmlFor="date" className="block text-sm font-medium text-gray-300 mb-1.5">Preferred Travel Date</label>
-      <input
-        type="date"
-        name="date"
-        id="date"
-        value={formData.date}
-        onChange={handleInputChange}
-        required={!tour.isCustom}
-        className="w-full bg-slate-700/60 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-orange-400 focus:ring-1 focus:ring-orange-400 focus:outline-none placeholder-gray-500 hover:border-slate-500 transition-colors"
-      />
-    </div>
-  )}
-  
-  <div>
-    <label htmlFor="budget" className="block text-sm font-medium text-gray-300 mb-1.5">Your Budget (USD per person{tour.isCustom ? ", optional" : ""})</label>
-    <div className="relative">
-      <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-      <input
-        type="number"
-        name="budget"
-        id="budget"
-        min="0"
-        placeholder={tour.isCustom ? "e.g., 5000" : String(tour.budgetPlaceholder || "e.g., 3500")}
-        value={formData.budget}
-        onChange={handleInputChange}
-        className="w-full bg-slate-700/60 border border-slate-600 rounded-lg pl-10 pr-4 py-3 text-white focus:border-orange-400 focus:ring-1 focus:ring-orange-400 focus:outline-none placeholder-gray-500 hover:border-slate-500 transition-colors"
-      />
-    </div>
-  </div>
-  
-  <div className="grid grid-cols-2 gap-4">
-    <div>
-      <label htmlFor="adults" className="block text-sm font-medium text-gray-300 mb-1.5">Adults (12+)</label>
-      <input
-        type="number"
-        name="adults"
-        id="adults"
-        min="1"
-        value={formData.adults}
-        onChange={handleInputChange}
-        required
-        className="w-full bg-slate-700/60 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-orange-400 focus:ring-1 focus:ring-orange-400 focus:outline-none placeholder-gray-500 hover:border-slate-500 transition-colors"
-      />
-    </div>
-    <div>
-      <label htmlFor="children" className="block text-sm font-medium text-gray-300 mb-1.5">Children (3-11)</label>
-      <input
-        type="number"
-        name="children"
-        id="children"
-        min="0"
-        value={formData.children}
-        onChange={handleInputChange}
-        className="w-full bg-slate-700/60 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-orange-400 focus:ring-1 focus:ring-orange-400 focus:outline-none placeholder-gray-500 hover:border-slate-500 transition-colors"
-      />
-    </div>
-  </div>
-  
-  <div className="grid grid-cols-2 gap-4">
-    <div>
-      <label htmlFor="infants" className="block text-sm font-medium text-gray-300 mb-1.5">Infants (0-2)</label>
-      <input
-        type="number"
-        name="infants"
-        id="infants"
-        min="0"
-        value={formData.infants}
-        onChange={handleInputChange}
-        className="w-full bg-slate-700/60 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-orange-400 focus:ring-1 focus:ring-orange-400 focus:outline-none placeholder-gray-500 hover:border-slate-500 transition-colors"
-      />
-    </div>
-    <div>
-      <label htmlFor="rooms" className="block text-sm font-medium text-gray-300 mb-1.5">Rooms</label>
-      <input
-        type="number"
-        name="rooms"
-        id="rooms"
-        min="1"
-        value={formData.rooms}
-        onChange={handleInputChange}
-        required
-        className="w-full bg-slate-700/60 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-orange-400 focus:ring-1 focus:ring-orange-400 focus:outline-none placeholder-gray-500 hover:border-slate-500 transition-colors"
-      />
-    </div>
-  </div>
-  
-  <div>
-    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1.5">Your Email</label>
-    <input
-      type="email"
-      name="email"
-      id="email"
-      value={formData.email}
-      onChange={handleInputChange}
-      required
-      placeholder="you@example.com"
-      className="w-full bg-slate-700/60 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-orange-400 focus:ring-1 focus:ring-orange-400 focus:outline-none placeholder-gray-500 hover:border-slate-500 transition-colors"
-    />
-  </div>
-  
-  <div>
-    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1.5">
-      {tour.isCustom ? "Tell us about your dream safari (destinations, activities, interests, etc.)" : "Special Requests / Custom Message (Optional)"}
-    </label>
-    <textarea
-      name="message"
-      id="message"
-      rows="4"
-      value={formData.message}
-      onChange={handleInputChange}
-      placeholder={tour.isCustom ? "The more details, the better we can tailor your adventure!" : "e.g., dietary needs, accessibility requirements, special occasions"}
-      className="w-full bg-slate-700/60 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-orange-400 focus:ring-1 focus:ring-orange-400 focus:outline-none placeholder-gray-500 hover:border-slate-500 transition-colors resize-none"
-      required={tour.isCustom}
-    ></textarea>
-  </div>
-  
-  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-  <Button
-  type="submit"
-  disabled={isSubmitting}
-  className="w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white py-3.5 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50"
+<motion.div 
+  className="glass-effect rounded-2xl p-4 md:p-5 min-[1600px]:p-8 shadow-xl mb-6 hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-300"
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  whileHover={{ y: -4 }}
 >
-  {isSubmitting ? (
-    <div className="flex items-center justify-center">
-      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2"></div>
-      Sending...
+  <h3 className="text-xl md:text-2xl min-[1600px]:text-3xl font-bold text-white mb-1 min-[1600px]:mb-2">
+    {tour.isCustom ? "Design Your Dream Safari" : "Plan Your Trip"}
+  </h3>
+  {!tour.isCustom && <p className="text-orange-400 mb-3 min-[1600px]:mb-6 text-sm min-[1600px]:text-lg">Starting from ${tour.pricePerPerson}/person</p>}
+  {tour.isCustom && <p className="text-orange-400 mb-3 min-[1600px]:mb-6 text-sm min-[1600px]:text-lg">Tell us your vision, and we'll make it happen!</p>}
+
+  <form ref={form} onSubmit={sendEmail} className="space-y-3 min-[1600px]:space-y-5">
+    <input type="hidden" name="tour_name" value={tour.title || tour.name} />
+    <input 
+      type="hidden" 
+      name="total_guests" 
+      value={Number(formData.adults || 0) + Number(formData.children || 0)} 
+    />
+
+    {!tour.isCustom && (
+      <div>
+        <label htmlFor="date" className="block text-xs min-[1600px]:text-sm font-medium text-gray-300 mb-1 min-[1600px]:mb-1.5">
+          Preferred Travel Date
+        </label>
+        <input
+          type="date"
+          name="date"
+          id="date"
+          value={formData.date}
+          onChange={handleInputChange}
+          required={!tour.isCustom}
+          className="w-full bg-slate-700/60 border border-slate-600 rounded-lg px-3 min-[1600px]:px-4 py-2 min-[1600px]:py-3 text-sm text-white focus:border-orange-400 focus:ring-1 focus:ring-orange-400 focus:outline-none placeholder-gray-500 hover:border-slate-500 transition-colors"
+        />
+      </div>
+    )}
+
+    <div>
+      <label htmlFor="budget" className="block text-xs min-[1600px]:text-sm font-medium text-gray-300 mb-1 min-[1600px]:mb-1.5">
+        Your Budget (USD per person{tour.isCustom ? ", optional" : ""})
+      </label>
+      <div className="relative">
+        <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 min-[1600px]:w-5 h-4 min-[1600px]:h-5 text-gray-400" />
+        <input
+          type="number"
+          name="budget"
+          id="budget"
+          min="0"
+          placeholder={tour.isCustom ? "e.g., 5000" : String(tour.budgetPlaceholder || "e.g., 3500")}
+          value={formData.budget}
+          onChange={handleInputChange}
+          className="w-full bg-slate-700/60 border border-slate-600 rounded-lg pl-9 min-[1600px]:pl-10 pr-3 min-[1600px]:pr-4 py-2 min-[1600px]:py-3 text-sm text-white focus:border-orange-400 focus:ring-1 focus:ring-orange-400 focus:outline-none placeholder-gray-500 hover:border-slate-500 transition-colors"
+        />
+      </div>
     </div>
-  ) : (
-    <>
-      <Send className="w-5 h-5 mr-2.5" />
-      {tour.isCustom ? "Send Custom Inquiry" : "Get Detailed Itinerary"}
-    </>
-  )}
-</Button>
-  </motion.div>
-</form>
-                <p className="text-xs text-gray-400 mt-6 text-center">
-                  Our travel experts will contact you with a personalized itinerary and quote.
-                </p>
-              </motion.div>
+
+    <div className="grid grid-cols-2 gap-3 min-[1600px]:gap-4">
+      <div>
+        <label htmlFor="adults" className="block text-xs min-[1600px]:text-sm font-medium text-gray-300 mb-1 min-[1600px]:mb-1.5">
+          Adults (12+)
+        </label>
+        <input
+          type="number"
+          name="adults"
+          id="adults"
+          min="1"
+          value={formData.adults}
+          onChange={handleInputChange}
+          required
+          className="w-full bg-slate-700/60 border border-slate-600 rounded-lg px-3 min-[1600px]:px-4 py-2 min-[1600px]:py-3 text-sm text-white focus:border-orange-400 focus:ring-1 focus:ring-orange-400 focus:outline-none placeholder-gray-500 hover:border-slate-500 transition-colors"
+        />
+      </div>
+      <div>
+        <label htmlFor="children" className="block text-xs min-[1600px]:text-sm font-medium text-gray-300 mb-1 min-[1600px]:mb-1.5">
+          Children (3-11)
+        </label>
+        <input
+          type="number"
+          name="children"
+          id="children"
+          min="0"
+          value={formData.children}
+          onChange={handleInputChange}
+          className="w-full bg-slate-700/60 border border-slate-600 rounded-lg px-3 min-[1600px]:px-4 py-2 min-[1600px]:py-3 text-sm text-white focus:border-orange-400 focus:ring-1 focus:ring-orange-400 focus:outline-none placeholder-gray-500 hover:border-slate-500 transition-colors"
+        />
+      </div>
+    </div>
+
+    <div>
+      <label htmlFor="email" className="block text-xs min-[1600px]:text-sm font-medium text-gray-300 mb-1 min-[1600px]:mb-1.5">
+        Your Email
+      </label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        value={formData.email}
+        onChange={handleInputChange}
+        required
+        placeholder="you@example.com"
+        className="w-full bg-slate-700/60 border border-slate-600 rounded-lg px-3 min-[1600px]:px-4 py-2 min-[1600px]:py-3 text-sm text-white focus:border-orange-400 focus:ring-1 focus:ring-orange-400 focus:outline-none placeholder-gray-500 hover:border-slate-500 transition-colors"
+      />
+    </div>
+
+    <div>
+      <label htmlFor="message" className="block text-xs min-[1600px]:text-sm font-medium text-gray-300 mb-1 min-[1600px]:mb-1.5">
+        {tour.isCustom ? "Tell us about your dream safari (destinations, activities, interests, etc.)" : "Special Requests / Custom Message (Optional)"}
+      </label>
+      <textarea
+        name="message"
+        id="message"
+        rows="3"
+        value={formData.message}
+        onChange={handleInputChange}
+        placeholder={tour.isCustom ? "The more details, the better we can tailor your adventure!" : "e.g., dietary needs, accessibility requirements, special occasions"}
+        className="w-full bg-slate-700/60 border border-slate-600 rounded-lg px-3 min-[1600px]:px-4 py-2 min-[1600px]:py-3 text-sm text-white focus:border-orange-400 focus:ring-1 focus:ring-orange-400 focus:outline-none placeholder-gray-500 hover:border-slate-500 transition-colors resize-none"
+        required={tour.isCustom}
+      ></textarea>
+    </div>
+
+    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+      <Button
+        type="submit"
+        disabled={isSubmitting}
+        className="w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white py-2.5 min-[1600px]:py-3.5 rounded-lg font-semibold text-base min-[1600px]:text-lg shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50"
+      >
+        {isSubmitting ? (
+          <div className="flex items-center justify-center">
+            <div className="w-4 min-[1600px]:w-5 h-4 min-[1600px]:h-5 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2"></div>
+            Sending...
+          </div>
+        ) : (
+          <>
+            <Send className="w-4 min-[1600px]:w-5 h-4 min-[1600px]:h-5 mr-2 min-[1600px]:mr-2.5" />
+            {tour.isCustom ? "Send Custom Inquiry" : "Get Detailed Itinerary"}
+          </>
+        )}
+      </Button>
+    </motion.div>
+  </form>
+
+  <p className="text-xs text-gray-400 mt-3 min-[1600px]:mt-6 text-center">
+    Our travel experts will contact you with a personalized itinerary and quote.
+  </p>
+</motion.div>
 
               {/* Dynamic Additional Content */}
               <DynamicSidebarContent 
@@ -3971,7 +4074,7 @@ const getUniqueCountries = () => {
                 activeTab={activeTab}
                 tour={tour}
               />
-            </div>
+           
           </aside>
         </div>
       </div>

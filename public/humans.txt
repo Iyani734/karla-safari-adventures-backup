@@ -1,0 +1,49 @@
+/* ============================================================
+   HUMANS.TXT — karlasafariadventures.com
+   We are humans, not machines. humanstxt.org
+   ============================================================ */
+
+
+/* THE TEAM */
+
+Founder & Lead Safari Guide: Karla
+Location: Nairobi, Kenya
+Contact: info@karlasafariadventures.com
+
+Web Development: https://iyannibuildsweb.netlify.app/
+Location: Nairobi, Kenya
+Contact: ianchomba734@gmail.com
+
+Photography: [Photographer Name]
+Location: East Africa
+
+Social Media & Content: Karla Safari Adventures
+Location: Nairobi, Kenya
+
+
+/* THANKS */
+
+Our clients who trust us with their dream safaris.
+The wildlife of East Africa that makes it all possible.
+The Maasai, Samburu, Kikuyu and all communities who share their land.
+The rangers and conservancy teams protecting Africa's wilderness.
+
+
+/* SITE */
+
+Last update: 2026/04/20
+Language: English
+Doctype: HTML5
+IDE: VS Code
+Framework: React 18 + Vite
+Hosting: [Your Hosting Provider]
+Standards: HTML5, CSS3, ES2023
+
+
+/* LAND ACKNOWLEDGEMENT */
+
+Karla Safari Adventures operates on and connects travellers with
+the ancestral lands and territories of the Maasai, Samburu,
+Kikuyu, and many other indigenous communities of East Africa.
+We are committed to responsible tourism that benefits local
+communities and protects wildlife.

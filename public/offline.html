@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>You're Offline — Karla Safari Adventures</title>
+  <style>
+    :root {
+      --gold:    #c8922a;
+      --dark:    #1a1a0e;
+      --brown:   #3d2b1f;
+      --cream:   #f5f0e8;
+      --text:    #2c2c1e;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background-color: var(--dark);
+      color: var(--cream);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 560px;
+    }
+
+    .icon {
+      font-size: 5rem;
+      margin-bottom: 1.5rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-12px); }
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.02em;
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+      color: #b0a898;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #cdc5b4;
+      margin-bottom: 1rem;
+    }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 1.5rem auto;
+      border: none;
+    }
+
+    .fun-fact {
+      background: rgba(200, 146, 42, 0.1);
+      border: 1px solid rgba(200, 146, 42, 0.3);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .fun-fact h3 {
+      color: var(--gold);
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .fun-fact p {
+      margin: 0;
+      font-size: 0.95rem;
+      font-style: italic;
+    }
+
+    .retry-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.85rem 2.5rem;
+      background: var(--gold);
+      color: var(--dark);
+      text-decoration: none;
+      font-family: sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.1s ease;
+    }
+
+    .retry-btn:hover {
+      background: #e0a830;
+      transform: translateY(-1px);
+    }
+
+    .retry-btn:active {
+      transform: translateY(0);
+    }
+
+    .contact-note {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: #7a7264;
+    }
+
+    .contact-note a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .paw-prints {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      font-size: 1.5rem;
+      opacity: 0.2;
+      letter-spacing: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="icon">🦁</div>
+
+    <h1>Lost in the Wilderness?</h1>
+    <p class="tagline">Even the savannah goes quiet sometimes.</p>
+
+    <p>
+      It looks like you've wandered off the connected path.
+      Check your internet connection and try again — your
+      East African adventure is waiting.
+    </p>
+
+    <hr class="divider" />
+
+    <div class="fun-fact" id="fact-box">
+      <h3>🌿 Safari Fact While You Wait</h3>
+      <p id="fact-text">Loading a fun fact...</p>
+    </div>
+
+    <p>
+      Once you're back online, explore our safari packages,
+      browse breathtaking destinations, and start planning
+      the adventure of a lifetime.
+    </p>
+
+    <button class="retry-btn" onclick="window.location.reload()">
+      Try Again
+    </button>
+
+    <p class="contact-note">
+      Need help? Email us at
+      <a href="mailto:hello@karlasafariadventures.com">info@karlasafariadventures.com</a>
+    </p>
+
+  </div>
+
+  <div class="paw-prints">🐾🐾🐾</div>
+
+  <script>
+    const facts = [
+      "A lion's roar can be heard up to 8 kilometres away across the open savannah.",
+      "Elephants are the only animals that cannot jump — and they have no reason to.",
+      "A group of flamingos is called a 'flamboyance'. Fitting, isn't it?",
+      "Cheetahs are the only big cats that can purr. They also can't roar.",
+      "Giraffes only sleep around 30 minutes a day — usually in short naps.",
+      "The Maasai Mara hosts over 1.5 million wildebeest during the Great Migration each year.",
+      "Hippos produce their own natural sunscreen — a reddish oily secretion that protects their skin.",
+      "Mount Kilimanjaro, visible from Amboseli, is the highest free-standing mountain in the world.",
+      "Leopards can carry prey twice their own body weight up into a tree.",
+      "The Ngorongoro Crater is the world's largest intact volcanic caldera — and its own ecosystem."
+    ];
+
+    document.getElementById('fact-text').textContent =
+      facts[Math.floor(Math.random() * facts.length)];
+  </script>
+
+</body>
+</html>

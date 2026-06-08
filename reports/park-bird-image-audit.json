@@ -1,0 +1,3652 @@
+{
+  "generatedAt": "2026-06-05T08:43:36.113Z",
+  "summary": {
+    "parks": 54,
+    "availableLocalBirdAssets": 39,
+    "parksWithMissingBirdImages": 54,
+    "totalMissingBirdImageRefs": 384
+  },
+  "availableLocalBirdAssets": [
+    "/african-fish-eagle.webp",
+    "/african-fish-eagle2.webp",
+    "/African-Green-Broadbill.webp",
+    "/baglafecht-weaver.webp",
+    "/Birding-Experience-in-Uganda.webp",
+    "/birdWatching.webp",
+    "/birdWatching2.webp",
+    "/birdWatching3.webp",
+    "/crowned-hornbill.webp",
+    "/crowned-hornbill2.webp",
+    "/fischers-lovebird.webp",
+    "/flamingo.webp",
+    "/flamingo2.webp",
+    "/great-indian-hornbill.webp",
+    "/grey-crowned-crane.webp",
+    "/hadada-ibis.webp",
+    "/hadada-ibis2.webp",
+    "/hartlaubs-bustard.webp",
+    "/hartlaubs-bustard2.webp",
+    "/hartlaubs-turaco.webp",
+    "/jacksons-spurfowl.webp",
+    "/lake-nakuru-flamingos.webp",
+    "/lilac-breasted-roller.webp",
+    "/lilac-breasted-roller2.webp",
+    "/red-billed-quelea.webp",
+    "/red-winged-starling.webp",
+    "/scarlet-chested-sunbird.webp",
+    "/scarlet-chested-sunbird2.webp",
+    "/scarlet-chested-sunbird3.webp",
+    "/shoebill-stork.webp",
+    "/Shoebill-tracking-In-Mabamba-Swamp.webp",
+    "/southern-ground-hornbill.webp",
+    "/southern-ground-hornbill2.webp",
+    "/southern-ground-hornbill3.webp",
+    "/superb-starling.webp",
+    "/village-weaver.webp",
+    "/white-bellied-go-away-bird.webp",
+    "/white-bellied-go-away-bird2.webp",
+    "/yellow-billed-kite.webp"
+  ],
+  "parks": [
+    {
+      "id": "aberdare-national-park",
+      "name": "Aberdare National Park",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "Moorland chat",
+          "status": "Common",
+          "image": "/moorland-chat.webp",
+          "exists": true
+        },
+        {
+          "name": "Jackson's spurfowl",
+          "status": "Common & near-endemic",
+          "image": "/jacksons-spurfowl.webp",
+          "exists": true
+        },
+        {
+          "name": "Baglafecht weaver",
+          "status": "Locally common",
+          "image": "/baglafecht-weaver.webp",
+          "exists": true
+        },
+        {
+          "name": "Red-winged starling",
+          "status": "Common",
+          "image": "/red-winged-starling.webp",
+          "exists": true
+        },
+        {
+          "name": "Hartlaub's turaco",
+          "status": "Locally common",
+          "image": "/hartlaubs-turaco.webp",
+          "exists": true
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/bird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/bird2.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 5,
+        "galleryBirdImages": 2,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 2
+      },
+      "missingImages": [
+        "/bird1.webp",
+        "/bird2.webp"
+      ]
+    },
+    {
+      "id": "amboseli-national-park",
+      "name": "Amboseli National Park",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "Great white pelican",
+          "status": "Common",
+          "image": "/great-white-pelican.webp",
+          "exists": false
+        },
+        {
+          "name": "Saddle-billed stork",
+          "status": "Occasional",
+          "image": "/saddle-billed-stork.webp",
+          "exists": false
+        },
+        {
+          "name": "Martial eagle",
+          "status": "Occasional",
+          "image": "/martial-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Superb starling",
+          "status": "Abundant",
+          "image": "/superb-starling.webp",
+          "exists": true
+        },
+        {
+          "name": "Yellow-billed stork",
+          "status": "Common",
+          "image": "/yellow-billed-stork.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/amboselibird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/amboselibird2.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 1,
+        "galleryBirdImages": 2,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 6
+      },
+      "missingImages": [
+        "/great-white-pelican.webp",
+        "/saddle-billed-stork.webp",
+        "/martial-eagle.webp",
+        "/yellow-billed-stork.webp",
+        "/amboselibird1.webp",
+        "/amboselibird2.webp"
+      ]
+    },
+    {
+      "id": "arabuko-sokoke-forest-reserve",
+      "name": "Arabuko Sokoke Forest Reserve",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "Sokoke scops-owl",
+          "status": "Endemic — night walks essential",
+          "image": "/sokoke-scops-owl.webp",
+          "exists": false
+        },
+        {
+          "name": "Clarke's weaver",
+          "status": "Endemic — near breeding colonies Oct–Jan",
+          "image": "/clarkes-weaver.webp",
+          "exists": false
+        },
+        {
+          "name": "Amani sunbird",
+          "status": "Near-endemic",
+          "image": "/amani-sunbird.webp",
+          "exists": false
+        },
+        {
+          "name": "Sokoke pipit",
+          "status": "Endemic",
+          "image": "/sokoke-pipit.webp",
+          "exists": false
+        },
+        {
+          "name": "Plain-backed sunbird",
+          "status": "Locally common",
+          "image": "/plain-backed-sunbird.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/arabukobird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/arabukobird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/arabukobird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 0,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 8
+      },
+      "missingImages": [
+        "/sokoke-scops-owl.webp",
+        "/clarkes-weaver.webp",
+        "/amani-sunbird.webp",
+        "/sokoke-pipit.webp",
+        "/plain-backed-sunbird.webp",
+        "/arabukobird1.webp",
+        "/arabukobird2.webp",
+        "/arabukobird3.webp"
+      ]
+    },
+    {
+      "id": "borana-conservancy",
+      "name": "Borana Conservancy",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "Verreaux's eagle-owl",
+          "status": "Occasional",
+          "image": "/verreauxs-eagle-owl.webp",
+          "exists": false
+        },
+        {
+          "name": "Martial eagle",
+          "status": "Occasional",
+          "image": "/martial-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Jackson's widowbird",
+          "status": "Seasonal",
+          "image": "/jacksons-widowbird.webp",
+          "exists": false
+        },
+        {
+          "name": "Sharpe's longclaw",
+          "status": "Near-endemic",
+          "image": "/sharpes-longclaw.webp",
+          "exists": false
+        },
+        {
+          "name": "Banded harrier",
+          "status": "Occasional",
+          "image": "/banded-harrier.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/boranabird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/boranabird2.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 0,
+        "galleryBirdImages": 2,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 7
+      },
+      "missingImages": [
+        "/verreauxs-eagle-owl.webp",
+        "/martial-eagle.webp",
+        "/jacksons-widowbird.webp",
+        "/sharpes-longclaw.webp",
+        "/banded-harrier.webp",
+        "/boranabird1.webp",
+        "/boranabird2.webp"
+      ]
+    },
+    {
+      "id": "buffalo-springs-national-reserve",
+      "name": "Buffalo Springs National Reserve",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "Vulturine guineafowl",
+          "status": "Common",
+          "image": "/vulturine-guineafowl.webp",
+          "exists": false
+        },
+        {
+          "name": "Golden-breasted starling",
+          "status": "Common",
+          "image": "/golden-breasted-starling.webp",
+          "exists": false
+        },
+        {
+          "name": "Somali bee-eater",
+          "status": "Near-endemic",
+          "image": "/somali-bee-eater.webp",
+          "exists": false
+        },
+        {
+          "name": "Martial eagle",
+          "status": "Occasional",
+          "image": "/martial-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Northern carmine bee-eater",
+          "status": "Seasonal",
+          "image": "/northern-carmine-bee-eater.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/buffaloSpringsbird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/buffaloSpringsbird2.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 0,
+        "galleryBirdImages": 2,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 7
+      },
+      "missingImages": [
+        "/vulturine-guineafowl.webp",
+        "/golden-breasted-starling.webp",
+        "/somali-bee-eater.webp",
+        "/martial-eagle.webp",
+        "/northern-carmine-bee-eater.webp",
+        "/buffaloSpringsbird1.webp",
+        "/buffaloSpringsbird2.webp"
+      ]
+    },
+    {
+      "id": "chyulu-hills-national-park",
+      "name": "Chyulu Hills National Park",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "Martial eagle",
+          "status": "Occasional",
+          "image": "/martial-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "African crowned eagle",
+          "status": "Rare",
+          "image": "/african-crowned-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Hartlaub's turaco",
+          "status": "Locally common",
+          "image": "/hartlaubs-turaco.webp",
+          "exists": true
+        },
+        {
+          "name": "Narina trogon",
+          "status": "Occasional",
+          "image": "/narina-trogon.webp",
+          "exists": false
+        },
+        {
+          "name": "Von der Decken's hornbill",
+          "status": "Common",
+          "image": "/von-der-deckens-hornbill.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/chyulubird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/chyulubird2.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 1,
+        "galleryBirdImages": 2,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 6
+      },
+      "missingImages": [
+        "/martial-eagle.webp",
+        "/african-crowned-eagle.webp",
+        "/narina-trogon.webp",
+        "/von-der-deckens-hornbill.webp",
+        "/chyulubird1.webp",
+        "/chyulubird2.webp"
+      ]
+    },
+    {
+      "id": "hells-gate-national-park",
+      "name": "Hell's Gate National Park",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "Lammergeier",
+          "status": "Rare — resident nesters",
+          "image": "/lammergeier.webp",
+          "exists": false
+        },
+        {
+          "name": "Verreaux's eagle",
+          "status": "Resident",
+          "image": "/verreauxs-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Augur buzzard",
+          "status": "Common",
+          "image": "/augur-buzzard.webp",
+          "exists": false
+        },
+        {
+          "name": "Lanner falcon",
+          "status": "Occasional",
+          "image": "/lanner-falcon.webp",
+          "exists": false
+        },
+        {
+          "name": "Cliff chat",
+          "status": "Common",
+          "image": "/cliff-chat.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/hellsGatebird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/hellsGatebird2.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 0,
+        "galleryBirdImages": 2,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 7
+      },
+      "missingImages": [
+        "/lammergeier.webp",
+        "/verreauxs-eagle.webp",
+        "/augur-buzzard.webp",
+        "/lanner-falcon.webp",
+        "/cliff-chat.webp",
+        "/hellsGatebird1.webp",
+        "/hellsGatebird2.webp"
+      ]
+    },
+    {
+      "id": "kakamega-forest",
+      "name": "Kakamega Forest",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "Great Blue Turaco",
+          "status": "Common — iconic species",
+          "image": "/great-blue-turaco.webp",
+          "exists": false
+        },
+        {
+          "name": "Turner's eremomela",
+          "status": "Endemic",
+          "image": "/turners-eremomela.webp",
+          "exists": false
+        },
+        {
+          "name": "African broadbill",
+          "status": "Locally common",
+          "image": "/african-broadbill.webp",
+          "exists": false
+        },
+        {
+          "name": "Blue-headed bee-eater",
+          "status": "Near-endemic",
+          "image": "/blue-headed-bee-eater.webp",
+          "exists": false
+        },
+        {
+          "name": "Shining blue kingfisher",
+          "status": "Occasional",
+          "image": "/shining-blue-kingfisher.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/kakamegabird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/kakamegabird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/kakamegabird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 0,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 8
+      },
+      "missingImages": [
+        "/great-blue-turaco.webp",
+        "/turners-eremomela.webp",
+        "/african-broadbill.webp",
+        "/blue-headed-bee-eater.webp",
+        "/shining-blue-kingfisher.webp",
+        "/kakamegabird1.webp",
+        "/kakamegabird2.webp",
+        "/kakamegabird3.webp"
+      ]
+    },
+    {
+      "id": "kora-national-park",
+      "name": "Kora National Park",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "African fish eagle",
+          "status": "Common — Tana River",
+          "image": "/african-fish-eagle.webp",
+          "exists": true
+        },
+        {
+          "name": "African skimmer",
+          "status": "Seasonal — Tana River",
+          "image": "/african-skimmer.webp",
+          "exists": false
+        },
+        {
+          "name": "Golden-breasted starling",
+          "status": "Common",
+          "image": "/golden-breasted-starling.webp",
+          "exists": false
+        },
+        {
+          "name": "Verreaux's eagle",
+          "status": "Resident on kopjes",
+          "image": "/verreauxs-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Vulturine guineafowl",
+          "status": "Common",
+          "image": "/vulturine-guineafowl.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/korabird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/korabird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/korabird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 1,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 7
+      },
+      "missingImages": [
+        "/african-skimmer.webp",
+        "/golden-breasted-starling.webp",
+        "/verreauxs-eagle.webp",
+        "/vulturine-guineafowl.webp",
+        "/korabird1.webp",
+        "/korabird2.webp",
+        "/korabird3.webp"
+      ]
+    },
+    {
+      "id": "laikipia-plateau",
+      "name": "Laikipia Plateau",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "Northern carmine bee-eater",
+          "status": "Common — seasonal",
+          "image": "/northern-carmine-bee-eater.webp",
+          "exists": false
+        },
+        {
+          "name": "Verreaux's eagle",
+          "status": "Resident on rocky terrain",
+          "image": "/verreauxs-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Martial eagle",
+          "status": "Resident",
+          "image": "/martial-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Somali ostrich",
+          "status": "Common",
+          "image": "/somali-ostrich.webp",
+          "exists": false
+        },
+        {
+          "name": "Vulturine guineafowl",
+          "status": "Common",
+          "image": "/vulturine-guineafowl.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/laikipiabird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/laikipiabird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/laikipiabird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 0,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 8
+      },
+      "missingImages": [
+        "/northern-carmine-bee-eater.webp",
+        "/verreauxs-eagle.webp",
+        "/martial-eagle.webp",
+        "/somali-ostrich.webp",
+        "/vulturine-guineafowl.webp",
+        "/laikipiabird1.webp",
+        "/laikipiabird2.webp",
+        "/laikipiabird3.webp"
+      ]
+    },
+    {
+      "id": "lake-bogoria-national-reserve",
+      "name": "Lake Bogoria National Reserve",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "Lesser flamingo",
+          "status": "Up to 2 million — iconic spectacle",
+          "image": "/lesser-flamingo.webp",
+          "exists": false
+        },
+        {
+          "name": "Greater flamingo",
+          "status": "Present in smaller numbers",
+          "image": "/greater-flamingo.webp",
+          "exists": false
+        },
+        {
+          "name": "African fish eagle",
+          "status": "Common on shoreline",
+          "image": "/african-fish-eagle.webp",
+          "exists": true
+        },
+        {
+          "name": "Goliath heron",
+          "status": "Present at water margins",
+          "image": "/goliath-heron.webp",
+          "exists": false
+        },
+        {
+          "name": "Great white pelican",
+          "status": "Seasonal flocks",
+          "image": "/great-white-pelican.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/bogoriabird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/bogoriabird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/bogoriabird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 1,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 7
+      },
+      "missingImages": [
+        "/lesser-flamingo.webp",
+        "/greater-flamingo.webp",
+        "/goliath-heron.webp",
+        "/great-white-pelican.webp",
+        "/bogoriabird1.webp",
+        "/bogoriabird2.webp",
+        "/bogoriabird3.webp"
+      ]
+    },
+    {
+      "id": "lake-nakuru-national-park",
+      "name": "Lake Nakuru National Park",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "Lesser flamingo",
+          "status": "Variable — can be spectacular",
+          "image": "/lesser-flamingo.webp",
+          "exists": false
+        },
+        {
+          "name": "Great white pelican",
+          "status": "Common flocks on lake",
+          "image": "/great-white-pelican.webp",
+          "exists": false
+        },
+        {
+          "name": "African fish eagle",
+          "status": "Common — lake shore",
+          "image": "/african-fish-eagle.webp",
+          "exists": true
+        },
+        {
+          "name": "Verreaux's eagle",
+          "status": "Resident on Menengai cliff",
+          "image": "/verreauxs-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Yellow-billed stork",
+          "status": "Common at water margins",
+          "image": "/yellow-billed-stork.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/nakurubird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/nakurubird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/nakurubird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 1,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 7
+      },
+      "missingImages": [
+        "/lesser-flamingo.webp",
+        "/great-white-pelican.webp",
+        "/verreauxs-eagle.webp",
+        "/yellow-billed-stork.webp",
+        "/nakurubird1.webp",
+        "/nakurubird2.webp",
+        "/nakurubird3.webp"
+      ]
+    },
+    {
+      "id": "lake-turkana",
+      "name": "Lake Turkana",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "African skimmer",
+          "status": "Resident on lake shores",
+          "image": "/african-skimmer.webp",
+          "exists": false
+        },
+        {
+          "name": "African fish eagle",
+          "status": "Common on lake",
+          "image": "/african-fish-eagle.webp",
+          "exists": true
+        },
+        {
+          "name": "Lesser flamingo",
+          "status": "Seasonal — tens of thousands",
+          "image": "/lesser-flamingo.webp",
+          "exists": false
+        },
+        {
+          "name": "Goliath heron",
+          "status": "Common on shoreline",
+          "image": "/goliath-heron.webp",
+          "exists": false
+        },
+        {
+          "name": "Great white pelican",
+          "status": "Common flocks",
+          "image": "/great-white-pelican.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/turkanabird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/turkanabird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/turkanabird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 1,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 7
+      },
+      "missingImages": [
+        "/african-skimmer.webp",
+        "/lesser-flamingo.webp",
+        "/goliath-heron.webp",
+        "/great-white-pelican.webp",
+        "/turkanabird1.webp",
+        "/turkanabird2.webp",
+        "/turkanabird3.webp"
+      ]
+    },
+    {
+      "id": "lewa-wildlife-conservancy",
+      "name": "Lewa Wildlife Conservancy",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "Verreaux's eagle",
+          "status": "Resident on rocky terrain",
+          "image": "/verreauxs-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Martial eagle",
+          "status": "Resident",
+          "image": "/martial-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Somali ostrich",
+          "status": "Common",
+          "image": "/somali-ostrich.webp",
+          "exists": false
+        },
+        {
+          "name": "Northern carmine bee-eater",
+          "status": "Seasonal",
+          "image": "/northern-carmine-bee-eater.webp",
+          "exists": false
+        },
+        {
+          "name": "Vulturine guineafowl",
+          "status": "Common",
+          "image": "/vulturine-guineafowl.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/lewabird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/lewabird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/lewabird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 0,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 8
+      },
+      "missingImages": [
+        "/verreauxs-eagle.webp",
+        "/martial-eagle.webp",
+        "/somali-ostrich.webp",
+        "/northern-carmine-bee-eater.webp",
+        "/vulturine-guineafowl.webp",
+        "/lewabird1.webp",
+        "/lewabird2.webp",
+        "/lewabird3.webp"
+      ]
+    },
+    {
+      "id": "loisaba-conservancy",
+      "name": "Loisaba Conservancy",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "Vulturine guineafowl",
+          "status": "Common throughout",
+          "image": "/vulturine-guineafowl.webp",
+          "exists": false
+        },
+        {
+          "name": "Northern carmine bee-eater",
+          "status": "Seasonal",
+          "image": "/northern-carmine-bee-eater.webp",
+          "exists": false
+        },
+        {
+          "name": "Martial eagle",
+          "status": "Resident",
+          "image": "/martial-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "African fish eagle",
+          "status": "Common on river",
+          "image": "/african-fish-eagle.webp",
+          "exists": true
+        },
+        {
+          "name": "Somali ostrich",
+          "status": "Common",
+          "image": "/somali-ostrich.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/loisababird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/loisababird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/loisababird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 1,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 7
+      },
+      "missingImages": [
+        "/vulturine-guineafowl.webp",
+        "/northern-carmine-bee-eater.webp",
+        "/martial-eagle.webp",
+        "/somali-ostrich.webp",
+        "/loisababird1.webp",
+        "/loisababird2.webp",
+        "/loisababird3.webp"
+      ]
+    },
+    {
+      "id": "mara-naboisho-conservancy",
+      "name": "Mara Naboisho Conservancy",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "Martial eagle",
+          "status": "Resident",
+          "image": "/martial-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Bateleur",
+          "status": "Resident",
+          "image": "/bateleur.webp",
+          "exists": false
+        },
+        {
+          "name": "Lilac-breasted roller",
+          "status": "Abundant",
+          "image": "/lilac-breasted-roller.webp",
+          "exists": true
+        },
+        {
+          "name": "Secretary bird",
+          "status": "Resident grasslands",
+          "image": "/secretary-bird.webp",
+          "exists": false
+        },
+        {
+          "name": "Saddle-billed stork",
+          "status": "Common wetlands",
+          "image": "/saddle-billed-stork.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/naboishobird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/naboishobird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/naboishobird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 1,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 7
+      },
+      "missingImages": [
+        "/martial-eagle.webp",
+        "/bateleur.webp",
+        "/secretary-bird.webp",
+        "/saddle-billed-stork.webp",
+        "/naboishobird1.webp",
+        "/naboishobird2.webp",
+        "/naboishobird3.webp"
+      ]
+    },
+    {
+      "id": "mara-north-conservancy",
+      "name": "Mara North Conservancy",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "African crowned eagle",
+          "status": "Resident riverine forest",
+          "image": "/african-crowned-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Lilac-breasted roller",
+          "status": "Abundant",
+          "image": "/lilac-breasted-roller.webp",
+          "exists": true
+        },
+        {
+          "name": "Secretary bird",
+          "status": "Resident grasslands",
+          "image": "/secretary-bird.webp",
+          "exists": false
+        },
+        {
+          "name": "Martial eagle",
+          "status": "Resident",
+          "image": "/martial-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Saddle-billed stork",
+          "status": "Common wetlands",
+          "image": "/saddle-billed-stork.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/maranorthbird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/maranorthbird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/maranorthbird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 1,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 7
+      },
+      "missingImages": [
+        "/african-crowned-eagle.webp",
+        "/secretary-bird.webp",
+        "/martial-eagle.webp",
+        "/saddle-billed-stork.webp",
+        "/maranorthbird1.webp",
+        "/maranorthbird2.webp",
+        "/maranorthbird3.webp"
+      ]
+    },
+    {
+      "id": "marsabit-national-park",
+      "name": "Marsabit National Park",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "African crowned eagle",
+          "status": "Resident montane forest",
+          "image": "/african-crowned-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Hemprich's hornbill",
+          "status": "Resident forest",
+          "image": "/hemprichs-hornbill.webp",
+          "exists": false
+        },
+        {
+          "name": "Abyssinian ground hornbill",
+          "status": "Common",
+          "image": "/abyssinian-ground-hornbill.webp",
+          "exists": false
+        },
+        {
+          "name": "Martial eagle",
+          "status": "Resident",
+          "image": "/martial-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Verreaux's eagle",
+          "status": "Resident rocky terrain",
+          "image": "/verreauxs-eagle.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/marsabitbird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/marsabitbird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/marsabitbird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 0,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 8
+      },
+      "missingImages": [
+        "/african-crowned-eagle.webp",
+        "/hemprichs-hornbill.webp",
+        "/abyssinian-ground-hornbill.webp",
+        "/martial-eagle.webp",
+        "/verreauxs-eagle.webp",
+        "/marsabitbird1.webp",
+        "/marsabitbird2.webp",
+        "/marsabitbird3.webp"
+      ]
+    },
+    {
+      "id": "masai-mara-national-reserve",
+      "name": "Masai Mara National Reserve",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "Martial eagle",
+          "status": "Resident",
+          "image": "/martial-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Secretary bird",
+          "status": "Resident grasslands",
+          "image": "/secretary-bird.webp",
+          "exists": false
+        },
+        {
+          "name": "Lilac-breasted roller",
+          "status": "Abundant",
+          "image": "/lilac-breasted-roller.webp",
+          "exists": true
+        },
+        {
+          "name": "Saddle-billed stork",
+          "status": "Common",
+          "image": "/saddle-billed-stork.webp",
+          "exists": false
+        },
+        {
+          "name": "African fish eagle",
+          "status": "Common — Mara River",
+          "image": "/african-fish-eagle.webp",
+          "exists": true
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/marabird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/marabird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/marabird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 2,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 6
+      },
+      "missingImages": [
+        "/martial-eagle.webp",
+        "/secretary-bird.webp",
+        "/saddle-billed-stork.webp",
+        "/marabird1.webp",
+        "/marabird2.webp",
+        "/marabird3.webp"
+      ]
+    },
+    {
+      "id": "meru-national-park",
+      "name": "Meru National Park",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "Peter's finfoot",
+          "status": "Rare — Tana River",
+          "image": "/peters-finfoot.webp",
+          "exists": false
+        },
+        {
+          "name": "Palm-nut vulture",
+          "status": "Resident doum palms",
+          "image": "/palm-nut-vulture.webp",
+          "exists": false
+        },
+        {
+          "name": "Martial eagle",
+          "status": "Resident",
+          "image": "/martial-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "African crowned eagle",
+          "status": "Resident forest",
+          "image": "/african-crowned-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Hemprich's hornbill",
+          "status": "Resident",
+          "image": "/hemprichs-hornbill.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/merubird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/merubird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/merubird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 0,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 8
+      },
+      "missingImages": [
+        "/peters-finfoot.webp",
+        "/palm-nut-vulture.webp",
+        "/martial-eagle.webp",
+        "/african-crowned-eagle.webp",
+        "/hemprichs-hornbill.webp",
+        "/merubird1.webp",
+        "/merubird2.webp",
+        "/merubird3.webp"
+      ]
+    },
+    {
+      "id": "nairobi-national-park",
+      "name": "Nairobi National Park",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "African white-backed vulture",
+          "status": "Common",
+          "image": "/white-backed-vulture.webp",
+          "exists": false
+        },
+        {
+          "name": "Martial eagle",
+          "status": "Resident",
+          "image": "/martial-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Secretary bird",
+          "status": "Resident grasslands",
+          "image": "/secretary-bird.webp",
+          "exists": false
+        },
+        {
+          "name": "Grey crowned crane",
+          "status": "Common",
+          "image": "/grey-crowned-crane.webp",
+          "exists": true
+        },
+        {
+          "name": "Saddle-billed stork",
+          "status": "Common wetlands",
+          "image": "/saddle-billed-stork.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/nairobiNPbird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/nairobiNPbird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/nairobiNPbird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 1,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 7
+      },
+      "missingImages": [
+        "/white-backed-vulture.webp",
+        "/martial-eagle.webp",
+        "/secretary-bird.webp",
+        "/saddle-billed-stork.webp",
+        "/nairobiNPbird1.webp",
+        "/nairobiNPbird2.webp",
+        "/nairobiNPbird3.webp"
+      ]
+    },
+    {
+      "id": "ol-pejeta-conservancy",
+      "name": "Ol Pejeta Conservancy",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "Martial eagle",
+          "status": "Resident",
+          "image": "/martial-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "African fish eagle",
+          "status": "Common — Ewaso River",
+          "image": "/african-fish-eagle.webp",
+          "exists": true
+        },
+        {
+          "name": "Abyssinian ground hornbill",
+          "status": "Common",
+          "image": "/abyssinian-ground-hornbill.webp",
+          "exists": false
+        },
+        {
+          "name": "Grey crowned crane",
+          "status": "Resident wetlands",
+          "image": "/grey-crowned-crane.webp",
+          "exists": true
+        },
+        {
+          "name": "Saddle-billed stork",
+          "status": "Common",
+          "image": "/saddle-billed-stork.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/olpejetabird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/olpejetabird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/olpejetabird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 2,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 6
+      },
+      "missingImages": [
+        "/martial-eagle.webp",
+        "/abyssinian-ground-hornbill.webp",
+        "/saddle-billed-stork.webp",
+        "/olpejetabird1.webp",
+        "/olpejetabird2.webp",
+        "/olpejetabird3.webp"
+      ]
+    },
+    {
+      "id": "ruma-national-park",
+      "name": "Ruma National Park",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "Blue-headed bee-eater",
+          "status": "Resident",
+          "image": "/blue-headed-bee-eater.webp",
+          "exists": false
+        },
+        {
+          "name": "Papyrus yellow warbler",
+          "status": "Rare — papyrus",
+          "image": "/papyrus-yellow-warbler.webp",
+          "exists": false
+        },
+        {
+          "name": "African finfoot",
+          "status": "Rare — river",
+          "image": "/african-finfoot.webp",
+          "exists": false
+        },
+        {
+          "name": "Shoebill",
+          "status": "Occasional — Lake Victoria marshes",
+          "image": "/shoebill.webp",
+          "exists": false
+        },
+        {
+          "name": "Martial eagle",
+          "status": "Resident",
+          "image": "/martial-eagle.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/rumabird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/rumabird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/rumabird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 0,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 8
+      },
+      "missingImages": [
+        "/blue-headed-bee-eater.webp",
+        "/papyrus-yellow-warbler.webp",
+        "/african-finfoot.webp",
+        "/shoebill.webp",
+        "/martial-eagle.webp",
+        "/rumabird1.webp",
+        "/rumabird2.webp",
+        "/rumabird3.webp"
+      ]
+    },
+    {
+      "id": "saiwa-swamp-national-park",
+      "name": "Saiwa Swamp National Park",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "Papyrus gonolek",
+          "status": "Resident papyrus swamp",
+          "image": "/papyrus-gonolek.webp",
+          "exists": false
+        },
+        {
+          "name": "Nkulengu rail",
+          "status": "Rare — forest",
+          "image": "/nkulengu-rail.webp",
+          "exists": false
+        },
+        {
+          "name": "Hartlaub's turaco",
+          "status": "Resident forest",
+          "image": "/hartlaubs-turaco.webp",
+          "exists": true
+        },
+        {
+          "name": "African finfoot",
+          "status": "Present — river",
+          "image": "/african-finfoot.webp",
+          "exists": false
+        },
+        {
+          "name": "Blue-headed bee-eater",
+          "status": "Resident",
+          "image": "/blue-headed-bee-eater.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/saiwabird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/saiwabird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/saiwabird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 1,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 7
+      },
+      "missingImages": [
+        "/papyrus-gonolek.webp",
+        "/nkulengu-rail.webp",
+        "/african-finfoot.webp",
+        "/blue-headed-bee-eater.webp",
+        "/saiwabird1.webp",
+        "/saiwabird2.webp",
+        "/saiwabird3.webp"
+      ]
+    },
+    {
+      "id": "shaba-national-reserve",
+      "name": "Shaba National Reserve",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "Vulturine guineafowl",
+          "status": "Resident",
+          "image": "/vulturine-guineafowl.webp",
+          "exists": false
+        },
+        {
+          "name": "Somali bee-eater",
+          "status": "Resident",
+          "image": "/somali-bee-eater.webp",
+          "exists": false
+        },
+        {
+          "name": "Martial eagle",
+          "status": "Resident",
+          "image": "/martial-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Donaldson-Smith's nightjar",
+          "status": "Resident",
+          "image": "/nightjar.webp",
+          "exists": false
+        },
+        {
+          "name": "Somali ostrich",
+          "status": "Resident",
+          "image": "/somali-ostrich.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/shababird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/shababird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/shababird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 0,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 8
+      },
+      "missingImages": [
+        "/vulturine-guineafowl.webp",
+        "/somali-bee-eater.webp",
+        "/martial-eagle.webp",
+        "/nightjar.webp",
+        "/somali-ostrich.webp",
+        "/shababird1.webp",
+        "/shababird2.webp",
+        "/shababird3.webp"
+      ]
+    },
+    {
+      "id": "shimba-hills-national-reserve",
+      "name": "Shimba Hills National Reserve",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "Fischer's turaco",
+          "status": "Resident coastal forest",
+          "image": "/fischers-turaco.webp",
+          "exists": false
+        },
+        {
+          "name": "Spotted ground thrush",
+          "status": "Resident forest floor",
+          "image": "/spotted-ground-thrush.webp",
+          "exists": false
+        },
+        {
+          "name": "Amani sunbird",
+          "status": "Resident coastal forest",
+          "image": "/amani-sunbird.webp",
+          "exists": false
+        },
+        {
+          "name": "African crowned eagle",
+          "status": "Resident",
+          "image": "/crowned-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Narina trogon",
+          "status": "Resident forest",
+          "image": "/narina-trogon.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/shimbabird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/shimbabird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/shimbabird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 0,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 8
+      },
+      "missingImages": [
+        "/fischers-turaco.webp",
+        "/spotted-ground-thrush.webp",
+        "/amani-sunbird.webp",
+        "/crowned-eagle.webp",
+        "/narina-trogon.webp",
+        "/shimbabird1.webp",
+        "/shimbabird2.webp",
+        "/shimbabird3.webp"
+      ]
+    },
+    {
+      "id": "solio-ranch",
+      "name": "Solio Ranch",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "Martial eagle",
+          "status": "Resident",
+          "image": "/martial-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "African crowned eagle",
+          "status": "Resident forest",
+          "image": "/crowned-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Kori bustard",
+          "status": "Resident grassland",
+          "image": "/kori-bustard.webp",
+          "exists": false
+        },
+        {
+          "name": "African fish eagle",
+          "status": "Resident",
+          "image": "/fish-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Jackson's widowbird",
+          "status": "Resident grassland",
+          "image": "/jacksons-widowbird.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/soliobird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/soliobird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/soliobird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 0,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 8
+      },
+      "missingImages": [
+        "/martial-eagle.webp",
+        "/crowned-eagle.webp",
+        "/kori-bustard.webp",
+        "/fish-eagle.webp",
+        "/jacksons-widowbird.webp",
+        "/soliobird1.webp",
+        "/soliobird2.webp",
+        "/soliobird3.webp"
+      ]
+    },
+    {
+      "id": "taita-hills-wildlife-sanctuary",
+      "name": "Taita Hills Wildlife Sanctuary",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "Taita thrush",
+          "status": "Endemic — forest fragments",
+          "image": "/taita-thrush.webp",
+          "exists": false
+        },
+        {
+          "name": "Taita apalis",
+          "status": "Endemic — forest",
+          "image": "/taita-apalis.webp",
+          "exists": false
+        },
+        {
+          "name": "Taita white-eye",
+          "status": "Endemic — forest",
+          "image": "/taita-white-eye.webp",
+          "exists": false
+        },
+        {
+          "name": "African crowned eagle",
+          "status": "Resident forest",
+          "image": "/crowned-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Southern banded snake eagle",
+          "status": "Resident",
+          "image": "/snake-eagle.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/taitabird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/taitabird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/taitabird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 0,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 8
+      },
+      "missingImages": [
+        "/taita-thrush.webp",
+        "/taita-apalis.webp",
+        "/taita-white-eye.webp",
+        "/crowned-eagle.webp",
+        "/snake-eagle.webp",
+        "/taitabird1.webp",
+        "/taitabird2.webp",
+        "/taitabird3.webp"
+      ]
+    },
+    {
+      "id": "tsavo-east-national-park",
+      "name": "Tsavo East National Park",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "Somali bee-eater",
+          "status": "Resident",
+          "image": "/somali-bee-eater.webp",
+          "exists": false
+        },
+        {
+          "name": "Vulturine guineafowl",
+          "status": "Resident",
+          "image": "/vulturine-guineafowl.webp",
+          "exists": false
+        },
+        {
+          "name": "Martial eagle",
+          "status": "Resident",
+          "image": "/martial-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Carmine bee-eater",
+          "status": "Seasonal",
+          "image": "/carmine-bee-eater.webp",
+          "exists": false
+        },
+        {
+          "name": "African skimmer",
+          "status": "Resident — Galana River",
+          "image": "/african-skimmer.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/tsavoeastbird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/tsavoeastbird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/tsavoeastbird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 0,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 8
+      },
+      "missingImages": [
+        "/somali-bee-eater.webp",
+        "/vulturine-guineafowl.webp",
+        "/martial-eagle.webp",
+        "/carmine-bee-eater.webp",
+        "/african-skimmer.webp",
+        "/tsavoeastbird1.webp",
+        "/tsavoeastbird2.webp",
+        "/tsavoeastbird3.webp"
+      ]
+    },
+    {
+      "id": "tsavo-west-national-park",
+      "name": "Tsavo West National Park",
+      "country": "Kenya",
+      "notableBirds": [
+        {
+          "name": "African crowned eagle",
+          "status": "Resident",
+          "image": "/african-crowned-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Martial eagle",
+          "status": "Resident",
+          "image": "/martial-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Bateleur",
+          "status": "Resident",
+          "image": "/bateleur.webp",
+          "exists": false
+        },
+        {
+          "name": "Carmine bee-eater",
+          "status": "Seasonal",
+          "image": "/carmine-bee-eater.webp",
+          "exists": false
+        },
+        {
+          "name": "African fish eagle",
+          "status": "Resident — Mzima Springs",
+          "image": "/african-fish-eagle.webp",
+          "exists": true
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/tsavowestbird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/tsavowestbird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/tsavowestbird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 1,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 7
+      },
+      "missingImages": [
+        "/african-crowned-eagle.webp",
+        "/martial-eagle.webp",
+        "/bateleur.webp",
+        "/carmine-bee-eater.webp",
+        "/tsavowestbird1.webp",
+        "/tsavowestbird2.webp",
+        "/tsavowestbird3.webp"
+      ]
+    },
+    {
+      "id": "arusha-national-park",
+      "name": "Arusha National Park",
+      "country": "Tanzania",
+      "notableBirds": [
+        {
+          "name": "Lesser flamingo",
+          "status": "Abundant — Momella Lakes",
+          "image": "/lesser-flamingo.webp",
+          "exists": false
+        },
+        {
+          "name": "African fish eagle",
+          "status": "Resident",
+          "image": "/african-fish-eagle.webp",
+          "exists": true
+        },
+        {
+          "name": "Hartlaub's turaco",
+          "status": "Resident — montane forest",
+          "image": "/hartlaubs-turaco.webp",
+          "exists": true
+        },
+        {
+          "name": "African crowned eagle",
+          "status": "Resident",
+          "image": "/african-crowned-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Bar-tailed trogon",
+          "status": "Resident — forest",
+          "image": "/bar-tailed-trogon.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/arushabird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/arushabird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/arushabird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 2,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 6
+      },
+      "missingImages": [
+        "/lesser-flamingo.webp",
+        "/african-crowned-eagle.webp",
+        "/bar-tailed-trogon.webp",
+        "/arushabird1.webp",
+        "/arushabird2.webp",
+        "/arushabird3.webp"
+      ]
+    },
+    {
+      "id": "gombe-national-park",
+      "name": "Gombe National Park",
+      "country": "Tanzania",
+      "notableBirds": [
+        {
+          "name": "African fish eagle",
+          "status": "Resident — lake shore",
+          "image": "/african-fish-eagle.webp",
+          "exists": true
+        },
+        {
+          "name": "Palm-nut vulture",
+          "status": "Resident",
+          "image": "/palm-nut-vulture.webp",
+          "exists": false
+        },
+        {
+          "name": "Crowned hornbill",
+          "status": "Resident — forest",
+          "image": "/crowned-hornbill.webp",
+          "exists": true
+        },
+        {
+          "name": "Ross's turaco",
+          "status": "Resident — forest",
+          "image": "/ross-turaco.webp",
+          "exists": false
+        },
+        {
+          "name": "Pel's fishing owl",
+          "status": "Present — rare",
+          "image": "/pels-fishing-owl.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/gombebird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/gombebird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/gombebird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 2,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 6
+      },
+      "missingImages": [
+        "/palm-nut-vulture.webp",
+        "/ross-turaco.webp",
+        "/pels-fishing-owl.webp",
+        "/gombebird1.webp",
+        "/gombebird2.webp",
+        "/gombebird3.webp"
+      ]
+    },
+    {
+      "id": "grumeti-game-reserve",
+      "name": "Grumeti Game Reserve",
+      "country": "Tanzania",
+      "notableBirds": [
+        {
+          "name": "African fish eagle",
+          "status": "Resident — Grumeti River",
+          "image": "/african-fish-eagle.webp",
+          "exists": true
+        },
+        {
+          "name": "Martial eagle",
+          "status": "Resident",
+          "image": "/martial-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Saddle-billed stork",
+          "status": "Resident",
+          "image": "/saddle-billed-stork.webp",
+          "exists": false
+        },
+        {
+          "name": "Ross's turaco",
+          "status": "Resident — riverine forest",
+          "image": "/ross-turaco.webp",
+          "exists": false
+        },
+        {
+          "name": "Broad-tailed paradise whydah",
+          "status": "Resident",
+          "image": "/paradise-whydah.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/grumetibird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/grumetibird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/grumetibird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 1,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 7
+      },
+      "missingImages": [
+        "/martial-eagle.webp",
+        "/saddle-billed-stork.webp",
+        "/ross-turaco.webp",
+        "/paradise-whydah.webp",
+        "/grumetibird1.webp",
+        "/grumetibird2.webp",
+        "/grumetibird3.webp"
+      ]
+    },
+    {
+      "id": "katavi-national-park",
+      "name": "Katavi National Park",
+      "country": "Tanzania",
+      "notableBirds": [
+        {
+          "name": "African fish eagle",
+          "status": "Abundant — Katuma River",
+          "image": "/african-fish-eagle.webp",
+          "exists": true
+        },
+        {
+          "name": "Pel's fishing owl",
+          "status": "Present — Katuma River",
+          "image": "/pels-fishing-owl.webp",
+          "exists": false
+        },
+        {
+          "name": "Bohm's bee-eater",
+          "status": "Resident — miombo specialist",
+          "image": "/bohms-bee-eater.webp",
+          "exists": false
+        },
+        {
+          "name": "Stierling's woodpecker",
+          "status": "Resident — miombo specialist",
+          "image": "/stierlings-woodpecker.webp",
+          "exists": false
+        },
+        {
+          "name": "Saddle-billed stork",
+          "status": "Resident — floodplain",
+          "image": "/saddle-billed-stork.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/katavibird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/katavibird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/katavibird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 1,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 7
+      },
+      "missingImages": [
+        "/pels-fishing-owl.webp",
+        "/bohms-bee-eater.webp",
+        "/stierlings-woodpecker.webp",
+        "/saddle-billed-stork.webp",
+        "/katavibird1.webp",
+        "/katavibird2.webp",
+        "/katavibird3.webp"
+      ]
+    },
+    {
+      "id": "lake-manyara-national-park",
+      "name": "Lake Manyara National Park",
+      "country": "Tanzania",
+      "notableBirds": [
+        {
+          "name": "Lesser flamingo",
+          "status": "Seasonal — hundreds of thousands",
+          "image": "/lesser-flamingo.webp",
+          "exists": false
+        },
+        {
+          "name": "African fish eagle",
+          "status": "Resident",
+          "image": "/african-fish-eagle.webp",
+          "exists": true
+        },
+        {
+          "name": "Silvery-cheeked hornbill",
+          "status": "Resident — groundwater forest",
+          "image": "/silvery-cheeked-hornbill.webp",
+          "exists": false
+        },
+        {
+          "name": "Saddle-billed stork",
+          "status": "Resident",
+          "image": "/saddle-billed-stork.webp",
+          "exists": false
+        },
+        {
+          "name": "Goliath heron",
+          "status": "Resident — lake shore",
+          "image": "/goliath-heron.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/manyarabird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/manyarabird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/manyarabird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 1,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 7
+      },
+      "missingImages": [
+        "/lesser-flamingo.webp",
+        "/silvery-cheeked-hornbill.webp",
+        "/saddle-billed-stork.webp",
+        "/goliath-heron.webp",
+        "/manyarabird1.webp",
+        "/manyarabird2.webp",
+        "/manyarabird3.webp"
+      ]
+    },
+    {
+      "id": "mahale-mountains-national-park",
+      "name": "Mahale Mountains National Park",
+      "country": "Tanzania",
+      "notableBirds": [
+        {
+          "name": "African fish eagle",
+          "status": "Resident — lake shore",
+          "image": "/african-fish-eagle.webp",
+          "exists": true
+        },
+        {
+          "name": "Nkulengu rail",
+          "status": "Resident — forest",
+          "image": "/nkulengu-rail.webp",
+          "exists": false
+        },
+        {
+          "name": "Blue-headed bee-eater",
+          "status": "Resident — forest edge",
+          "image": "/blue-headed-bee-eater.webp",
+          "exists": false
+        },
+        {
+          "name": "Böhm's flycatcher",
+          "status": "Resident — miombo",
+          "image": "/bohms-flycatcher.webp",
+          "exists": false
+        },
+        {
+          "name": "Palm-nut vulture",
+          "status": "Resident — lake shore",
+          "image": "/palm-nut-vulture.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/mahalebird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/mahalebird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/mahalebird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 1,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 7
+      },
+      "missingImages": [
+        "/nkulengu-rail.webp",
+        "/blue-headed-bee-eater.webp",
+        "/bohms-flycatcher.webp",
+        "/palm-nut-vulture.webp",
+        "/mahalebird1.webp",
+        "/mahalebird2.webp",
+        "/mahalebird3.webp"
+      ]
+    },
+    {
+      "id": "mikumi-national-park",
+      "name": "Mikumi National Park",
+      "country": "Tanzania",
+      "notableBirds": [
+        {
+          "name": "Yellow-throated longclaw",
+          "status": "Resident — floodplain",
+          "image": "/yellow-throated-longclaw.webp",
+          "exists": false
+        },
+        {
+          "name": "Bateleur",
+          "status": "Resident",
+          "image": "/bateleur.webp",
+          "exists": false
+        },
+        {
+          "name": "Miombo rock thrush",
+          "status": "Resident",
+          "image": "/miombo-rock-thrush.webp",
+          "exists": false
+        },
+        {
+          "name": "Racket-tailed roller",
+          "status": "Resident — Miombo",
+          "image": "/racket-tailed-roller.webp",
+          "exists": false
+        },
+        {
+          "name": "Wattled crane",
+          "status": "Resident — wetlands",
+          "image": "/wattled-crane.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/mikumibird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/mikumibird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/mikumibird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 0,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 8
+      },
+      "missingImages": [
+        "/yellow-throated-longclaw.webp",
+        "/bateleur.webp",
+        "/miombo-rock-thrush.webp",
+        "/racket-tailed-roller.webp",
+        "/wattled-crane.webp",
+        "/mikumibird1.webp",
+        "/mikumibird2.webp",
+        "/mikumibird3.webp"
+      ]
+    },
+    {
+      "id": "mkomazi-national-park",
+      "name": "Mkomazi National Park",
+      "country": "Tanzania",
+      "notableBirds": [
+        {
+          "name": "Vulturine guineafowl",
+          "status": "Resident — semi-arid plains",
+          "image": "/vulturine-guineafowl.webp",
+          "exists": false
+        },
+        {
+          "name": "Golden-breasted starling",
+          "status": "Resident",
+          "image": "/golden-breasted-starling.webp",
+          "exists": false
+        },
+        {
+          "name": "Black-faced sandgrouse",
+          "status": "Resident",
+          "image": "/black-faced-sandgrouse.webp",
+          "exists": false
+        },
+        {
+          "name": "Martial eagle",
+          "status": "Resident",
+          "image": "/martial-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Somali ostrich",
+          "status": "Resident",
+          "image": "/somali-ostrich.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/mkomazibird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/mkomazibird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/mkomazibird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 0,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 8
+      },
+      "missingImages": [
+        "/vulturine-guineafowl.webp",
+        "/golden-breasted-starling.webp",
+        "/black-faced-sandgrouse.webp",
+        "/martial-eagle.webp",
+        "/somali-ostrich.webp",
+        "/mkomazibird1.webp",
+        "/mkomazibird2.webp",
+        "/mkomazibird3.webp"
+      ]
+    },
+    {
+      "id": "ngorongoro-crater",
+      "name": "Ngorongoro Crater",
+      "country": "Tanzania",
+      "notableBirds": [
+        {
+          "name": "Lesser flamingo",
+          "status": "Seasonal — Lake Magadi",
+          "image": "/lesser-flamingo.webp",
+          "exists": false
+        },
+        {
+          "name": "Kori bustard",
+          "status": "Resident — open grassland",
+          "image": "/kori-bustard.webp",
+          "exists": false
+        },
+        {
+          "name": "Grey crowned crane",
+          "status": "Resident",
+          "image": "/grey-crowned-crane.webp",
+          "exists": true
+        },
+        {
+          "name": "Secretarybird",
+          "status": "Resident — open grassland",
+          "image": "/secretarybird.webp",
+          "exists": false
+        },
+        {
+          "name": "African fish eagle",
+          "status": "Resident — Lake Magadi",
+          "image": "/african-fish-eagle.webp",
+          "exists": true
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/ngorongorobird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/ngorongorobird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/ngorongorobird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 2,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 6
+      },
+      "missingImages": [
+        "/lesser-flamingo.webp",
+        "/kori-bustard.webp",
+        "/secretarybird.webp",
+        "/ngorongorobird1.webp",
+        "/ngorongorobird2.webp",
+        "/ngorongorobird3.webp"
+      ]
+    },
+    {
+      "id": "nyerere-selous-national-park",
+      "name": "Nyerere National Park",
+      "country": "Tanzania",
+      "notableBirds": [
+        {
+          "name": "African fish eagle",
+          "status": "Abundant — Rufiji River",
+          "image": "/african-fish-eagle.webp",
+          "exists": true
+        },
+        {
+          "name": "Pel's fishing owl",
+          "status": "Present — riverine forest",
+          "image": "/pels-fishing-owl.webp",
+          "exists": false
+        },
+        {
+          "name": "Böhm's bee-eater",
+          "status": "Resident — Miombo",
+          "image": "/bohms-bee-eater.webp",
+          "exists": false
+        },
+        {
+          "name": "African skimmer",
+          "status": "Resident — Rufiji sandbars",
+          "image": "/african-skimmer.webp",
+          "exists": false
+        },
+        {
+          "name": "Wattled crane",
+          "status": "Resident — floodplains",
+          "image": "/wattled-crane.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/nyererebird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/nyererebird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/nyererebird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 1,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 7
+      },
+      "missingImages": [
+        "/pels-fishing-owl.webp",
+        "/bohms-bee-eater.webp",
+        "/african-skimmer.webp",
+        "/wattled-crane.webp",
+        "/nyererebird1.webp",
+        "/nyererebird2.webp",
+        "/nyererebird3.webp"
+      ]
+    },
+    {
+      "id": "rubondo-island-national-park",
+      "name": "Rubondo Island National Park",
+      "country": "Tanzania",
+      "notableBirds": [
+        {
+          "name": "Shoebill",
+          "status": "Present — papyrus swamps",
+          "image": "/shoebill.webp",
+          "exists": false
+        },
+        {
+          "name": "African fish eagle",
+          "status": "Abundant — lake shoreline",
+          "image": "/african-fish-eagle.webp",
+          "exists": true
+        },
+        {
+          "name": "African grey parrot",
+          "status": "Common — forest canopy colony",
+          "image": "/african-grey-parrot.webp",
+          "exists": false
+        },
+        {
+          "name": "Papyrus gonolek",
+          "status": "Resident — papyrus margins",
+          "image": "/papyrus-gonolek.webp",
+          "exists": false
+        },
+        {
+          "name": "Malachite kingfisher",
+          "status": "Abundant — lake margins",
+          "image": "/malachite-kingfisher.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/rubondobird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/rubondobird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/rubondobird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 1,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 7
+      },
+      "missingImages": [
+        "/shoebill.webp",
+        "/african-grey-parrot.webp",
+        "/papyrus-gonolek.webp",
+        "/malachite-kingfisher.webp",
+        "/rubondobird1.webp",
+        "/rubondobird2.webp",
+        "/rubondobird3.webp"
+      ]
+    },
+    {
+      "id": "saadani-national-park",
+      "name": "Saadani National Park",
+      "country": "Tanzania",
+      "notableBirds": [
+        {
+          "name": "African fish eagle",
+          "status": "Abundant — Wami River",
+          "image": "/african-fish-eagle.webp",
+          "exists": true
+        },
+        {
+          "name": "Mangrove kingfisher",
+          "status": "Resident — Wami River estuary",
+          "image": "/mangrove-kingfisher.webp",
+          "exists": false
+        },
+        {
+          "name": "Crab plover",
+          "status": "Seasonal — Indian Ocean shore",
+          "image": "/crab-plover.webp",
+          "exists": false
+        },
+        {
+          "name": "Southern banded snake eagle",
+          "status": "Resident — coastal woodland",
+          "image": "/southern-banded-snake-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Palm-nut vulture",
+          "status": "Resident — coastal palms",
+          "image": "/palm-nut-vulture.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/saadanibird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/saadanibird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/saadanibird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 1,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 7
+      },
+      "missingImages": [
+        "/mangrove-kingfisher.webp",
+        "/crab-plover.webp",
+        "/southern-banded-snake-eagle.webp",
+        "/palm-nut-vulture.webp",
+        "/saadanibird1.webp",
+        "/saadanibird2.webp",
+        "/saadanibird3.webp"
+      ]
+    },
+    {
+      "id": "serengeti-national-park",
+      "name": "Serengeti National Park",
+      "country": "Tanzania",
+      "notableBirds": [
+        {
+          "name": "Kori bustard",
+          "status": "Common — open grassland",
+          "image": "/kori-bustard.webp",
+          "exists": false
+        },
+        {
+          "name": "Lilac-breasted roller",
+          "status": "Abundant — open savannah",
+          "image": "/lilac-breasted-roller.webp",
+          "exists": true
+        },
+        {
+          "name": "Secretary bird",
+          "status": "Common — open plains",
+          "image": "/secretary-bird.webp",
+          "exists": false
+        },
+        {
+          "name": "Martial eagle",
+          "status": "Present — acacia woodland",
+          "image": "/martial-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Grey crowned crane",
+          "status": "Common — wetland margins",
+          "image": "/grey-crowned-crane.webp",
+          "exists": true
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/serengetibird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/serengetibird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/serengetibird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 2,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 6
+      },
+      "missingImages": [
+        "/kori-bustard.webp",
+        "/secretary-bird.webp",
+        "/martial-eagle.webp",
+        "/serengetibird1.webp",
+        "/serengetibird2.webp",
+        "/serengetibird3.webp"
+      ]
+    },
+    {
+      "id": "tarangire-national-park",
+      "name": "Tarangire National Park",
+      "country": "Tanzania",
+      "notableBirds": [
+        {
+          "name": "Ashy starling",
+          "status": "Resident — Acacia scrub; NE",
+          "image": "/ashy-starling.webp",
+          "exists": false
+        },
+        {
+          "name": "Yellow-collared lovebird",
+          "status": "Resident — baobab woodland; NE",
+          "image": "/yellow-collared-lovebird.webp",
+          "exists": false
+        },
+        {
+          "name": "Kori bustard",
+          "status": "Common — open grassland",
+          "image": "/kori-bustard.webp",
+          "exists": false
+        },
+        {
+          "name": "Secretary bird",
+          "status": "Present — open grassland",
+          "image": "/secretary-bird.webp",
+          "exists": false
+        },
+        {
+          "name": "Martial eagle",
+          "status": "Present — acacia woodland",
+          "image": "/martial-eagle.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/tarangirebird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/tarangirebird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/tarangirebird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 0,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 8
+      },
+      "missingImages": [
+        "/ashy-starling.webp",
+        "/yellow-collared-lovebird.webp",
+        "/kori-bustard.webp",
+        "/secretary-bird.webp",
+        "/martial-eagle.webp",
+        "/tarangirebird1.webp",
+        "/tarangirebird2.webp",
+        "/tarangirebird3.webp"
+      ]
+    },
+    {
+      "id": "ruaha-national-park",
+      "name": "Ruaha National Park",
+      "country": "Tanzania",
+      "notableBirds": [
+        {
+          "name": "Ruaha red-billed hornbill",
+          "status": "Endemic — dry woodland",
+          "image": "/ruaha-hornbill.webp",
+          "exists": false
+        },
+        {
+          "name": "Dickinson's kestrel",
+          "status": "Resident — Miombo woodland",
+          "image": "/dickinsons-kestrel.webp",
+          "exists": false
+        },
+        {
+          "name": "Stierling's woodpecker",
+          "status": "Resident — Miombo",
+          "image": "/stierlings-woodpecker.webp",
+          "exists": false
+        },
+        {
+          "name": "African skimmer",
+          "status": "Seasonal — Great Ruaha River sandbanks",
+          "image": "/african-skimmer.webp",
+          "exists": false
+        },
+        {
+          "name": "Pel's fishing owl",
+          "status": "Resident — riverine forest",
+          "image": "/pels-fishing-owl.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/ruahabird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/ruahabird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/ruahabird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 0,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 8
+      },
+      "missingImages": [
+        "/ruaha-hornbill.webp",
+        "/dickinsons-kestrel.webp",
+        "/stierlings-woodpecker.webp",
+        "/african-skimmer.webp",
+        "/pels-fishing-owl.webp",
+        "/ruahabird1.webp",
+        "/ruahabird2.webp",
+        "/ruahabird3.webp"
+      ]
+    },
+    {
+      "id": "bigodi-wetland-sanctuary",
+      "name": "Bigodi Wetland Sanctuary",
+      "country": "Uganda",
+      "notableBirds": [
+        {
+          "name": "Papyrus Gonolek",
+          "status": "Resident — papyrus swamp",
+          "image": "/papyrus-gonolek.webp",
+          "exists": false
+        },
+        {
+          "name": "Great Blue Turaco",
+          "status": "Resident — forest edge canopy",
+          "image": "/great-blue-turaco.webp",
+          "exists": false
+        },
+        {
+          "name": "African Pitta",
+          "status": "Seasonal (Nov to Apr) — papyrus understorey",
+          "image": "/african-pitta.webp",
+          "exists": false
+        },
+        {
+          "name": "Bar-tailed Trogon",
+          "status": "Resident — forest interior",
+          "image": "/bar-tailed-trogon.webp",
+          "exists": false
+        },
+        {
+          "name": "Blue-breasted Kingfisher",
+          "status": "Resident — forest streams",
+          "image": "/blue-breasted-kingfisher.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/bigodibird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/bigodibird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/bigodibird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 0,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 8
+      },
+      "missingImages": [
+        "/papyrus-gonolek.webp",
+        "/great-blue-turaco.webp",
+        "/african-pitta.webp",
+        "/bar-tailed-trogon.webp",
+        "/blue-breasted-kingfisher.webp",
+        "/bigodibird1.webp",
+        "/bigodibird2.webp",
+        "/bigodibird3.webp"
+      ]
+    },
+    {
+      "id": "budongo-forest-reserve",
+      "name": "Budongo Forest Reserve",
+      "country": "Uganda",
+      "notableBirds": [
+        {
+          "name": "Chocolate-backed Kingfisher",
+          "status": "Resident — Royal Mile stream crossings",
+          "image": "/chocolate-backed-kingfisher.webp",
+          "exists": false
+        },
+        {
+          "name": "Ituri Batis",
+          "status": "Resident — Royal Mile mid-storey",
+          "image": "/ituri-batis.webp",
+          "exists": false
+        },
+        {
+          "name": "Puvel's Illadopsis",
+          "status": "Resident — forest understorey",
+          "image": "/puvels-illadopsis.webp",
+          "exists": false
+        },
+        {
+          "name": "Nahan's Francolin",
+          "status": "Resident — forest understorey; heard more than seen",
+          "image": "/nahans-francolin.webp",
+          "exists": false
+        },
+        {
+          "name": "Cassin's Spinetail",
+          "status": "Resident — canopy",
+          "image": "/cassins-spinetail.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/budongbird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/budongbird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/budongbird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 0,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 8
+      },
+      "missingImages": [
+        "/chocolate-backed-kingfisher.webp",
+        "/ituri-batis.webp",
+        "/puvels-illadopsis.webp",
+        "/nahans-francolin.webp",
+        "/cassins-spinetail.webp",
+        "/budongbird1.webp",
+        "/budongbird2.webp",
+        "/budongbird3.webp"
+      ]
+    },
+    {
+      "id": "bugoma-forest-reserve",
+      "name": "Bugoma Forest Reserve",
+      "country": "Uganda",
+      "notableBirds": [
+        {
+          "name": "Chocolate-backed Kingfisher",
+          "status": "Resident — forest streams",
+          "image": "/chocolate-backed-kingfisher.webp",
+          "exists": false
+        },
+        {
+          "name": "Black-and-white Casqued Hornbill",
+          "status": "Resident — canopy",
+          "image": "/black-white-hornbill.webp",
+          "exists": false
+        },
+        {
+          "name": "Crowned Eagle",
+          "status": "Resident — forest canopy",
+          "image": "/crowned-eagle.webp",
+          "exists": false
+        },
+        {
+          "name": "Nahan's Francolin",
+          "status": "Resident — forest understorey",
+          "image": "/nahans-francolin.webp",
+          "exists": false
+        },
+        {
+          "name": "Blue-throated Roller",
+          "status": "Resident — canopy",
+          "image": "/blue-throated-roller.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/bugomabird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/bugomabird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/bugomabird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 0,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 8
+      },
+      "missingImages": [
+        "/chocolate-backed-kingfisher.webp",
+        "/black-white-hornbill.webp",
+        "/crowned-eagle.webp",
+        "/nahans-francolin.webp",
+        "/blue-throated-roller.webp",
+        "/bugomabird1.webp",
+        "/bugomabird2.webp",
+        "/bugomabird3.webp"
+      ]
+    },
+    {
+      "id": "bwindi-impenetrable-national-park",
+      "name": "Bwindi Impenetrable National Park",
+      "country": "Uganda",
+      "notableBirds": [
+        {
+          "name": "African Green Broadbill",
+          "status": "Resident — Ruhija sector; Albertine Rift endemic",
+          "image": "/african-green-broadbill.webp",
+          "exists": true
+        },
+        {
+          "name": "Grauer's Rush Warbler",
+          "status": "Resident — Ruhija bogs; Albertine Rift endemic",
+          "image": "/grauers-rush-warbler.webp",
+          "exists": false
+        },
+        {
+          "name": "Shelley's Crimsonwing",
+          "status": "Resident — forest interior; Albertine Rift endemic",
+          "image": "/shelleys-crimsonwing.webp",
+          "exists": false
+        },
+        {
+          "name": "Short-tailed Warbler",
+          "status": "Resident — Ruhija; Albertine Rift endemic",
+          "image": "/short-tailed-warbler.webp",
+          "exists": false
+        },
+        {
+          "name": "Handsome Francolin",
+          "status": "Resident — forest floor; Albertine Rift near-endemic",
+          "image": "/handsome-francolin.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/bwindibird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/bwindibird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/bwindibird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 1,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 7
+      },
+      "missingImages": [
+        "/grauers-rush-warbler.webp",
+        "/shelleys-crimsonwing.webp",
+        "/short-tailed-warbler.webp",
+        "/handsome-francolin.webp",
+        "/bwindibird1.webp",
+        "/bwindibird2.webp",
+        "/bwindibird3.webp"
+      ]
+    },
+    {
+      "id": "kalinzu-forest-reserve",
+      "name": "Kalinzu Forest Reserve",
+      "country": "Uganda",
+      "notableBirds": [
+        {
+          "name": "African Green Broadbill",
+          "status": "Resident — Albertine Rift endemic; regularly seen in deep forest",
+          "image": "/african-green-broadbill.webp",
+          "exists": true
+        },
+        {
+          "name": "Collared Apalis",
+          "status": "Resident — Albertine Rift endemic; forest canopy",
+          "image": "/collared-apalis.webp",
+          "exists": false
+        },
+        {
+          "name": "Yellow-eyed Black Flycatcher",
+          "status": "Resident — Albertine Rift endemic; forest understorey",
+          "image": "/yellow-eyed-black-flycatcher.webp",
+          "exists": false
+        },
+        {
+          "name": "Grauer's Warbler",
+          "status": "Resident — Albertine Rift endemic; dense understorey",
+          "image": "/grauers-warbler.webp",
+          "exists": false
+        },
+        {
+          "name": "Bar-tailed Trogon",
+          "status": "Resident — forest interior; regularly seen",
+          "image": "/bar-tailed-trogon.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/kalinzubird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/kalinzubird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/kalinzubird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 1,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 7
+      },
+      "missingImages": [
+        "/collared-apalis.webp",
+        "/yellow-eyed-black-flycatcher.webp",
+        "/grauers-warbler.webp",
+        "/bar-tailed-trogon.webp",
+        "/kalinzubird1.webp",
+        "/kalinzubird2.webp",
+        "/kalinzubird3.webp"
+      ]
+    },
+    {
+      "id": "katonga-wildlife-reserve",
+      "name": "Katonga Wildlife Reserve",
+      "country": "Uganda",
+      "notableBirds": [
+        {
+          "name": "Papyrus Yellow Warbler",
+          "status": "Resident — papyrus reed beds; range-restricted papyrus specialist",
+          "image": "/papyrus-yellow-warbler.webp",
+          "exists": false
+        },
+        {
+          "name": "Shoebill Stork",
+          "status": "Present — western river channels; irregular but regularly seen",
+          "image": "/shoebill.webp",
+          "exists": false
+        },
+        {
+          "name": "African Fish Eagle",
+          "status": "Common — river and swamp; frequently heard and seen",
+          "image": "/african-fish-eagle.webp",
+          "exists": true
+        },
+        {
+          "name": "Lesser Jacana",
+          "status": "Resident — floating vegetation mats",
+          "image": "/lesser-jacana.webp",
+          "exists": false
+        },
+        {
+          "name": "African Pygmy Goose",
+          "status": "Resident — open water and vegetation mats",
+          "image": "/african-pygmy-goose.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/katongabird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/katongabird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/katongabird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 1,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 7
+      },
+      "missingImages": [
+        "/papyrus-yellow-warbler.webp",
+        "/shoebill.webp",
+        "/lesser-jacana.webp",
+        "/african-pygmy-goose.webp",
+        "/katongabird1.webp",
+        "/katongabird2.webp",
+        "/katongabird3.webp"
+      ]
+    },
+    {
+      "id": "kibale-national-park",
+      "name": "Kibale National Park",
+      "country": "Uganda",
+      "notableBirds": [
+        {
+          "name": "Great Blue Turaco",
+          "status": "Common resident — unmissable; regularly seen in canopy",
+          "image": "/great-blue-turaco.webp",
+          "exists": false
+        },
+        {
+          "name": "African Grey Parrot",
+          "status": "Present — vocal; heard and seen in canopy",
+          "image": "/african-grey-parrot.webp",
+          "exists": false
+        },
+        {
+          "name": "Black Bee-eater",
+          "status": "Resident — forest edge; perches conspicuously",
+          "image": "/black-bee-eater.webp",
+          "exists": false
+        },
+        {
+          "name": "African Green Broadbill",
+          "status": "Resident — Albertine Rift endemic; deep forest",
+          "image": "/african-green-broadbill.webp",
+          "exists": true
+        },
+        {
+          "name": "Papyrus Gonolek",
+          "status": "Resident — Bigodi Wetland; papyrus specialist",
+          "image": "/papyrus-gonolek.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/kibalebird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/kibalebird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/kibalebird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 1,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 7
+      },
+      "missingImages": [
+        "/great-blue-turaco.webp",
+        "/african-grey-parrot.webp",
+        "/black-bee-eater.webp",
+        "/papyrus-gonolek.webp",
+        "/kibalebird1.webp",
+        "/kibalebird2.webp",
+        "/kibalebird3.webp"
+      ]
+    },
+    {
+      "id": "kidepo-valley-national-park",
+      "name": "Kidepo Valley National Park",
+      "country": "Uganda",
+      "notableBirds": [
+        {
+          "name": "Karamoja Apalis",
+          "status": "Resident — endemic to Karamoja region; reliably found near Apoka",
+          "image": "/karamoja-apalis.webp",
+          "exists": false
+        },
+        {
+          "name": "Secretary Bird",
+          "status": "Resident — open grassland; one of Africa's most distinctive birds",
+          "image": "/secretary-bird.webp",
+          "exists": false
+        },
+        {
+          "name": "Abyssinian Roller",
+          "status": "Common resident — conspicuous; perches on exposed trees and wires",
+          "image": "/abyssinian-roller.webp",
+          "exists": false
+        },
+        {
+          "name": "White-crested Turaco",
+          "status": "Common resident — riverine forest; spectacular and vocal",
+          "image": "/white-crested-turaco.webp",
+          "exists": false
+        },
+        {
+          "name": "Ostrich",
+          "status": "Common — Narus Valley open grassland; seen on most game drives",
+          "image": "/ostrich.webp",
+          "exists": false
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/kidepobird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/kidepobird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/kidepobird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 0,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 8
+      },
+      "missingImages": [
+        "/karamoja-apalis.webp",
+        "/secretary-bird.webp",
+        "/abyssinian-roller.webp",
+        "/white-crested-turaco.webp",
+        "/ostrich.webp",
+        "/kidepobird1.webp",
+        "/kidepobird2.webp",
+        "/kidepobird3.webp"
+      ]
+    },
+    {
+      "id": "lake-mburo-national-park",
+      "name": "Lake Mburo National Park",
+      "country": "Uganda",
+      "notableBirds": [
+        {
+          "name": "Papyrus Yellow Warbler",
+          "status": "Resident — papyrus reed margins of Lake Mburo; reliably found by boat",
+          "image": "/papyrus-yellow-warbler.webp",
+          "exists": false
+        },
+        {
+          "name": "African Finfoot",
+          "status": "Resident — lake margins and papyrus; shy but regularly seen on boat trips",
+          "image": "/african-finfoot.webp",
+          "exists": false
+        },
+        {
+          "name": "Red-faced Barbet",
+          "status": "Resident — Albertine Rift endemic; acacia woodland",
+          "image": "/red-faced-barbet.webp",
+          "exists": false
+        },
+        {
+          "name": "African Fish Eagle",
+          "status": "Common — all five lakes; the park's most characteristic sound",
+          "image": "/african-fish-eagle.webp",
+          "exists": true
+        },
+        {
+          "name": "Grey Crowned Crane",
+          "status": "Common — open grassland; breeding pairs present",
+          "image": "/grey-crowned-crane.webp",
+          "exists": true
+        }
+      ],
+      "galleryBirds": [
+        {
+          "ref": "/lakemburobird1.webp",
+          "exists": false
+        },
+        {
+          "ref": "/lakemburobird2.webp",
+          "exists": false
+        },
+        {
+          "ref": "/lakemburobird3.webp",
+          "exists": false
+        }
+      ],
+      "totals": {
+        "notableBirds": 5,
+        "notableBirdImagesExisting": 2,
+        "galleryBirdImages": 3,
+        "galleryBirdImagesExisting": 0,
+        "missingImages": 6
+      },
+      "missingImages": [
+        "/papyrus-yellow-warbler.webp",
+        "/african-finfoot.webp",
+        "/red-faced-barbet.webp",
+        "/lakemburobird1.webp",
+        "/lakemburobird2.webp",
+        "/lakemburobird3.webp"
+      ]
+    }
+  ]
+}
