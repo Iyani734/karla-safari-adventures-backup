@@ -109,3 +109,18 @@
   scrollbar-width: auto;
   scrollbar-color: #ea580c transparent;
 }
+
+/* Chatling is injected after React renders. Keep its floating frame inside a
+   phone viewport, including Safari's dynamic browser chrome. */
+@media (max-width: 640px) {
+  #chtl-chat-iframe.chtl-display-floating {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    max-height: 100dvh !important;
+    border-radius: 0 !important;
+  }
+}

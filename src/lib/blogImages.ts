@@ -24,7 +24,7 @@ const blogPostImages: Record<string, string> = {
   "how-many-days-for-safari": "https://images.pexels.com/photos/32342181/pexels-photo-32342181.jpeg?cs=srgb&fm=jpg",
   "budget-vs-luxury-safari": "/fourSeasons5.webp",
   "what-animals-will-i-see-on-safari": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Makalali_Game_Reserve_%28ZA%29%2C_Impalas_--_2024_--_1914.jpg/1920px-Makalali_Game_Reserve_%28ZA%29%2C_Impalas_--_2024_--_1914.jpg",
-  "how-far-in-advance-book-safari": "/fourSeasons12.webp",
+  "how-far-in-advance-book-safari": "/kenya-flying-safari.webp",
   "safari-travel-insurance-guide": "/plane4.webp",
   "is-travel-insurance-necessary-for-an-african-safari": "/airstrip3.webp",
   "what-should-i-pack-for-a-kenya-and-tanzania-safari": "/plane5.webp",
@@ -56,8 +56,8 @@ const blogPostImages: Record<string, string> = {
   "women-traveling-solo-on-safari-a-safety-and-planning-guide": "/nyati-safari-camp11.webp",
   "noise-levels-and-vehicle-comfort-during-long-safari-days": "/buffalo2.webp",
   "how-safari-guides-are-trained-and-certified": "/culture12.webp",
-  "local-conservation-projects-you-can-support-on-safari": "/elephant26.webp",
-  "safari-stress-test-comfort-levels-on-different-vehicle-types": "/safari-erlebnisse-kenia.webp"
+  "local-conservation-projects-you-can-support-on-safari": "/blackRhino1.webp",
+  "safari-stress-test-comfort-levels-on-different-vehicle-types": "/landCruiser2.webp"
 };
 
 const blogSectionImages: Record<string, Record<string, string>> = {

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Star, Users, Award } from 'lucide-react';
+import SafariChatTrigger from "@/components/SafariChatTrigger";
 
 const Button = ({ children, variant = 'default', size = 'default', className = '', onClick, ...props }) => {
   const baseClasses = 'inline-flex items-center justify-center rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none';

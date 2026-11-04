@@ -1056,8 +1056,8 @@ export default function BlogPostPage() {
                       Ian Ng'ang'a · Lead Safari Curator
                     </div>
                     <p className="mt-1.5 text-sm leading-relaxed text-gray-400">
-                      Twelve years guiding across the Mara and Serengeti. Has personally designed over 1,000
-                      itineraries and still gets up at 4 a.m. when he's in the field.
+                      Kenya-based and hands-on, Ian brings a fresh, detail-driven eye to safari planning: honest
+                      lodge choices, practical routes, and guest care that feels personal.
                     </p>
                   </div>
                 </div>

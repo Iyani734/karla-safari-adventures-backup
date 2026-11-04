@@ -14,15 +14,12 @@ import TourDetailPage from '@/pages/TourDetailPage';
 import ParkDetail from '@/pages/parkDetail';
 import WriteReview from '@/pages/WriteReview';
 import Activities from '@/components/Activities';
-import GroupJoiningSafariModal from './components/GroupJoiningSafariModal';
 import Gallery from './pages/Gallery';
 import BlogIndex from '@/pages/BlogIndex';
 import BlogPost from '@/pages/BlogPost';
 import LegalPage from '@/pages/LegalPage';
-
-const SAFARI_JOINING_POPUP_ENABLED = false;
-
-
+import SafariChatTrigger from './components/SafariChatTrigger';
+import SeoManager from './components/SeoManager';
 
 function ScrollToTopButton() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -52,7 +49,7 @@ function ScrollToTopButton() {
     } else if (isActivitySection) {
       return 'bottom-[110px] lg:bottom-8 right-7';
     } else {
-      return 'bottom-8 lg:bottom-8 right-6';
+      return 'bottom-[80px] lg:bottom-8 right-6';
     }
   }, [location.pathname]);
 
@@ -87,7 +84,6 @@ function ScrollToTopButton() {
 }
 
 function App() {
-  const [showSafariModal, setShowSafariModal] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const toastTimer = useRef(null);
 
@@ -135,25 +131,10 @@ function App() {
   //   };
   // }, []);
 
-  // ── Safari modal timer ───────────────────────────────────────────────
-  useEffect(() => {
-    if (!SAFARI_JOINING_POPUP_ENABLED) return;
-
-    const hasSeenModal = sessionStorage.getItem('hasSeenSafariModal');
-    
-    if (!hasSeenModal) {
-      const timer = setTimeout(() => {
-        setShowSafariModal(true);
-        sessionStorage.setItem('hasSeenSafariModal', 'true');
-      }, 120000);
-
-      return () => clearTimeout(timer);
-    }
-  }, []);
-
   return (
     <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-orange-900/20 to-slate-900 scroll-smooth">
+        <SeoManager />
         <Header />
         <main>
           <Routes>
@@ -187,13 +168,7 @@ function App() {
         <Footer />
         <Toaster />
         <ScrollToTopButton />
-        {SAFARI_JOINING_POPUP_ENABLED && (
-          <GroupJoiningSafariModal
-            isOpen={showSafariModal}
-            onClose={() => setShowSafariModal(false)}
-          />
-        )}
-
+        <SafariChatTrigger />
         {/* ── Right-click protection toast ── */}
         {showToast && (
           <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[9999] flex items-center gap-2 rounded-full bg-[#3d1a00] border border-orange-500/40 px-5 py-3 shadow-xl shadow-black/40 whitespace-nowrap">

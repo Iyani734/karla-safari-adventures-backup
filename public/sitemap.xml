@@ -32,6 +32,42 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://karlasafariadventures.com/gallery</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://karlasafariadventures.com/blog</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Destination guide pages -->
+  <url><loc>https://karlasafariadventures.com/destinations/kenya</loc><priority>0.85</priority></url>
+  <url><loc>https://karlasafariadventures.com/destinations/kenya/parks</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/destinations/kenya/things-to-do</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/destinations/kenya/wildlife</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/destinations/kenya/birds</loc><priority>0.75</priority></url>
+  <url><loc>https://karlasafariadventures.com/destinations/kenya/best-time</loc><priority>0.75</priority></url>
+  <url><loc>https://karlasafariadventures.com/destinations/kenya/weather</loc><priority>0.7</priority></url>
+  <url><loc>https://karlasafariadventures.com/destinations/kenya/getting-there</loc><priority>0.7</priority></url>
+  <url><loc>https://karlasafariadventures.com/destinations/tanzania</loc><priority>0.85</priority></url>
+  <url><loc>https://karlasafariadventures.com/destinations/tanzania/parks</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/destinations/tanzania/things-to-do</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/destinations/tanzania/wildlife</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/destinations/tanzania/best-time</loc><priority>0.75</priority></url>
+  <url><loc>https://karlasafariadventures.com/destinations/uganda</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/destinations/uganda/wildlife</loc><priority>0.75</priority></url>
+  <url><loc>https://karlasafariadventures.com/destinations/rwanda</loc><priority>0.8</priority></url>
+  <url><loc>https://karlasafariadventures.com/destinations/rwanda/wildlife</loc><priority>0.75</priority></url>
+  <url><loc>https://karlasafariadventures.com/destinations/south-africa</loc><priority>0.8</priority></url>
+
+  <!-- Policy pages -->
+  <url><loc>https://karlasafariadventures.com/privacy-policy</loc><priority>0.3</priority></url>
+  <url><loc>https://karlasafariadventures.com/terms-and-conditions</loc><priority>0.3</priority></url>
+  <url><loc>https://karlasafariadventures.com/refund-cancellation-policy</loc><priority>0.3</priority></url>
+  <url><loc>https://karlasafariadventures.com/cookie-policy</loc><priority>0.3</priority></url>
+
   <!-- Tour pages -->
   <url><loc>https://karlasafariadventures.com/tours/custom-trip</loc><priority>0.8</priority></url>
   <url><loc>https://karlasafariadventures.com/tours/7-Day-Kenyan-Luxury-Safari</loc><priority>0.8</priority></url>
